@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ege Hijyen</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #ffffff;
+      color: #000000;
+    }
+    .nav-link {
+      position: relative;
+      color: #ffffff;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -5px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #ffffff;
+      transition: width 0.3s ease-in-out;
+    }
+    .nav-link:hover::after {
+      width: 100%;
+    }
+    .active-link::after {
+      width: 100%;
+    }
+    .logo {
+      font-family: 'Brush Script MT', cursive;
+      font-size: 2.5rem;
+      color: #ffffff;
+    }
+  </style>
+</head>
+<body class="bg-white text-black">
+
+<!-- Header -->
+<header class="bg-[#c50000] sticky top-0 z-50 shadow-md">
+  <div class="container mx-auto px-4">
+    <div class="flex justify-center items-center py-4">
+      <img alt="Logo" class="h-12" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDMxkSIRWfwkJKExx_XKDn-NMlljvk4ZEbAylm4btJzoADXsPTgwObjArHHmRv-G_vaCLtfha5ZKgS4wZy8Wym8kgww7Y2oJoo9469884B6rbspz2F8cPSJl_6nq6ViWJw-g5ommdZ0MxeR6j4a2iiQWMDuJwHemNORifX13N-WrxyWh7-M0MKmTvZf3FihxW-dOpprftUWMwQaBEZ2EbofKjo9XlEsIJj8W67eR9K4hc-IO8nyDJZ1KZR65XMZO6eZq0-CpfkWDR5C"/>
+    </div>
+    <div class="flex justify-between items-center py-2 border-t border-red-500">
+      <nav class="hidden md:flex items-center space-x-8 mx-auto">
+<a class="nav-link active-link" href="index.html">Anasayfa</a>
+<a class="nav-link" href="hakkimizda.html">Hakkımızda</a>
+<div class="relative group">
+<a class="nav-link flex items-center" href="#">Ürünlerimiz <span class="material-icons text-sm ml-1">expand_more</span></a>
+<div class="absolute hidden group-hover:block bg-white shadow-lg rounded-md mt-2 py-2 w-48 z-20">
+<a class="block px-4 py-2 text-sm text-black hover:bg-gray-100" href="temizlik.html">Temizlik</a>
+<a class="block px-4 py-2 text-sm text-black hover:bg-gray-100" href="gida.html">Gıda</a>
+<a class="block px-4 py-2 text-sm text-black hover:bg-gray-100" href="kirtasiye.html">Kırtasiye</a>
+</div>
+</div>
+<a class="nav-link" href="#">Blog</a>
+<a class="nav-link" href="iletişim.html">İletişim</a>
+</nav>
+      <div class="flex items-center space-x-4">
+        <a class="hidden md:inline-block px-4 py-2 rounded-md border border-white text-white" href="#">E-KATALOG</a>
+        <a class="hidden md:inline-block px-4 py-2 rounded-md bg-white text-[#c50000] font-semibold" href="#">İLETİŞİME GEÇ</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- MAIN Content Area (Her sayfada burayı dolduracaksın) -->
+<main class="min-h-[400px] py-12">
+  <div class="container mx-auto px-4">
+    <!-- 🔽 Buraya her sayfa için özel içerik gelecek -->
+  </div>
+</main>
+
+<!-- Footer -->
+<footer class="bg-[#c50000] text-white py-12 mt-16">
+  <div class="container mx-auto px-4">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div>
+        <img src="https://cdn.egegorsel.com/ege-hijyen-logo-white.png" alt="Ege Hijyen Logo" class="h-12 mb-4">
+        <p class="text-sm">Kaliteli ve güvenilir temizlik malzemeleriyle hijyenik çözümler sunuyoruz</p>
+      </div>
+      <div class="grid grid-cols-2 gap-4 text-sm">
+        <div>
+          <h3 class="font-semibold mb-2">Kategorilerimiz</h3>
+          <ul class="space-y-1">
+            <li><a href="#" class="hover:underline">Temizlik Grubu</a></li>
+            <li><a href="#" class="hover:underline">Gıda Grubu</a></li>
+            <li><a href="#" class="hover:underline">Kırtasiye Grubu</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-semibold mb-2">Kurumsal</h3>
+          <ul class="space-y-1">
+            <li><a href="#" class="hover:underline">Hakkımızda</a></li>
+            <li><a href="#" class="hover:underline">İletişim</a></li>
+            <li><a href="#" class="hover:underline">Blog</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="text-center md:text-right">
+        <p class="text-3xl font-bold">4,5<span class="text-lg">/5</span></p>
+        <div class="text-yellow-400 mb-2">★ ★ ★ ★ ☆</div>
+        <a href="#" class="inline-block border border-white text-white px-4 py-2 rounded-full text-sm hover:bg-white hover:text-[#c50000] transition">
+          Hemen Değerlendir
+        </a>
+      </div>
+    </div>
+    <div class="border-t border-white border-opacity-30 mt-8 pt-4 text-center text-sm">
+      Copyright © 2025 Ege Hijyen | Tüm hakları saklıdır.
+    </div>
+  </div>
+</footer>
+
+<!-- Sabit iletişim butonları (mevcut kodundaki) -->
+<div class="contact-fab group fixed bottom-5 right-5 z-50">
+  <div class="flex space-x-2 items-center bg-gray-800 text-white px-4 py-2 rounded-full shadow-lg">
+    <a href="#" class="material-icons">call</a>
+    <a href="#" class="material-icons">whatsapp</a>
+    <a href="#" class="material-icons">email</a>
+  </div>
+</div>
+<script src="main.js"></script>
+</body>
+</html>
