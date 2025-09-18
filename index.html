@@ -2,7 +2,7 @@
 <html lang="tr"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Ege Hijyen</title>
+<title>MasterHijyen</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
@@ -83,13 +83,13 @@
 <header class="bg-[#c50000] sticky top-0 z-50 shadow-md">
 <div class="container mx-auto px-4">
 <div class="flex justify-center items-center py-4">
-<img alt="Logo" class="h-12" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDMxkSIRWfwkJKExx_XKDn-NMlljvk4ZEbAylm4btJzoADXsPTgwObjArHHmRv-G_vaCLtfha5ZKgS4wZy8Wym8kgww7Y2oJoo9469884B6rbspz2F8cPSJl_6nq6ViWJw-g5ommdZ0MxeR6j4a2iiQWMDuJwHemNORifX13N-WrxyWh7-M0MKmTvZf3FihxW-dOpprftUWMwQaBEZ2EbofKjo9XlEsIJj8W67eR9K4hc-IO8nyDJZ1KZR65XMZO6eZq0-CpfkWDR5C"/>
+<img alt="Logo" class="h-12" src="C:\Users\HP\OneDrive\Desktop\doğankazoğluproject\assets\images\masterlogo.png"/>
 </div>
 <div class="flex justify-between items-center py-2 border-t border-red-500">
 <div class="flex-1 md:flex-none"></div>
 <nav class="hidden md:flex items-center space-x-8 mx-auto">
-<a class="nav-link active-link" href="#">Anasayfa</a>
-<a class="nav-link" href="#">Hakkımızda</a>
+<a class="nav-link active-link" href="index.html">Anasayfa</a>
+<a class="nav-link" href="hakkimizda.html">Hakkımızda</a>
 <div class="relative group">
 <a class="nav-link flex items-center" href="#">Ürünlerimiz <span class="material-icons text-sm ml-1">expand_more</span></a>
 <div class="absolute hidden group-hover:block bg-white shadow-lg rounded-md mt-2 py-2 w-48 z-20">
@@ -111,13 +111,17 @@
 
   <!-- Arama Input Kutusu -->
   <form id="searchForm" onsubmit="return performSearch(event)" class="hidden absolute right-0 mt-2 bg-white rounded shadow p-2 z-50">
-  <input 
-    type="text" 
-    id="searchInput" 
-    placeholder="Ürün ara..." 
-    class="w-64 px-4 py-2 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#c50000]" 
-    autocomplete="off"
-  />
+<input 
+  id="searchInput" 
+  type="text" 
+  class="w-full border border-gray-300 rounded-md px-4 py-2 mb-2 focus:outline-none focus:ring-2 focus:ring-yellow-500" 
+  placeholder="Aramak istediğiniz kelimeyi yazınız..." 
+  autocomplete="off"
+/>
+<ul 
+  id="suggestionsList" 
+  class="w-full border border-gray-300 rounded-md max-h-40 overflow-y-auto hidden mb-4"
+></ul>
   
   <!-- Öneri Listesi -->
   <ul id="suggestionsList" class="absolute left-0 right-0 bg-white border border-gray-300 mt-1 rounded-md max-h-48 overflow-y-auto hidden z-50">
@@ -127,19 +131,23 @@
 
 </div>
 
-<a class="hidden md:inline-block px-4 py-2 rounded-md btn-secondary" href="#">E-KATALOG</a>
+<a class="hidden md:inline-block px-4 py-2 rounded-md btn-secondary" href="https://masterhijyen.com/">E-KATALOG</a>
 <a class="hidden md:inline-block px-4 py-2 rounded-md btn-primary font-semibold" href="#">İLETİŞİME GEÇ</a>
 </div>
 </div>
 <div class="md:hidden flex justify-center py-2 border-t border-red-500">
 <nav class="flex items-center space-x-6">
-<a class="nav-link active-link" href="#">Anasayfa</a>
-<a class="nav-link" href="#">Hakkımızda</a>
+<a class="nav-link active-link" href="index.html">Anasayfa</a>
+<a class="nav-link" href="hakkimizda.html">Hakkımızda</a>
 <div class="relative group">
 <a class="nav-link flex items-center" href="#">Ürünlerimiz <span class="material-icons text-sm ml-1">expand_more</span></a>
 <div class="absolute hidden group-hover:block bg-white shadow-lg rounded-md mt-2 py-2 w-48 z-10">
-<a class="block px-4 py-2 text-sm text-black hover:bg-gray-100" href="#">Ürün 1</a>
-<a class="block px-4 py-2 text-sm text-black hover:bg-gray-100" href="#">Ürün 2</a>
+<a class="block px-4 py-2 text-sm text-black hover:bg-gray-100" href="hijyensanayigrubu.html">Hijyen Sanayi Grubu</a>
+<a class="block px-4 py-2 text-sm text-black hover:bg-gray-100" href="temizlikurunlerigrubu.html">Temizlik Ürünleri Grubu</a>
+<a class="block px-4 py-2 text-sm text-black hover:bg-gray-100" href="kagıtsanayi.html">Kağıt Sanayi Grubu</a>
+<a class="block px-4 py-2 text-sm text-black hover:bg-gray-100" href="kisiselhijyen.html">Kişisel Hijyen</a>
+<a class="block px-4 py-2 text-sm text-black hover:bg-gray-100" href="gida.html">Gıda Grubu</a>
+<a class="block px-4 py-2 text-sm text-black hover:bg-gray-100" href="profhijyen.html">Profesyonel Hijyen Ekipmanları</a>
 </div>
 </div>
 <a class="nav-link" href="#">Blog</a>
@@ -329,7 +337,7 @@
 
       <!-- Sol: Logo + açıklama -->
       <div>
-        <img src="https://cdn.egegorsel.com/ege-hijyen-logo-white.png" alt="Ege Hijyen Logo" class="h-12 mb-4">
+        <img src="C:\Users\HP\OneDrive\Desktop\doğankazoğluproject\assets\images\masterlogo.png" alt="Master Hijyen Logo" class="h-12 mb-4">
         <p class="text-sm">Kaliteli ve güvenilir temizlik malzemeleriyle hijyenik çözümler sunuyoruz</p>
       </div>
 
@@ -337,22 +345,42 @@
       <div class="grid grid-cols-2 gap-4 text-sm">
         <div>
           <h3 class="font-semibold mb-2">Kategorilerimiz</h3>
-          <ul class="space-y-1">
-            <li><a href="#" class="hover:underline">Sıvı Grubu</a></li>
-            <li><a href="#" class="hover:underline">Kağıt Grubu</a></li>
-            <li><a href="#" class="hover:underline">Konteyner Grubu</a></li>
-            <li><a href="#" class="hover:underline">Poşet Grubu</a></li>
-            <li><a href="#" class="hover:underline">Hijyen Grubu</a></li>
-          </ul>
+          <ul class="space-y-2">
+  <li>
+    <a class="block px-4 py-2 text-sm text-white hover:bg-gray-300" href="hijyensanayigrubu.html">
+      Hijyen Sanayi Grubu
+    </a>
+  </li>
+  <li>
+    <a class="block px-4 py-2 text-sm text-white hover:bg-gray-300" href="temizlikurunlerigrubu.html">
+      Temizlik Ürünleri Grubu
+    </a>
+  </li>
+  <li>
+    <a class="block px-4 py-2 text-sm text-white hover:bg-gray-300" href="kagıtsanayi.html">
+      Kağıt Sanayi Grubu
+    </a>
+  </li>
+  <li>
+    <a class="block px-4 py-2 text-sm text-white hover:bg-gray-300" href="kisiselhijyen.html">
+      Kişisel Hijyen
+    </a>
+  </li>
+  <li>
+    <a class="block px-4 py-2 text-sm text-white hover:bg-gray-300" href="gida.html">
+      Gıda Grubu
+    </a>
+  </li>
+  <li>
+    <a class="block px-4 py-2 text-sm text-white hover:bg-gray-300" href="profhijyen.html">
+      Profesyonel Hijyen Ekipmanları
+    </a>
+  </li>
+</ul>
+
+
         </div>
-        <div>
-          <h3 class="font-semibold mb-2 invisible md:visible">&nbsp;</h3>
-          <ul class="space-y-1">
-            <li><a href="#" class="hover:underline">Temizlik Grubu</a></li>
-            <li><a href="#" class="hover:underline">Gıda Grubu</a></li>
-            <li><a href="#" class="hover:underline">Kırtasiye Grubu</a></li>
-          </ul>
-        </div>
+        
         <div>
           <h3 class="font-semibold mb-2">Kurumsal</h3>
           <ul class="space-y-1">
@@ -377,7 +405,7 @@
 
     <!-- Alt Bilgi -->
     <div class="border-t border-white border-opacity-30 mt-8 pt-4 text-center text-sm">
-      Copyright © 2025 Ege Hijyen | Tüm hakları saklıdır.
+      Copyright © 2025 Master Hijyen | Tüm hakları saklıdır.
     </div>
   </div>
 </footer>
