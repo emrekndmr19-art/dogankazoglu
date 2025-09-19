@@ -104,38 +104,22 @@
 <a class="nav-link" href="#">Blog</a>
 <a class="nav-link" href="iletişim.html">İletişim</a>
 </nav>
-<div class="flex items-center space-x-4">
-<div class="relative">
-  <!-- Arama Butonu -->
-  <button onclick="toggleSearch()" class="hidden md:flex items-center text-white">
-    <span class="material-icons">search</span>
-    <span class="ml-2 hidden lg:inline">Arama yap</span>
+<div class="flex items-center space-x-3 md:space-x-4">
+  <button
+    id="searchToggle"
+    type="button"
+    class="flex items-center text-white transition hover:text-gray-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-[#c50000]"
+    aria-haspopup="dialog"
+    aria-expanded="false"
+    aria-controls="searchOverlay"
+  >
+    <span class="material-icons" aria-hidden="true">search</span>
+    <span class="ml-2 hidden lg:inline">Arama</span>
+    <span class="sr-only">Site içi aramayı aç</span>
   </button>
 
-  <!-- Arama Input Kutusu -->
-  <form id="searchForm" onsubmit="return performSearch(event)" class="hidden absolute right-0 mt-2 bg-white rounded shadow p-2 z-50">
-<input 
-  id="searchInput" 
-  type="text" 
-  class="w-full border border-gray-300 rounded-md px-4 py-2 mb-2 focus:outline-none focus:ring-2 focus:ring-yellow-500" 
-  placeholder="Aramak istediğiniz kelimeyi yazınız..." 
-  autocomplete="off"
-/>
-<ul 
-  id="suggestionsList" 
-  class="w-full border border-gray-300 rounded-md max-h-40 overflow-y-auto hidden mb-4"
-></ul>
-  
-  <!-- Öneri Listesi -->
-  <ul id="suggestionsList" class="absolute left-0 right-0 bg-white border border-gray-300 mt-1 rounded-md max-h-48 overflow-y-auto hidden z-50">
-    <!-- Öneri <li> öğeleri JS ile buraya eklenecek -->
-  </ul>
-</form>
-
-</div>
-
-<a class="hidden md:inline-block px-4 py-2 rounded-md btn-secondary" href="https://masterhijyen.com/">E-KATALOG</a>
-<a class="hidden md:inline-block px-4 py-2 rounded-md btn-primary font-semibold" href="#">İLETİŞİME GEÇ</a>
+  <a class="hidden md:inline-block px-4 py-2 rounded-md btn-secondary" href="https://masterhijyen.com/">E-KATALOG</a>
+  <a class="hidden md:inline-block px-4 py-2 rounded-md btn-primary font-semibold" href="#">İLETİŞİME GEÇ</a>
 </div>
 </div>
 <div class="md:hidden flex justify-center py-2 border-t border-red-500">
@@ -159,6 +143,50 @@
 </div>
 </div>
 </header>
+<div
+  id="searchOverlay"
+  class="fixed inset-0 bg-black/50 backdrop-blur-sm hidden items-start justify-center pt-24 px-4 z-50"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="searchInput"
+>
+  <div class="relative w-full max-w-3xl bg-white rounded-2xl shadow-2xl p-6">
+    <button
+      id="searchClose"
+      type="button"
+      class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#c50000] focus-visible:ring-offset-2 focus-visible:ring-offset-white rounded-full p-1"
+    >
+      <span class="material-icons" aria-hidden="true">close</span>
+      <span class="sr-only">Aramayı kapat</span>
+    </button>
+    <form id="searchForm" class="space-y-4">
+      <div>
+        <label for="searchInput" class="block text-sm font-medium text-gray-600">Site içerisinde arayın</label>
+        <div class="mt-2 relative">
+          <span class="material-icons absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">search</span>
+          <input
+            id="searchInput"
+            type="search"
+            class="w-full border border-gray-200 rounded-lg py-3 pl-11 pr-4 text-base focus:outline-none focus:ring-2 focus:ring-[#c50000] focus:border-transparent transition"
+            placeholder="Ürün, kategori veya sayfa adı yazın..."
+            autocomplete="off"
+          />
+        </div>
+      </div>
+    </form>
+    <ul
+      id="searchSuggestions"
+      class="mt-4 border border-gray-200 rounded-lg divide-y divide-gray-200 max-h-64 overflow-y-auto hidden"
+    ></ul>
+    <p
+      id="searchEmptyState"
+      data-default-message="Aramanızla eşleşen sonuç bulunamadı."
+      class="mt-6 text-center text-sm text-gray-500 hidden"
+    >
+      Aramanızla eşleşen sonuç bulunamadı.
+    </p>
+  </div>
+</div>
 <main>
 <section class="hero-section">
 <div class="container mx-auto px-4 py-16 lg:py-24">
