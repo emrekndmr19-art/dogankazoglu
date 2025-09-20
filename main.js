@@ -14,7 +14,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const slides = slider ? Array.from(slider.querySelectorAll('[data-hero-slide]')) : [];
     const prevButton = wrapper.querySelector('[data-hero-prev]');
     const nextButton = wrapper.querySelector('[data-hero-next]');
-    const dotButtons = Array.from(wrapper.querySelectorAll('[data-hero-dot]'));
+    const heroContainer = wrapper.closest('[data-hero]') ?? wrapper;
+    const dotButtons = Array.from(heroContainer.querySelectorAll('[data-hero-dot]'));
 
     if (!slider || slides.length === 0) {
       return;
