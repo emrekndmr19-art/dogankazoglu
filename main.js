@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const emptyState = document.getElementById('searchEmptyState');
   const searchForm = document.getElementById('searchForm');
 
-  const sliderWrapper = document.querySelector('[data-hero-slider-wrapper]');
+  const sliderWrappers = document.querySelectorAll('[data-hero-slider-wrapper]');
 
   const initHeroSlider = (wrapper) => {
     const slider = wrapper.querySelector('[data-hero-slider]');
@@ -176,9 +176,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
-  if (sliderWrapper) {
-    initHeroSlider(sliderWrapper);
-  }
+  sliderWrappers.forEach((wrapper) => {
+    initHeroSlider(wrapper);
+  });
 
   if (!toggleButton || !overlay || !searchInput || !suggestionsList || !searchForm) {
     return;
