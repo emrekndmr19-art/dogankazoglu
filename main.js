@@ -108,6 +108,16 @@ document.addEventListener('DOMContentLoaded', () => {
     prevButton?.addEventListener('click', goToPrevious);
     nextButton?.addEventListener('click', goToNext);
 
+    slider.addEventListener('keydown', (event) => {
+      if (event.key === 'ArrowLeft') {
+        event.preventDefault();
+        goToPrevious();
+      } else if (event.key === 'ArrowRight') {
+        event.preventDefault();
+        goToNext();
+      }
+    });
+
     dotButtons.forEach((dot) => {
       dot.addEventListener('click', () => {
         const target = Number.parseInt(dot.dataset.heroDot, 10);
