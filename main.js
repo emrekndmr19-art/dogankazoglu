@@ -7,6 +7,114 @@ document.addEventListener('DOMContentLoaded', () => {
   const emptyState = document.getElementById('searchEmptyState');
   const searchForm = document.getElementById('searchForm');
 
+  const heroSlides = Array.from(document.querySelectorAll('[data-hero-slide]'));
+  const heroPrevButton = document.querySelector('[data-hero-prev]');
+  const heroNextButton = document.querySelector('[data-hero-next]');
+  const heroDotsContainer = document.querySelector('[data-hero-dots]');
+  const heroContainer = heroDotsContainer
+    ? heroDotsContainer.closest('[data-hero-container]')
+    : null;
+
+  if (heroSlides.length > 0 && heroPrevButton && heroNextButton && heroDotsContainer) {
+    let activeSlideIndex = heroSlides.findIndex((slide) => slide.hasAttribute('data-active'));
+
+    if (activeSlideIndex < 0) {
+      activeSlideIndex = 0;
+    }
+
+    const baseDotClass =
+      'h-3 w-3 rounded-full transition focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#262626] hover:bg-white';
+
+    let dots = [];
+
+    heroSlides.forEach((slide, index) => {
+      if (!slide.id) {
+        slide.id = `hero-slide-${index + 1}`;
+      }
+    });
+
+    const goToSlide = (targetIndex) => {
+      if (heroSlides.length === 0) {
+        return;
+      }
+
+      const normalisedIndex =
+        ((targetIndex % heroSlides.length) + heroSlides.length) % heroSlides.length;
+
+      heroSlides.forEach((slide, index) => {
+        const isActive = index === normalisedIndex;
+        slide.classList.toggle('hidden', !isActive);
+        slide.setAttribute('aria-hidden', isActive ? 'false' : 'true');
+
+        if (isActive) {
+          slide.setAttribute('data-active', 'true');
+        } else {
+          slide.removeAttribute('data-active');
+        }
+      });
+
+      dots.forEach((dot, index) => {
+        const isActiveDot = index === normalisedIndex;
+        dot.className = `${baseDotClass} ${isActiveDot ? 'bg-[#c50000]' : 'bg-white/40'}`;
+        dot.setAttribute('aria-current', isActiveDot ? 'true' : 'false');
+      });
+
+      activeSlideIndex = normalisedIndex;
+    };
+
+    heroDotsContainer.innerHTML = '';
+    heroDotsContainer.setAttribute('role', 'tablist');
+    heroDotsContainer.setAttribute('aria-label', 'Ürün kategorisi slayt gezinme noktaları');
+
+    dots = heroSlides.map((slide, index) => {
+      const dot = document.createElement('button');
+      dot.type = 'button';
+      dot.className = baseDotClass;
+      dot.setAttribute('role', 'tab');
+      dot.setAttribute('aria-controls', slide.id);
+
+      const label = slide.dataset.heroLabel;
+      const heading = slide.querySelector('h1, h2, h3');
+      const headingText = label || (heading ? heading.textContent.trim() : `${index + 1}. slayt`);
+      dot.setAttribute('aria-label', `${headingText} slaytına git`);
+
+      dot.addEventListener('click', () => {
+        goToSlide(index);
+      });
+
+      heroDotsContainer.appendChild(dot);
+      return dot;
+    });
+
+    goToSlide(activeSlideIndex);
+
+    if (heroSlides.length <= 1) {
+      heroPrevButton.setAttribute('hidden', 'true');
+      heroNextButton.setAttribute('hidden', 'true');
+      heroDotsContainer.classList.add('hidden');
+    } else {
+      heroPrevButton.addEventListener('click', () => {
+        goToSlide(activeSlideIndex - 1);
+      });
+
+      heroNextButton.addEventListener('click', () => {
+        goToSlide(activeSlideIndex + 1);
+      });
+
+      if (heroContainer) {
+        heroContainer.addEventListener('keydown', (event) => {
+          if (event.key === 'ArrowLeft') {
+            event.preventDefault();
+            goToSlide(activeSlideIndex - 1);
+          } else if (event.key === 'ArrowRight') {
+            event.preventDefault();
+            goToSlide(activeSlideIndex + 1);
+          }
+        });
+      }
+    }
+  }
+
   if (!toggleButton || !overlay || !searchInput || !suggestionsList || !searchForm) {
     return;
   }
