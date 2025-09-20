@@ -181,18 +181,20 @@
 
 <section class="hero-section">
   <div class="container mx-auto px-4 py-16 lg:py-24">
-    <div class="grid items-center gap-12 lg:grid-cols-[minmax(0,42%)_1fr]" data-hero-slider-wrapper>
-      <div class="space-y-8 text-center lg:text-left">
+    <div class="flex flex-col-reverse items-center gap-12 lg:flex-row lg:items-start" data-hero-slider-wrapper>
+      <div class="w-full space-y-8 text-center lg:w-1/2 lg:space-y-10 lg:text-left">
         <span class="inline-flex items-center justify-center gap-2 rounded-full bg-white/10 px-5 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-white/60">
           Master Hijyen
         </span>
-        <h1 class="text-4xl font-bold leading-tight text-white md:text-5xl lg:text-6xl">
-          Ürün gruplarımızla işletmenize özel çözümler
-        </h1>
-        <p class="text-base text-white/80 md:text-lg">
-          Hijyen, temizlik, gıda ve profesyonel ekipman kategorilerimizdeki ürünlerimizle işletmenizin tüm ihtiyaçlarını tek çatı
-          altında karşılayın.
-        </p>
+        <div class="space-y-6 lg:pr-12">
+          <h1 class="text-4xl font-bold leading-tight text-white md:text-5xl lg:text-6xl">
+            Ürün tanıtım vitrininiz burada
+          </h1>
+          <p class="text-base text-white/80 md:text-lg">
+            Hijyen sanayisinden gıdaya kadar tüm ürün gruplarımızı tek kaydırmalı hero alanından keşfedin, işletmenize en uygun
+            çözümleri anında bulun.
+          </p>
+        </div>
         <div class="flex flex-wrap items-center justify-center gap-4 lg:justify-start">
           <a
             class="inline-flex items-center justify-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-[#c50000] shadow-lg transition hover:bg-white/90 focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
@@ -278,201 +280,199 @@
           </button>
         </div>
       </div>
-      <div class="relative lg:justify-self-end">
-        <div class="relative" data-hero-media>
-          <button
-            type="button"
-            aria-label="Önceki ürün grubunu göster"
-            class="absolute left-4 top-1/2 z-20 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-black/40 text-white transition hover:bg-black/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-black/50"
-            data-hero-prev
+      <div class="relative w-full lg:w-1/2" data-hero-media>
+        <button
+          type="button"
+          aria-label="Önceki ürün grubunu göster"
+          class="absolute left-4 top-1/2 z-20 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-black/40 text-white transition hover:bg-black/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-black/50"
+          data-hero-prev
+        >
+          <span class="material-icons" aria-hidden="true">chevron_left</span>
+        </button>
+        <button
+          type="button"
+          aria-label="Sonraki ürün grubunu göster"
+          class="absolute right-4 top-1/2 z-20 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-black/40 text-white transition hover:bg-black/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-black/50"
+          data-hero-next
+        >
+          <span class="material-icons" aria-hidden="true">chevron_right</span>
+        </button>
+        <div
+          class="relative aspect-[3/4] w-full overflow-hidden rounded-3xl shadow-2xl md:aspect-[4/5]"
+          data-hero-slider
+          role="group"
+          aria-roledescription="carousel"
+          aria-live="polite"
+          tabindex="0"
+        >
+          <a
+            href="hijyensanayigrubu.html"
+            class="hero-slide absolute inset-0 block opacity-100 transition-opacity duration-700 ease-in-out"
+            data-hero-slide
+            aria-hidden="false"
           >
-            <span class="material-icons" aria-hidden="true">chevron_left</span>
-          </button>
-          <button
-            type="button"
-            aria-label="Sonraki ürün grubunu göster"
-            class="absolute right-4 top-1/2 z-20 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-black/40 text-white transition hover:bg-black/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-black/50"
-            data-hero-next
+            <img
+              src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&amp;fit=crop&amp;w=1600&amp;q=80"
+              alt="Endüstriyel hijyen uygulamaları"
+              class="absolute inset-0 h-full w-full object-cover"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-black/20"></div>
+            <div class="relative z-10 flex h-full flex-col justify-between p-8 sm:p-10">
+              <div>
+                <p class="text-xs font-semibold uppercase tracking-[0.3em] text-white/60">Ürün Grubu</p>
+                <h2 class="mt-4 text-3xl font-bold text-white md:text-4xl">Hijyen Sanayi Grubu</h2>
+              </div>
+              <div>
+                <p class="text-sm text-white/80 md:text-base">
+                  Endüstriyel temizlik ve hijyen ihtiyaçlarına yönelik profesyonel çözümlerimizi keşfedin.
+                </p>
+                <span class="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-white">
+                  Kategoriye git
+                  <span class="material-icons text-base" aria-hidden="true">arrow_forward</span>
+                </span>
+              </div>
+            </div>
+          </a>
+          <a
+            href="temizlikurunlerigrubu.html"
+            class="hero-slide absolute inset-0 block opacity-0 transition-opacity duration-700 ease-in-out pointer-events-none"
+            data-hero-slide
+            aria-hidden="true"
           >
-            <span class="material-icons" aria-hidden="true">chevron_right</span>
-          </button>
-          <div
-            class="relative aspect-[3/4] w-full overflow-hidden rounded-3xl shadow-2xl md:aspect-[4/5]"
-            data-hero-slider
-            role="group"
-            aria-roledescription="carousel"
-            aria-live="polite"
-            tabindex="0"
+            <img
+              src="https://images.unsplash.com/photo-1581579186983-3f94b285410d?auto=format&amp;fit=crop&amp;w=1600&amp;q=80"
+              alt="Profesyonel temizlik ürünleri"
+              class="absolute inset-0 h-full w-full object-cover"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-black/20"></div>
+            <div class="relative z-10 flex h-full flex-col justify-between p-8 sm:p-10">
+              <div>
+                <p class="text-xs font-semibold uppercase tracking-[0.3em] text-white/60">Ürün Grubu</p>
+                <h2 class="mt-4 text-3xl font-bold text-white md:text-4xl">Temizlik Ürünleri Grubu</h2>
+              </div>
+              <div>
+                <p class="text-sm text-white/80 md:text-base">
+                  Ofis, otel ve işletmeler için geniş temizlik ürünü yelpazemizle hijyen standartlarınızı yükseltin.
+                </p>
+                <span class="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-white">
+                  Kategoriye git
+                  <span class="material-icons text-base" aria-hidden="true">arrow_forward</span>
+                </span>
+              </div>
+            </div>
+          </a>
+          <a
+            href="kagit.html"
+            class="hero-slide absolute inset-0 block opacity-0 transition-opacity duration-700 ease-in-out pointer-events-none"
+            data-hero-slide
+            aria-hidden="true"
           >
-            <a
-              href="hijyensanayigrubu.html"
-              class="hero-slide absolute inset-0 block opacity-100 transition-opacity duration-700 ease-in-out"
-              data-hero-slide
-              aria-hidden="false"
-            >
-              <img
-                src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&amp;fit=crop&amp;w=1600&amp;q=80"
-                alt="Endüstriyel hijyen uygulamaları"
-                class="absolute inset-0 h-full w-full object-cover"
-              />
-              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-black/20"></div>
-              <div class="relative z-10 flex h-full flex-col justify-between p-8 sm:p-10">
-                <div>
-                  <p class="text-xs font-semibold uppercase tracking-[0.3em] text-white/60">Ürün Grubu</p>
-                  <h2 class="mt-4 text-3xl font-bold text-white md:text-4xl">Hijyen Sanayi Grubu</h2>
-                </div>
-                <div>
-                  <p class="text-sm text-white/80 md:text-base">
-                    Endüstriyel temizlik ve hijyen ihtiyaçlarına yönelik profesyonel çözümlerimizi keşfedin.
-                  </p>
-                  <span class="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-white">
-                    Kategoriye git
-                    <span class="material-icons text-base" aria-hidden="true">arrow_forward</span>
-                  </span>
-                </div>
+            <img
+              src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&amp;fit=crop&amp;w=1600&amp;q=80"
+              alt="Kağıt ürünleri"
+              class="absolute inset-0 h-full w-full object-cover"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-black/20"></div>
+            <div class="relative z-10 flex h-full flex-col justify-between p-8 sm:p-10">
+              <div>
+                <p class="text-xs font-semibold uppercase tracking-[0.3em] text-white/60">Ürün Grubu</p>
+                <h2 class="mt-4 text-3xl font-bold text-white md:text-4xl">Kağıt Sanayi Grubu</h2>
               </div>
-            </a>
-            <a
-              href="temizlikurunlerigrubu.html"
-              class="hero-slide absolute inset-0 block opacity-0 transition-opacity duration-700 ease-in-out pointer-events-none"
-              data-hero-slide
-              aria-hidden="true"
-            >
-              <img
-                src="https://images.unsplash.com/photo-1581579186983-3f94b285410d?auto=format&amp;fit=crop&amp;w=1600&amp;q=80"
-                alt="Profesyonel temizlik ürünleri"
-                class="absolute inset-0 h-full w-full object-cover"
-              />
-              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-black/20"></div>
-              <div class="relative z-10 flex h-full flex-col justify-between p-8 sm:p-10">
-                <div>
-                  <p class="text-xs font-semibold uppercase tracking-[0.3em] text-white/60">Ürün Grubu</p>
-                  <h2 class="mt-4 text-3xl font-bold text-white md:text-4xl">Temizlik Ürünleri Grubu</h2>
-                </div>
-                <div>
-                  <p class="text-sm text-white/80 md:text-base">
-                    Ofis, otel ve işletmeler için geniş temizlik ürünü yelpazemizle hijyen standartlarınızı yükseltin.
-                  </p>
-                  <span class="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-white">
-                    Kategoriye git
-                    <span class="material-icons text-base" aria-hidden="true">arrow_forward</span>
-                  </span>
-                </div>
+              <div>
+                <p class="text-sm text-white/80 md:text-base">
+                  Dispenser uyumlu peçete, havlu ve endüstriyel kağıt çeşitlerimizle stoklarınızı güçlendirin.
+                </p>
+                <span class="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-white">
+                  Kategoriye git
+                  <span class="material-icons text-base" aria-hidden="true">arrow_forward</span>
+                </span>
               </div>
-            </a>
-            <a
-              href="kagit.html"
-              class="hero-slide absolute inset-0 block opacity-0 transition-opacity duration-700 ease-in-out pointer-events-none"
-              data-hero-slide
-              aria-hidden="true"
-            >
-              <img
-                src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&amp;fit=crop&amp;w=1600&amp;q=80"
-                alt="Kağıt ürünleri"
-                class="absolute inset-0 h-full w-full object-cover"
-              />
-              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-black/20"></div>
-              <div class="relative z-10 flex h-full flex-col justify-between p-8 sm:p-10">
-                <div>
-                  <p class="text-xs font-semibold uppercase tracking-[0.3em] text-white/60">Ürün Grubu</p>
-                  <h2 class="mt-4 text-3xl font-bold text-white md:text-4xl">Kağıt Sanayi Grubu</h2>
-                </div>
-                <div>
-                  <p class="text-sm text-white/80 md:text-base">
-                    Dispenser uyumlu peçete, havlu ve endüstriyel kağıt çeşitlerimizle stoklarınızı güçlendirin.
-                  </p>
-                  <span class="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-white">
-                    Kategoriye git
-                    <span class="material-icons text-base" aria-hidden="true">arrow_forward</span>
-                  </span>
-                </div>
+            </div>
+          </a>
+          <a
+            href="kisiselhijyen.html"
+            class="hero-slide absolute inset-0 block opacity-0 transition-opacity duration-700 ease-in-out pointer-events-none"
+            data-hero-slide
+            aria-hidden="true"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&amp;fit=crop&amp;w=1600&amp;q=80"
+              alt="Kişisel hijyen ürünleri"
+              class="absolute inset-0 h-full w-full object-cover"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-black/20"></div>
+            <div class="relative z-10 flex h-full flex-col justify-between p-8 sm:p-10">
+              <div>
+                <p class="text-xs font-semibold uppercase tracking-[0.3em] text-white/60">Ürün Grubu</p>
+                <h2 class="mt-4 text-3xl font-bold text-white md:text-4xl">Kişisel Hijyen</h2>
               </div>
-            </a>
-            <a
-              href="kisiselhijyen.html"
-              class="hero-slide absolute inset-0 block opacity-0 transition-opacity duration-700 ease-in-out pointer-events-none"
-              data-hero-slide
-              aria-hidden="true"
-            >
-              <img
-                src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&amp;fit=crop&amp;w=1600&amp;q=80"
-                alt="Kişisel hijyen ürünleri"
-                class="absolute inset-0 h-full w-full object-cover"
-              />
-              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-black/20"></div>
-              <div class="relative z-10 flex h-full flex-col justify-between p-8 sm:p-10">
-                <div>
-                  <p class="text-xs font-semibold uppercase tracking-[0.3em] text-white/60">Ürün Grubu</p>
-                  <h2 class="mt-4 text-3xl font-bold text-white md:text-4xl">Kişisel Hijyen</h2>
-                </div>
-                <div>
-                  <p class="text-sm text-white/80 md:text-base">
-                    Dezenfektan, sabun ve kişisel bakım ürünleri ile çalışan ve misafir memnuniyetini artırın.
-                  </p>
-                  <span class="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-white">
-                    Kategoriye git
-                    <span class="material-icons text-base" aria-hidden="true">arrow_forward</span>
-                  </span>
-                </div>
+              <div>
+                <p class="text-sm text-white/80 md:text-base">
+                  Dezenfektan, sabun ve kişisel bakım ürünleri ile çalışan ve misafir memnuniyetini artırın.
+                </p>
+                <span class="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-white">
+                  Kategoriye git
+                  <span class="material-icons text-base" aria-hidden="true">arrow_forward</span>
+                </span>
               </div>
-            </a>
-            <a
-              href="gida.html"
-              class="hero-slide absolute inset-0 block opacity-0 transition-opacity duration-700 ease-in-out pointer-events-none"
-              data-hero-slide
-              aria-hidden="true"
-            >
-              <img
-                src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&amp;fit=crop&amp;w=1600&amp;q=80"
-                alt="Gıda ürünleri"
-                class="absolute inset-0 h-full w-full object-cover"
-              />
-              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-black/20"></div>
-              <div class="relative z-10 flex h-full flex-col justify-between p-8 sm:p-10">
-                <div>
-                  <p class="text-xs font-semibold uppercase tracking-[0.3em] text-white/60">Ürün Grubu</p>
-                  <h2 class="mt-4 text-3xl font-bold text-white md:text-4xl">Gıda Grubu</h2>
-                </div>
-                <div>
-                  <p class="text-sm text-white/80 md:text-base">
-                    Tek kullanımlık servis ürünleri ve gıda paketleme çözümleriyle mutfağınızı destekleyin.
-                  </p>
-                  <span class="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-white">
-                    Kategoriye git
-                    <span class="material-icons text-base" aria-hidden="true">arrow_forward</span>
-                  </span>
-                </div>
+            </div>
+          </a>
+          <a
+            href="gida.html"
+            class="hero-slide absolute inset-0 block opacity-0 transition-opacity duration-700 ease-in-out pointer-events-none"
+            data-hero-slide
+            aria-hidden="true"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&amp;fit=crop&amp;w=1600&amp;q=80"
+              alt="Gıda ürünleri"
+              class="absolute inset-0 h-full w-full object-cover"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-black/20"></div>
+            <div class="relative z-10 flex h-full flex-col justify-between p-8 sm:p-10">
+              <div>
+                <p class="text-xs font-semibold uppercase tracking-[0.3em] text-white/60">Ürün Grubu</p>
+                <h2 class="mt-4 text-3xl font-bold text-white md:text-4xl">Gıda Grubu</h2>
               </div>
-            </a>
-            <a
-              href="profhijyen.html"
-              class="hero-slide absolute inset-0 block opacity-0 transition-opacity duration-700 ease-in-out pointer-events-none"
-              data-hero-slide
-              aria-hidden="true"
-            >
-              <img
-                src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&amp;fit=crop&amp;w=1600&amp;q=80"
-                alt="Profesyonel hijyen ekipmanları"
-                class="absolute inset-0 h-full w-full object-cover"
-              />
-              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-black/20"></div>
-              <div class="relative z-10 flex h-full flex-col justify-between p-8 sm:p-10">
-                <div>
-                  <p class="text-xs font-semibold uppercase tracking-[0.3em] text-white/60">Ürün Grubu</p>
-                  <h2 class="mt-4 text-3xl font-bold text-white md:text-4xl">Profesyonel Hijyen Ekipmanları</h2>
-                </div>
-                <div>
-                  <p class="text-sm text-white/80 md:text-base">
-                    Endüstriyel kullanım için dayanıklı hijyen ekipmanları ve aksesuarları burada.
-                  </p>
-                  <span class="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-white">
-                    Kategoriye git
-                    <span class="material-icons text-base" aria-hidden="true">arrow_forward</span>
-                  </span>
-                </div>
+              <div>
+                <p class="text-sm text-white/80 md:text-base">
+                  Tek kullanımlık servis ürünleri ve gıda paketleme çözümleriyle mutfağınızı destekleyin.
+                </p>
+                <span class="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-white">
+                  Kategoriye git
+                  <span class="material-icons text-base" aria-hidden="true">arrow_forward</span>
+                </span>
               </div>
-            </a>
-          </div>
+            </div>
+          </a>
+          <a
+            href="profhijyen.html"
+            class="hero-slide absolute inset-0 block opacity-0 transition-opacity duration-700 ease-in-out pointer-events-none"
+            data-hero-slide
+            aria-hidden="true"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&amp;fit=crop&amp;w=1600&amp;q=80"
+              alt="Profesyonel hijyen ekipmanları"
+              class="absolute inset-0 h-full w-full object-cover"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-black/20"></div>
+            <div class="relative z-10 flex h-full flex-col justify-between p-8 sm:p-10">
+              <div>
+                <p class="text-xs font-semibold uppercase tracking-[0.3em] text-white/60">Ürün Grubu</p>
+                <h2 class="mt-4 text-3xl font-bold text-white md:text-4xl">Profesyonel Hijyen Ekipmanları</h2>
+              </div>
+              <div>
+                <p class="text-sm text-white/80 md:text-base">
+                  Endüstriyel kullanım için dayanıklı hijyen ekipmanları ve aksesuarları burada.
+                </p>
+                <span class="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-white">
+                  Kategoriye git
+                  <span class="material-icons text-base" aria-hidden="true">arrow_forward</span>
+                </span>
+              </div>
+            </div>
+          </a>
         </div>
         <div class="mt-8 flex flex-wrap items-center justify-center gap-2 lg:hidden" data-hero-dots>
           <button
