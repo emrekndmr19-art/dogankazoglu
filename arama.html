@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Arama | Master Hijyen</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #ffffff;
+      color: #000000;
+    }
+    .nav-link {
+      position: relative;
+      color: #ffffff;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -5px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #ffffff;
+      transition: width 0.3s ease-in-out;
+    }
+    .nav-link:hover::after {
+      width: 100%;
+    }
+    .active-link::after {
+      width: 100%;
+    }
+  </style>
+</head>
+<body class="bg-white text-black">
+
+<header class="bg-[#c50000] sticky top-0 z-50 shadow-md">
+  <div class="container mx-auto px-4">
+    <div class="flex justify-center items-center py-4">
+      <img alt="Master Hijyen Logo" class="h-12" src="assets/images/masterlogo.png"/>
+    </div>
+    <div class="flex flex-col md:flex-row md:items-center md:justify-between py-2 border-t border-red-500">
+      <nav class="hidden md:flex items-center space-x-8 mx-auto">
+        <a class="nav-link" href="index.html">Anasayfa</a>
+        <a class="nav-link" href="hakkimizda.html">Hakkımızda</a>
+        <div class="relative group">
+          <a class="nav-link flex items-center" href="urunler.html">Ürünlerimiz <span class="material-icons text-sm ml-1">expand_more</span></a>
+          <div class="absolute hidden group-hover:block bg-white shadow-lg rounded-md mt-2 py-2 w-56 z-20">
+            <a class="block px-4 py-2 text-sm text-black hover:bg-gray-100" href="hijyensanayigrubu.html">Hijyen Sanayi Grubu</a>
+            <a class="block px-4 py-2 text-sm text-black hover:bg-gray-100" href="temizlikurunlerigrubu.html">Temizlik Ürünleri Grubu</a>
+            <a class="block px-4 py-2 text-sm text-black hover:bg-gray-100" href="kagit.html">Kağıt Sanayi Grubu</a>
+            <a class="block px-4 py-2 text-sm text-black hover:bg-gray-100" href="kisiselhijyen.html">Kişisel Hijyen</a>
+            <a class="block px-4 py-2 text-sm text-black hover:bg-gray-100" href="gida.html">Gıda Grubu</a>
+            <a class="block px-4 py-2 text-sm text-black hover:bg-gray-100" href="profhijyen.html">Profesyonel Hijyen Ekipmanları</a>
+          </div>
+        </div>
+        <a class="nav-link" href="#">Blog</a>
+        <a class="nav-link" href="iletisim.html">İletişim</a>
+      </nav>
+      <div class="flex justify-center md:justify-end items-center space-x-4 mt-4 md:mt-0">
+        <a class="hidden md:inline-block px-4 py-2 rounded-md border border-white text-white" href="https://masterhijyen.com/">E-KATALOG</a>
+        <a class="hidden md:inline-block px-4 py-2 rounded-md bg-white text-[#c50000] font-semibold" href="iletisim.html">İLETİŞİME GEÇ</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="min-h-[400px] py-12">
+  <div class="container mx-auto px-4 space-y-12">
+    <section class="max-w-3xl mx-auto text-center space-y-6">
+      <div class="space-y-3">
+        <h1 class="text-3xl md:text-4xl font-bold text-gray-900">Ürün Arayın</h1>
+        <p class="text-gray-600 text-sm md:text-base">
+          CSV kataloglarımızdaki karton bardaklardan filtre kahveye kadar tüm ürünleri anahtar kelimeyle arayabilirsiniz.
+          Arama kutusuna ürün kodu, kategori veya ürün adı yazmanız yeterli.
+        </p>
+      </div>
+      <form class="flex flex-col md:flex-row md:items-center gap-3" action="arama.html" method="get">
+        <label class="sr-only" for="searchQuery">Ürün Ara</label>
+        <input id="searchQuery" name="q" type="search" placeholder="Örn: KRT.BRD-7STD veya Nescafé Gold" class="flex-1 rounded-full border border-gray-300 px-5 py-3 focus:border-[#c50000] focus:ring-[#c50000]"/>
+        <button type="submit" class="inline-flex items-center justify-center rounded-full bg-[#c50000] px-6 py-3 text-white font-semibold hover:bg-red-700 transition">Ara</button>
+      </form>
+      <div class="text-left bg-gray-50 border border-gray-200 rounded-2xl p-6 space-y-3">
+        <h2 class="text-lg font-semibold text-gray-900">Hızlı İpuçları</h2>
+        <ul class="list-disc list-inside text-sm text-gray-600 space-y-1">
+          <li>Ürün kodu ile arama yaptığınızda doğrudan ilgili satışı destekleyen ekibimize yönlendirilirsiniz.</li>
+          <li>"Karton bardak", "filtre kahve" veya "şeker" gibi kategori adları ile toplu sonuç listesi görebilirsiniz.</li>
+          <li>Telefon veya e-posta ile arama yaptıktan sonra anında teklif almak için formu doldurun.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="space-y-6">
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+        <div class="space-y-2">
+          <h2 class="text-2xl font-semibold text-[#c50000]">Popüler Kategoriler</h2>
+          <p class="text-gray-600 text-sm md:text-base">Arama yapmak yerine doğrudan ihtiyacınız olan kategoriye ilerleyin.</p>
+        </div>
+        <span class="inline-flex items-center rounded-full bg-green-100 text-green-700 px-4 py-1 text-sm font-medium">CSV verileriyle güncellendi</span>
+      </div>
+      <div class="grid gap-6 md:grid-cols-3">
+        <a class="group border border-gray-200 rounded-2xl p-6 shadow-sm hover:shadow-md transition" href="kagit.html">
+          <h3 class="text-lg font-semibold text-gray-900 group-hover:text-[#c50000] transition">Kağıt Sanayi Grubu</h3>
+          <p class="text-gray-600 text-sm mt-2">4-12 oz karton bardaklar, tahta karıştırıcılar ve yüksek adetli stok çözümleri.</p>
+        </a>
+        <a class="group border border-gray-200 rounded-2xl p-6 shadow-sm hover:shadow-md transition" href="gida.html">
+          <h3 class="text-lg font-semibold text-gray-900 group-hover:text-[#c50000] transition">Gıda Grubu</h3>
+          <p class="text-gray-600 text-sm mt-2">Nescafé serisi, Coffee Mate, Çaykur ve Lipton çayları ile şeker çeşitleri.</p>
+        </a>
+        <a class="group border border-gray-200 rounded-2xl p-6 shadow-sm hover:shadow-md transition" href="kisiselhijyen.html">
+          <h3 class="text-lg font-semibold text-gray-900 group-hover:text-[#c50000] transition">Kişisel Hijyen</h3>
+          <p class="text-gray-600 text-sm mt-2">Dezenfektanlar, sabun sistemleri ve tek kullanımlık koruyucu ürünler.</p>
+        </a>
+      </div>
+    </section>
+
+    <section class="space-y-6">
+      <div class="space-y-2">
+        <h2 class="text-2xl font-semibold text-[#c50000]">Sık Aranan Ürünler</h2>
+        <p class="text-gray-600 text-sm md:text-base">CSV dosyamızdan alınan en çok talep gören ürünler hızlı erişim için listelendi.</p>
+      </div>
+      <div class="grid gap-4 md:grid-cols-2">
+        <div class="border border-gray-200 rounded-2xl p-5 bg-white shadow-sm">
+          <h3 class="text-lg font-semibold text-gray-900">Karton Bardak Serisi</h3>
+          <ul class="mt-2 text-sm text-gray-600 space-y-1">
+            <li>• KRT.BRD-4 3000 – 4 Oz karton bardak (50 × 60)</li>
+            <li>• KRT.BRD-7STD 3000 – 7 Oz standart bardak (50 × 60)</li>
+            <li>• KRT.BRD-12 2000 – 12 Oz karton bardak (100 × 20)</li>
+          </ul>
+        </div>
+        <div class="border border-gray-200 rounded-2xl p-5 bg-white shadow-sm">
+          <h3 class="text-lg font-semibold text-gray-900">Kahve &amp; Beyazlatıcılar</h3>
+          <ul class="mt-2 text-sm text-gray-600 space-y-1">
+            <li>• KHV.NSC-CLS 1000 – Nescafé Classic 1 kg</li>
+            <li>• KHV.NSC-GLD 1000 – Nescafé Gold 100 gr</li>
+            <li>• KHV.NST-MAT 500 – Coffee Mate (5 gr × 100)</li>
+          </ul>
+        </div>
+        <div class="border border-gray-200 rounded-2xl p-5 bg-white shadow-sm">
+          <h3 class="text-lg font-semibold text-gray-900">Çay Çözümleri</h3>
+          <ul class="mt-2 text-sm text-gray-600 space-y-1">
+            <li>• AY.CKR-TRY 1000 – Çaykur Tiryaki 1 kg</li>
+            <li>• AY.DGS-TRY 1000 – Doğuş Tiryaki 5 kg</li>
+            <li>• AY.LPT-YLW 32000 – Lipton Demlik Yellow Label</li>
+          </ul>
+        </div>
+        <div class="border border-gray-200 rounded-2xl p-5 bg-white shadow-sm">
+          <h3 class="text-lg font-semibold text-gray-900">Şeker ve Tatlandırıcılar</h3>
+          <ul class="mt-2 text-sm text-gray-600 space-y-1">
+            <li>• KR.IRM-SRG 1000 – Irmak Tek Sargılı Küp Şeker</li>
+            <li>• KR.KUP-SRG 1000 – Sargılı Küp Şeker Kolisi</li>
+            <li>• KR.STK-BYZ 4000 – 4 gr stick toz şeker (1000'li)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="space-y-6">
+      <div class="space-y-2">
+        <h2 class="text-2xl font-semibold text-[#c50000]">Sonuç Bulamadınız mı?</h2>
+        <p class="text-gray-600 text-sm md:text-base">Aradığınız ürün listede yoksa satış ekibimiz yeni ürünleri sisteme eklemeniz için size yardımcı olur.</p>
+      </div>
+      <div class="bg-red-50 border border-red-200 rounded-2xl p-6 md:flex md:items-center md:justify-between gap-6">
+        <div class="space-y-2">
+          <p class="text-gray-600 text-sm md:text-base">CSV kataloğumuz sürekli güncellenir. Talep ettiğiniz ürün için teklif almak üzere bize ulaşın.</p>
+        </div>
+        <div class="flex flex-col sm:flex-row sm:items-center gap-3 text-sm font-semibold text-[#c50000]">
+          <a class="inline-flex items-center justify-center rounded-full border border-[#c50000] px-5 py-2 bg-white hover:bg-[#c50000] hover:text-white transition" href="tel:+905541406565">0554 140 65 65</a>
+          <a class="inline-flex items-center justify-center rounded-full border border-[#c50000] px-5 py-2 bg-white hover:bg-[#c50000] hover:text-white transition" href="mailto:dogan@masterhijyen.com">dogan@masterhijyen.com</a>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer class="bg-[#c50000] text-white py-12 mt-16">
+  <div class="container mx-auto px-4">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div>
+        <img src="assets/images/masterlogo.png" alt="Master Hijyen Logo" class="h-12 mb-4">
+        <p class="text-sm">Aradığınız ürünü bulamadınız mı? Katalog ekibimizle anında iletişime geçebilirsiniz.</p>
+      </div>
+      <div class="grid grid-cols-2 gap-4 text-sm">
+        <div>
+          <h3 class="font-semibold mb-2">Kategorilerimiz</h3>
+          <ul class="space-y-2">
+            <li><a class="hover:underline" href="hijyensanayigrubu.html">Hijyen Sanayi Grubu</a></li>
+            <li><a class="hover:underline" href="temizlikurunlerigrubu.html">Temizlik Ürünleri Grubu</a></li>
+            <li><a class="hover:underline" href="kagit.html">Kağıt Sanayi Grubu</a></li>
+            <li><a class="hover:underline" href="kisiselhijyen.html">Kişisel Hijyen</a></li>
+            <li><a class="hover:underline" href="gida.html">Gıda Grubu</a></li>
+            <li><a class="hover:underline" href="profhijyen.html">Profesyonel Hijyen Ekipmanları</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-semibold mb-2">Kurumsal</h3>
+          <ul class="space-y-1">
+            <li><a class="hover:underline" href="hakkimizda.html">Hakkımızda</a></li>
+            <li><a class="hover:underline" href="iletisim.html">İletişim</a></li>
+            <li><a class="hover:underline" href="#">Blog</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="text-center md:text-right space-y-2">
+        <p class="text-3xl font-bold">4,5<span class="text-lg">/5</span></p>
+        <div class="text-yellow-400">★ ★ ★ ★ ☆</div>
+        <a href="iletisim.html" class="inline-block border border-white text-white px-4 py-2 rounded-full text-sm hover:bg-white hover:text-[#c50000] transition">Hemen Değerlendir</a>
+      </div>
+    </div>
+    <div class="border-t border-white border-opacity-30 mt-8 pt-4 text-center text-sm">
+      Copyright © 2025 Master Hijyen | Tüm hakları saklıdır.
+    </div>
+  </div>
+</footer>
+
+<div class="contact-fab group fixed bottom-5 right-5 z-50">
+  <div class="flex space-x-2 items-center bg-gray-800 text-white px-4 py-2 rounded-full shadow-lg">
+    <a href="tel:+905541406565" class="material-icons" aria-label="Telefon ile ara">call</a>
+    <a href="https://wa.me/905541406565" class="material-icons" aria-label="WhatsApp üzerinden iletişim">whatsapp</a>
+    <a href="mailto:dogan@masterhijyen.com" class="material-icons" aria-label="E-posta gönder">email</a>
+  </div>
+</div>
+
+<script src="main.js"></script>
+</body>
+</html>
