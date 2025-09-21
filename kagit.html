@@ -34,6 +34,49 @@
     .active-link::after {
       width: 100%;
     }
+    .product-card {
+      border: 1px solid #e5e7eb;
+      border-radius: 1.5rem;
+      background-color: #ffffff;
+      box-shadow: 0 10px 25px rgba(197, 0, 0, 0.08);
+    }
+    .product-visual {
+      border-radius: 1.25rem;
+      background: linear-gradient(135deg, #fee2e2, #ffe4e6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 1.5rem;
+      min-height: 220px;
+      color: #c50000;
+      font-weight: 600;
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+    .product-visual span {
+      display: block;
+      max-width: 12rem;
+    }
+    .pagination-link {
+      border-radius: 9999px;
+      padding: 0.5rem 0.9rem;
+      border: 1px solid #c50000;
+      color: #c50000;
+      font-weight: 600;
+      transition: all 0.2s ease-in-out;
+    }
+    .pagination-link.is-active,
+    .pagination-link:hover {
+      background-color: #c50000;
+      color: #ffffff;
+    }
+    .pagination-link[aria-disabled="true"] {
+      opacity: 0.4;
+      cursor: default;
+      border-color: #fca5a5;
+      color: #fca5a5;
+    }
   </style>
 </head>
 <body class="bg-white text-black">
@@ -83,135 +126,149 @@
     <section class="space-y-6">
       <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
         <div class="space-y-2">
-          <h2 class="text-2xl font-semibold text-[#c50000]">Karton Bardak Koleksiyonu</h2>
+          <h2 class="text-2xl font-semibold text-[#c50000]">Karton Bardak Serisi</h2>
           <p class="text-gray-600 text-sm md:text-base">
-            4 oz'dan 12 oz'a kadar uzanan bardaklarımız kalın karton yapısı ve kontrollü gramajı ile sıcak içecek servislerinde formunu korur.
-            Tüm seçenekler stoktan hızlı teslim avantajı ile sunulur.
+            CSV listesindeki KARTON BARDAK ürünlerinin tüm varyasyonlarını gramaj, koli adedi ve fiyat bilgileriyle birlikte sunuyoruz.
+            Ürün açıklamaları katalogda yer aldığı şekilde korunmuştur.
           </p>
         </div>
         <span class="inline-flex items-center rounded-full bg-green-100 text-green-700 px-4 py-1 text-sm font-medium">Her zaman stokta</span>
       </div>
-      <div class="overflow-x-auto bg-white border border-gray-200 rounded-2xl shadow-sm">
-        <table class="min-w-full divide-y divide-gray-200 text-sm">
-          <thead class="bg-[#c50000] text-white">
-            <tr>
-              <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">Ürün Kodu</th>
-              <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">Ürün</th>
-              <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">Gramaj</th>
-              <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">Birim</th>
-              <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">KDV</th>
-              <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">Liste Fiyatı</th>
-            </tr>
-          </thead>
-          <tbody class="divide-y divide-gray-200">
-            <tr>
-              <td class="px-4 py-3 font-semibold text-gray-900">KRT.BRD-4 3000</td>
-              <td class="px-4 py-3">
-                <p class="font-medium text-gray-900">Karton Bardak 4 Oz</p>
-                <p class="text-gray-600 text-sm">50 adet × 60 paket</p>
-              </td>
-              <td class="px-4 py-3 text-gray-700">2,5 gr</td>
-              <td class="px-4 py-3 text-gray-700">Kol</td>
-              <td class="px-4 py-3 text-gray-700">%20</td>
-              <td class="px-4 py-3 font-semibold text-gray-900">₺900,00</td>
-            </tr>
-            <tr>
-              <td class="px-4 py-3 font-semibold text-gray-900">KRT.BRD-6 3000</td>
-              <td class="px-4 py-3">
-                <p class="font-medium text-gray-900">Karton Bardak 6 Oz</p>
-                <p class="text-gray-600 text-sm">50 adet × 60 paket</p>
-              </td>
-              <td class="px-4 py-3 text-gray-700">3,3 gr</td>
-              <td class="px-4 py-3 text-gray-700">Kol</td>
-              <td class="px-4 py-3 text-gray-700">%20</td>
-              <td class="px-4 py-3 font-semibold text-gray-900">₺950,00</td>
-            </tr>
-            <tr>
-              <td class="px-4 py-3 font-semibold text-gray-900">KRT.BRD-7STD 3000</td>
-              <td class="px-4 py-3">
-                <p class="font-medium text-gray-900">Karton Bardak 7 Oz Standart</p>
-                <p class="text-gray-600 text-sm">50 adet × 60 paket</p>
-              </td>
-              <td class="px-4 py-3 text-gray-700">3,6 gr</td>
-              <td class="px-4 py-3 text-gray-700">Kol</td>
-              <td class="px-4 py-3 text-gray-700">%20</td>
-              <td class="px-4 py-3 font-semibold text-gray-900">₺1.000,00</td>
-            </tr>
-            <tr>
-              <td class="px-4 py-3 font-semibold text-gray-900">KRT.BRD-8 2000</td>
-              <td class="px-4 py-3">
-                <p class="font-medium text-gray-900">Karton Bardak 8 Oz</p>
-                <p class="text-gray-600 text-sm">50 adet × 40 paket</p>
-              </td>
-              <td class="px-4 py-3 text-gray-700">5,7 gr</td>
-              <td class="px-4 py-3 text-gray-700">Kol</td>
-              <td class="px-4 py-3 text-gray-700">%20</td>
-              <td class="px-4 py-3 font-semibold text-gray-900">₺1.500,00</td>
-            </tr>
-            <tr>
-              <td class="px-4 py-3 font-semibold text-gray-900">KRT.BRD-12 2000</td>
-              <td class="px-4 py-3">
-                <p class="font-medium text-gray-900">Karton Bardak 12 Oz</p>
-                <p class="text-gray-600 text-sm">100 adet × 20 paket</p>
-              </td>
-              <td class="px-4 py-3 text-gray-700">6,5 gr</td>
-              <td class="px-4 py-3 text-gray-700">Kol</td>
-              <td class="px-4 py-3 text-gray-700">%20</td>
-              <td class="px-4 py-3 font-semibold text-gray-900">₺1.650,00</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <p class="text-xs text-gray-500">Belirtilen liste fiyatları KDV hariçtir ve toplu alımlarda özel teklif sunulur.</p>
+      <article class="product-card overflow-hidden">
+        <div class="grid gap-6 md:grid-cols-[minmax(0,240px)_1fr] items-center">
+          <figure class="p-6 md:p-8">
+            <div class="product-visual" role="img" aria-label="KARTON BARDAK ürün görseli">
+              <span>KARTON BARDAK SERİSİ</span>
+            </div>
+          </figure>
+          <div class="p-6 md:p-8 space-y-4">
+            <p class="text-gray-600 text-sm md:text-base">
+              4 oz ile 12 oz arasındaki bardaklarımız yoğun servis koşullarında formunu koruyacak şekilde seçilmiştir. CSV'deki gramaj değerleri ve koli içerikleri aşağıdaki tabloda yer alır.
+            </p>
+            <div class="overflow-x-auto border border-gray-200 rounded-2xl">
+              <table class="min-w-full divide-y divide-gray-200 text-sm">
+                <thead class="bg-[#c50000] text-white">
+                  <tr>
+                    <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">Ürün Kodu</th>
+                    <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">Ürün Açıklaması</th>
+                    <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">Gramaj / Bilgi</th>
+                    <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">Birim</th>
+                    <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">KDV</th>
+                    <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">Liste Fiyatı</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-gray-200">
+                  <tr>
+                    <td class="px-4 py-3 font-semibold text-gray-900">KRT.BRD-4 3000</td>
+                    <td class="px-4 py-3 text-gray-900">KARTON BARDAK 4 OZ (50 ADET X 60 PAKET)</td>
+                    <td class="px-4 py-3 text-gray-700">2,5 GR</td>
+                    <td class="px-4 py-3 text-gray-700">KOL</td>
+                    <td class="px-4 py-3 text-gray-700">%20</td>
+                    <td class="px-4 py-3 font-semibold text-gray-900">₺900,00</td>
+                  </tr>
+                  <tr>
+                    <td class="px-4 py-3 font-semibold text-gray-900">KRT.BRD-6 3000</td>
+                    <td class="px-4 py-3 text-gray-900">KARTON BARDAK 6 OZ (50 ADET X 60 PAKET)</td>
+                    <td class="px-4 py-3 text-gray-700">3,3 GR</td>
+                    <td class="px-4 py-3 text-gray-700">KOL</td>
+                    <td class="px-4 py-3 text-gray-700">%20</td>
+                    <td class="px-4 py-3 font-semibold text-gray-900">₺950,00</td>
+                  </tr>
+                  <tr>
+                    <td class="px-4 py-3 font-semibold text-gray-900">KRT.BRD-7STD 3000</td>
+                    <td class="px-4 py-3 text-gray-900">KARTON BARDAK 7 OZ STANDART (50 ADET X 60 PAKET)</td>
+                    <td class="px-4 py-3 text-gray-700">3,6 GR</td>
+                    <td class="px-4 py-3 text-gray-700">KOL</td>
+                    <td class="px-4 py-3 text-gray-700">%20</td>
+                    <td class="px-4 py-3 font-semibold text-gray-900">₺1.000,00</td>
+                  </tr>
+                  <tr>
+                    <td class="px-4 py-3 font-semibold text-gray-900">KRT.BRD-8 2000</td>
+                    <td class="px-4 py-3 text-gray-900">KARTON BARDAK 8 OZ (50 ADET X 40 PAKET)</td>
+                    <td class="px-4 py-3 text-gray-700">5,7 GR</td>
+                    <td class="px-4 py-3 text-gray-700">KOL</td>
+                    <td class="px-4 py-3 text-gray-700">%20</td>
+                    <td class="px-4 py-3 font-semibold text-gray-900">₺1.500,00</td>
+                  </tr>
+                  <tr>
+                    <td class="px-4 py-3 font-semibold text-gray-900">KRT.BRD-12 2000</td>
+                    <td class="px-4 py-3 text-gray-900">KARTON BARDAK 12 OZ (100 ADET X 20 PAKET)</td>
+                    <td class="px-4 py-3 text-gray-700">6,5 GR</td>
+                    <td class="px-4 py-3 text-gray-700">KOL</td>
+                    <td class="px-4 py-3 text-gray-700">%20</td>
+                    <td class="px-4 py-3 font-semibold text-gray-900">₺1.650,00</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="text-xs text-gray-500">Listedeki gramaj ve koli değerleri dogankazoglu1.csv dosyasındaki verilerin aynısıdır.</p>
+          </div>
+        </div>
+      </article>
     </section>
 
     <section class="space-y-6">
       <div class="space-y-2">
         <h2 class="text-2xl font-semibold text-[#c50000]">Karıştırıcı ve Servis Aksesuarları</h2>
         <p class="text-gray-600 text-sm md:text-base">
-          Karton bardak servislerinde tamamlayıcı aksesuarlarımız, tek tek paketlenmiş yapıları sayesinde hijyeni korur ve hızlı servisi destekler.
+          CSV listesinde yer alan tahta karıştırıcı seçeneklerimizi tek ürün görseli altında iki farklı adet seçeneğiyle sunuyoruz.
+          Hijyenik paket yapıları hızlı servis operasyonlarını destekler.
         </p>
       </div>
-      <div class="overflow-x-auto bg-white border border-gray-200 rounded-2xl shadow-sm">
-        <table class="min-w-full divide-y divide-gray-200 text-sm">
-          <thead class="bg-[#c50000] text-white">
-            <tr>
-              <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">Ürün Kodu</th>
-              <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">Ürün</th>
-              <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">Ambalaj</th>
-              <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">Birim</th>
-              <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">KDV</th>
-              <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">Liste Fiyatı</th>
-            </tr>
-          </thead>
-          <tbody class="divide-y divide-gray-200">
-            <tr>
-              <td class="px-4 py-3 font-semibold text-gray-900">KRS.THT-500</td>
-              <td class="px-4 py-3">
-                <p class="font-medium text-gray-900">Tahta Karıştırıcı</p>
-                <p class="text-gray-600 text-sm">500'lü paket, tek kullanımlık</p>
-              </td>
-              <td class="px-4 py-3 text-gray-700">500 adet</td>
-              <td class="px-4 py-3 text-gray-700">Paket</td>
-              <td class="px-4 py-3 text-gray-700">%20</td>
-              <td class="px-4 py-3 font-semibold text-gray-900">₺80,00</td>
-            </tr>
-            <tr>
-              <td class="px-4 py-3 font-semibold text-gray-900">KRS.THT-1000</td>
-              <td class="px-4 py-3">
-                <p class="font-medium text-gray-900">Tahta Karıştırıcı</p>
-                <p class="text-gray-600 text-sm">1000'li paket, ekstra stok</p>
-              </td>
-              <td class="px-4 py-3 text-gray-700">1000 adet</td>
-              <td class="px-4 py-3 text-gray-700">Paket</td>
-              <td class="px-4 py-3 text-gray-700">%20</td>
-              <td class="px-4 py-3 font-semibold text-gray-900">₺140,00</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <p class="text-xs text-gray-500">Ambalajlar kraft kutularla sevk edilir, talebe göre özel baskı seçenekleri sunulur.</p>
+      <article class="product-card overflow-hidden">
+        <div class="grid gap-6 md:grid-cols-[minmax(0,240px)_1fr] items-center">
+          <figure class="p-6 md:p-8">
+            <div class="product-visual" role="img" aria-label="TAHTA KARISTIRICI ürün görseli">
+              <span>TAHTA KARISTIRICI</span>
+            </div>
+          </figure>
+          <div class="p-6 md:p-8 space-y-4">
+            <p class="text-gray-600 text-sm md:text-base">
+              500'lük ve 1000'lik paketler stok planlamasına esneklik kazandırır. Kod, ambalaj ve fiyat bilgileri doğrudan CSV kaynağından aktarılmıştır.
+            </p>
+            <div class="overflow-x-auto border border-gray-200 rounded-2xl">
+              <table class="min-w-full divide-y divide-gray-200 text-sm">
+                <thead class="bg-[#c50000] text-white">
+                  <tr>
+                    <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">Ürün Kodu</th>
+                    <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">Ürün Açıklaması</th>
+                    <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">Adet</th>
+                    <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">Birim</th>
+                    <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">KDV</th>
+                    <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">Liste Fiyatı</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-gray-200">
+                  <tr>
+                    <td class="px-4 py-3 font-semibold text-gray-900">KRS.THT-500</td>
+                    <td class="px-4 py-3 text-gray-900">TAHTA KARITIRICI 500' L PAKET</td>
+                    <td class="px-4 py-3 text-gray-700">500 ADET</td>
+                    <td class="px-4 py-3 text-gray-700">PAKET</td>
+                    <td class="px-4 py-3 text-gray-700">%20</td>
+                    <td class="px-4 py-3 font-semibold text-gray-900">₺80,00</td>
+                  </tr>
+                  <tr>
+                    <td class="px-4 py-3 font-semibold text-gray-900">KRS.THT-1000</td>
+                    <td class="px-4 py-3 text-gray-900">TAHTA KARITIRICI 1000'L PAKET</td>
+                    <td class="px-4 py-3 text-gray-700">1000 ADET</td>
+                    <td class="px-4 py-3 text-gray-700">PAKET</td>
+                    <td class="px-4 py-3 text-gray-700">%20</td>
+                    <td class="px-4 py-3 font-semibold text-gray-900">₺140,00</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </article>
+      <p class="text-xs text-gray-500">Stok adedi ve fiyatlar düzenli olarak dogankazoglu1.csv kaynağıyla güncellenmektedir.</p>
     </section>
+
+    <nav class="flex justify-center gap-3 pt-4" aria-label="Kağıt ürün sayfaları">
+      <a href="#" class="pagination-link is-active" aria-current="page">1</a>
+      <a href="#" class="pagination-link" aria-disabled="true">2</a>
+      <a href="#" class="pagination-link" aria-disabled="true">3</a>
+    </nav>
 
     <div class="bg-red-50 border border-red-200 rounded-2xl p-6 md:flex md:items-center md:justify-between gap-6">
       <div class="space-y-2">

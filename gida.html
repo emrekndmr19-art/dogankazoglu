@@ -34,6 +34,49 @@
     .active-link::after {
       width: 100%;
     }
+    .product-card {
+      border: 1px solid #e5e7eb;
+      border-radius: 1.5rem;
+      background-color: #ffffff;
+      box-shadow: 0 10px 25px rgba(197, 0, 0, 0.08);
+    }
+    .product-visual {
+      border-radius: 1.25rem;
+      background: linear-gradient(135deg, #fee2e2, #ffe4e6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 1.5rem;
+      min-height: 220px;
+      color: #c50000;
+      font-weight: 600;
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+    .product-visual span {
+      display: block;
+      max-width: 12rem;
+    }
+    .pagination-link {
+      border-radius: 9999px;
+      padding: 0.5rem 0.9rem;
+      border: 1px solid #c50000;
+      color: #c50000;
+      font-weight: 600;
+      transition: all 0.2s ease-in-out;
+    }
+    .pagination-link.is-active,
+    .pagination-link:hover {
+      background-color: #c50000;
+      color: #ffffff;
+    }
+    .pagination-link[aria-disabled="true"] {
+      opacity: 0.4;
+      cursor: default;
+      border-color: #fca5a5;
+      color: #fca5a5;
+    }
   </style>
 </head>
 <body class="bg-white text-black">
@@ -75,329 +118,638 @@
       <span class="inline-flex items-center justify-center rounded-full bg-red-100 text-[#c50000] px-3 py-1 text-sm font-medium">Sıcak içecek ikram çözümleri</span>
       <h1 class="text-3xl md:text-4xl font-bold text-gray-900">Gıda Grubu</h1>
       <p class="text-gray-600 text-sm md:text-base">
-        Ofislerden otellere, üretim tesislerinden sosyal alanlara kadar geniş bir yelpazeye hitap eden çay, kahve, şeker ve tamamlayıcı ürün portföyümüz ile ikram süreçlerini hızlandırıyoruz.
-        CSV listelerimizden derlenen ürünler; standardize gramaj, hijyenik ambalaj ve kolay stok yönetimi sağlar.
+        Ofislerden otellere, üretim tesislerinden sosyal alanlara kadar geniş bir yelpazeye hitap eden çay, kahve ve şeker portföyümüz ile ikram süreçlerini hızlandırıyoruz.
+        dogankazoglu1.csv dosyasındaki her satırı marka ismi, gramaj ve birim bilgileriyle koruyarak aşağıda kategori kategori paylaşıyoruz.
       </p>
     </div>
 
-    <section class="space-y-6">
+    <section class="space-y-8">
       <div class="space-y-2">
         <h2 class="text-2xl font-semibold text-[#c50000]">Şeker ve Tatlandırıcılar</h2>
         <p class="text-gray-600 text-sm md:text-base">
-          Bireysel servisler için tek tek sarılı küp şekerlerden yoğun tüketime uygun kolili çözümlere kadar geniş bir seçenek sunuyoruz.
+          dogankazoglu1.csv dosyasındaki şeker satırlarının tamamını gramaj, birim ve fiyat bilgileriyle listeliyoruz.
+          Marka adları ve açıklamalar dosyada geçtiği biçimiyle korunmuştur.
         </p>
       </div>
-      <div class="overflow-x-auto bg-white border border-gray-200 rounded-2xl shadow-sm">
-        <table class="min-w-full divide-y divide-gray-200 text-sm">
-          <thead class="bg-[#c50000] text-white">
-            <tr>
-              <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">Ürün Kodu</th>
-              <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">Ürün</th>
-              <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">Ambalaj</th>
-              <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">Birim</th>
-              <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">KDV</th>
-              <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">Liste Fiyatı</th>
-            </tr>
-          </thead>
-          <tbody class="divide-y divide-gray-200">
-            <tr>
-              <td class="px-4 py-3 font-semibold text-gray-900">KR.IRM-SRG 1000</td>
-              <td class="px-4 py-3">
-                <p class="font-medium text-gray-900">Irmak Tek Sargılı Küp Şeker</p>
-                <p class="text-gray-600 text-sm">Hijyenik tekli paketler, toplantı servisleri için ideal</p>
-              </td>
-              <td class="px-4 py-3 text-gray-700">500 gr</td>
-              <td class="px-4 py-3 text-gray-700">Paket</td>
-              <td class="px-4 py-3 text-gray-700">%20</td>
-              <td class="px-4 py-3 font-semibold text-gray-900">₺45,00</td>
-            </tr>
-            <tr>
-              <td class="px-4 py-3 font-semibold text-gray-900">KR.KUP-SRG 1000</td>
-              <td class="px-4 py-3">
-                <p class="font-medium text-gray-900">Sargılı Küp Şeker</p>
-                <p class="text-gray-600 text-sm">Kolili 1000 adet, yoğun tüketim noktalarına uygun</p>
-              </td>
-              <td class="px-4 py-3 text-gray-700">5000 gr</td>
-              <td class="px-4 py-3 text-gray-700">Kol</td>
-              <td class="px-4 py-3 text-gray-700">%20</td>
-              <td class="px-4 py-3 font-semibold text-gray-900">₺300,00</td>
-            </tr>
-            <tr>
-              <td class="px-4 py-3 font-semibold text-gray-900">KR.STK-BYZ 4000</td>
-              <td class="px-4 py-3">
-                <p class="font-medium text-gray-900">Beyaz Stick Toz Şeker</p>
-                <p class="text-gray-600 text-sm">4 gr × 1000 adet; pratik self-servis alanları için</p>
-              </td>
-              <td class="px-4 py-3 text-gray-700">4000 gr</td>
-              <td class="px-4 py-3 text-gray-700">Kol</td>
-              <td class="px-4 py-3 text-gray-700">%20</td>
-              <td class="px-4 py-3 font-semibold text-gray-900">₺320,00</td>
-            </tr>
-          </tbody>
-        </table>
+      <div class="space-y-6">
+        <article class="product-card overflow-hidden">
+          <div class="grid gap-6 md:grid-cols-[minmax(0,220px)_1fr] items-center">
+            <figure class="p-6 md:p-8">
+              <div class="product-visual" role="img" aria-label="Irmak tek sargılı küp şeker temsili görseli">
+                <span>IRMAK TEK SARGILI</span>
+                <span>KÜP ŞEKER</span>
+              </div>
+            </figure>
+            <div class="p-6 md:p-8 space-y-4">
+              <div class="space-y-2">
+                <h3 class="text-xl font-semibold text-gray-900">Irmak Tek Sargılı Küp Şeker</h3>
+                <p class="text-gray-600 text-sm md:text-base">Tek tek paketli küplerin tüm bilgileri CSV satırındaki gibi aşağıda yer alıyor.</p>
+              </div>
+              <div class="overflow-x-auto border border-gray-200 rounded-2xl">
+                <table class="min-w-full divide-y divide-gray-200 text-sm">
+                  <thead class="bg-[#c50000] text-white">
+                    <tr>
+                      <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">Ürün Kodu</th>
+                      <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">Ürün Açıklaması</th>
+                      <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">Gramaj / Bilgi</th>
+                      <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">Birim</th>
+                      <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">KDV</th>
+                      <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">Liste Fiyatı</th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-gray-200">
+                    <tr>
+                      <td class="px-4 py-3 font-semibold text-gray-900">KR.IRM-SRG 1000</td>
+                      <td class="px-4 py-3 text-gray-900">IRMAK TEK SARGILI KP EKER</td>
+                      <td class="px-4 py-3 text-gray-700">500 GR</td>
+                      <td class="px-4 py-3 text-gray-700">PAKET</td>
+                      <td class="px-4 py-3 text-gray-700">%20</td>
+                      <td class="px-4 py-3 font-semibold text-gray-900">₺45,00</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card overflow-hidden">
+          <div class="grid gap-6 md:grid-cols-[minmax(0,220px)_1fr] items-center">
+            <figure class="p-6 md:p-8">
+              <div class="product-visual" role="img" aria-label="Sargılı küp şeker temsili görseli">
+                <span>SARGILI KÜP</span>
+                <span>ŞEKER</span>
+              </div>
+            </figure>
+            <div class="p-6 md:p-8 space-y-4">
+              <div class="space-y-2">
+                <h3 class="text-xl font-semibold text-gray-900">Sargılı Küp Şeker</h3>
+                <p class="text-gray-600 text-sm md:text-base">Kolili paket yapısı yüksek tüketim noktalarına çözüm sunar.</p>
+              </div>
+              <div class="overflow-x-auto border border-gray-200 rounded-2xl">
+                <table class="min-w-full divide-y divide-gray-200 text-sm">
+                  <thead class="bg-[#c50000] text-white">
+                    <tr>
+                      <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">Ürün Kodu</th>
+                      <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">Ürün Açıklaması</th>
+                      <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">Gramaj / Bilgi</th>
+                      <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">Birim</th>
+                      <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">KDV</th>
+                      <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">Liste Fiyatı</th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-gray-200">
+                    <tr>
+                      <td class="px-4 py-3 font-semibold text-gray-900">KR.KUP-SRG 1000</td>
+                      <td class="px-4 py-3 text-gray-900">SARGILI KP EKER</td>
+                      <td class="px-4 py-3 text-gray-700">5000 GR</td>
+                      <td class="px-4 py-3 text-gray-700">KOL</td>
+                      <td class="px-4 py-3 text-gray-700">%20</td>
+                      <td class="px-4 py-3 font-semibold text-gray-900">₺300,00</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card overflow-hidden">
+          <div class="grid gap-6 md:grid-cols-[minmax(0,220px)_1fr] items-center">
+            <figure class="p-6 md:p-8">
+              <div class="product-visual" role="img" aria-label="Beyaz stick toz şeker temsili görseli">
+                <span>BEYAZ STICK</span>
+                <span>TOZ ŞEKER</span>
+              </div>
+            </figure>
+            <div class="p-6 md:p-8 space-y-4">
+              <div class="space-y-2">
+                <h3 class="text-xl font-semibold text-gray-900">Beyaz Stick Toz Şeker (4 gr x 1000)</h3>
+                <p class="text-gray-600 text-sm md:text-base">Self-servis noktalarına uygun 4 gramlık stick formatın verileri CSV ile birebir eşleşir.</p>
+              </div>
+              <div class="overflow-x-auto border border-gray-200 rounded-2xl">
+                <table class="min-w-full divide-y divide-gray-200 text-sm">
+                  <thead class="bg-[#c50000] text-white">
+                    <tr>
+                      <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">Ürün Kodu</th>
+                      <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">Ürün Açıklaması</th>
+                      <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">Gramaj / Bilgi</th>
+                      <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">Birim</th>
+                      <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">KDV</th>
+                      <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">Liste Fiyatı</th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-gray-200">
+                    <tr>
+                      <td class="px-4 py-3 font-semibold text-gray-900">KR.STK-BYZ 4000</td>
+                      <td class="px-4 py-3 text-gray-900">BEYAZ STCK TOZ EKER ( 4 gr x 1000 )</td>
+                      <td class="px-4 py-3 text-gray-700">4000 GR</td>
+                      <td class="px-4 py-3 text-gray-700">KOL</td>
+                      <td class="px-4 py-3 text-gray-700">%20</td>
+                      <td class="px-4 py-3 font-semibold text-gray-900">₺320,00</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </article>
       </div>
-      <p class="text-xs text-gray-500">Fiyatlar liste fiyatıdır; düzenli sevkiyat gereksinimlerine özel teklif çalışılır.</p>
     </section>
 
-    <section class="space-y-6">
+    <section class="space-y-8">
       <div class="space-y-2">
         <h2 class="text-2xl font-semibold text-[#c50000]">Filtre Kahve ve Hazırlık Ekipmanları</h2>
         <p class="text-gray-600 text-sm md:text-base">
-          Kahve makineleri ile tam uyumlu filtre kağıdı ve taze öğütülmüş filtre kahve seçeneklerimizle profesyonel sunumlar kolaylaşır.
+          Filtre kahve demleme süreçlerinde kullanılan ürünlerin tamamını CSV verisindeki açıklamalarla paylaşıyoruz.
         </p>
       </div>
-      <div class="overflow-x-auto bg-white border border-gray-200 rounded-2xl shadow-sm">
-        <table class="min-w-full divide-y divide-gray-200 text-sm">
-          <thead class="bg-[#c50000] text-white">
-            <tr>
-              <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">Ürün Kodu</th>
-              <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">Ürün</th>
-              <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">Ambalaj</th>
-              <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">Birim</th>
-              <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">KDV</th>
-              <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">Liste Fiyatı</th>
-            </tr>
-          </thead>
-          <tbody class="divide-y divide-gray-200">
-            <tr>
-              <td class="px-4 py-3 font-semibold text-gray-900">KHV.FLT-KGD 100</td>
-              <td class="px-4 py-3">
-                <p class="font-medium text-gray-900">Coffee Time Filtre Kahve Kağıdı No:4</p>
-                <p class="text-gray-600 text-sm">40 adetlik paket, yoğun servis ritmine dayanıklı</p>
-              </td>
-              <td class="px-4 py-3 text-gray-700">40 adet</td>
-              <td class="px-4 py-3 text-gray-700">Paket</td>
-              <td class="px-4 py-3 text-gray-700">%20</td>
-              <td class="px-4 py-3 font-semibold text-gray-900">₺35,00</td>
-            </tr>
-            <tr>
-              <td class="px-4 py-3 font-semibold text-gray-900">KHV.FLT-COL 1000</td>
-              <td class="px-4 py-3">
-                <p class="font-medium text-gray-900">Filtre Kahve Colomba</p>
-                <p class="text-gray-600 text-sm">Zengin aroma, profesyonel demleme makineleri için</p>
-              </td>
-              <td class="px-4 py-3 text-gray-700">500 gr</td>
-              <td class="px-4 py-3 text-gray-700">Paket</td>
-              <td class="px-4 py-3 text-gray-700">%20</td>
-              <td class="px-4 py-3 font-semibold text-gray-900">₺385,00</td>
-            </tr>
-          </tbody>
-        </table>
+      <div class="space-y-6">
+        <article class="product-card overflow-hidden">
+          <div class="grid gap-6 md:grid-cols-[minmax(0,220px)_1fr] items-center">
+            <figure class="p-6 md:p-8">
+              <div class="product-visual" role="img" aria-label="Coffee Time filtre kahve kağıdı temsili görseli">
+                <span>FİLTRE KAĞIDI</span>
+                <span>NO:4</span>
+              </div>
+            </figure>
+            <div class="p-6 md:p-8 space-y-4">
+              <div class="space-y-2">
+                <h3 class="text-xl font-semibold text-gray-900">Coffee Time Filtre Kahve Kağıdı No:4</h3>
+                <p class="text-gray-600 text-sm md:text-base">CSV'de geçtiği haliyle “COFFE TME FLTRE KAHVE KAIDI NO:4” açıklamasını adet ve fiyat bilgisiyle sunuyoruz.</p>
+              </div>
+              <div class="overflow-x-auto border border-gray-200 rounded-2xl">
+                <table class="min-w-full divide-y divide-gray-200 text-sm">
+                  <thead class="bg-[#c50000] text-white">
+                    <tr>
+                      <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">Ürün Kodu</th>
+                      <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">Ürün Açıklaması</th>
+                      <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">Gramaj / Bilgi</th>
+                      <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">Birim</th>
+                      <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">KDV</th>
+                      <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">Liste Fiyatı</th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-gray-200">
+                    <tr>
+                      <td class="px-4 py-3 font-semibold text-gray-900">KHV.FLT-KGD 100</td>
+                      <td class="px-4 py-3 text-gray-900">COFFE TME FLTRE KAHVE KAIDI NO:4</td>
+                      <td class="px-4 py-3 text-gray-700">40 ADET</td>
+                      <td class="px-4 py-3 text-gray-700">PAKET</td>
+                      <td class="px-4 py-3 text-gray-700">%20</td>
+                      <td class="px-4 py-3 font-semibold text-gray-900">₺35,00</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card overflow-hidden">
+          <div class="grid gap-6 md:grid-cols-[minmax(0,220px)_1fr] items-center">
+            <figure class="p-6 md:p-8">
+              <div class="product-visual" role="img" aria-label="Filtre kahve Colomba temsili görseli">
+                <span>FİLTRE KAHVE</span>
+                <span>COLOMBA</span>
+              </div>
+            </figure>
+            <div class="p-6 md:p-8 space-y-4">
+              <div class="space-y-2">
+                <h3 class="text-xl font-semibold text-gray-900">Filtre Kahve Colomba</h3>
+                <p class="text-gray-600 text-sm md:text-base">Aroma notları CSV açıklamasındaki “FLTRE KAHVE COLOMBA” satırına göre planlandı.</p>
+              </div>
+              <div class="overflow-x-auto border border-gray-200 rounded-2xl">
+                <table class="min-w-full divide-y divide-gray-200 text-sm">
+                  <thead class="bg-[#c50000] text-white">
+                    <tr>
+                      <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">Ürün Kodu</th>
+                      <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">Ürün Açıklaması</th>
+                      <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">Gramaj / Bilgi</th>
+                      <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">Birim</th>
+                      <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">KDV</th>
+                      <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">Liste Fiyatı</th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-gray-200">
+                    <tr>
+                      <td class="px-4 py-3 font-semibold text-gray-900">KHV.FLT-COL 1000</td>
+                      <td class="px-4 py-3 text-gray-900">FLTRE KAHVE COLOMBA</td>
+                      <td class="px-4 py-3 text-gray-700">500GR</td>
+                      <td class="px-4 py-3 text-gray-700">PAKET</td>
+                      <td class="px-4 py-3 text-gray-700">%20</td>
+                      <td class="px-4 py-3 font-semibold text-gray-900">₺385,00</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </article>
       </div>
     </section>
 
-    <section class="space-y-6">
+    <section class="space-y-8">
       <div class="space-y-2">
         <h2 class="text-2xl font-semibold text-[#c50000]">Çay Çeşitleri</h2>
         <p class="text-gray-600 text-sm md:text-base">
-          Dökme çaydan demlik poşete kadar farklı demleme alışkanlıklarına uygun seçeneklerimizle servis tutarlılığı sağlıyoruz.
+          dogankazoglu1.csv dosyasındaki tüm çay satırlarını marka ve paket bilgileriyle gruplayarak aşağıda tek tek listeliyoruz.
         </p>
       </div>
-      <div class="overflow-x-auto bg-white border border-gray-200 rounded-2xl shadow-sm">
-        <table class="min-w-full divide-y divide-gray-200 text-sm">
-          <thead class="bg-[#c50000] text-white">
-            <tr>
-              <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">Ürün Kodu</th>
-              <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">Ürün</th>
-              <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">Ambalaj</th>
-              <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">Birim</th>
-              <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">KDV</th>
-              <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">Liste Fiyatı</th>
-            </tr>
-          </thead>
-          <tbody class="divide-y divide-gray-200">
-            <tr>
-              <td class="px-4 py-3 font-semibold text-gray-900">AY.CKR-TRY 1000</td>
-              <td class="px-4 py-3">
-                <p class="font-medium text-gray-900">Çaykur Tiryaki Dökme Çay</p>
-                <p class="text-gray-600 text-sm">Klasik harman, 1 kg vakumlu paket</p>
-              </td>
-              <td class="px-4 py-3 text-gray-700">1000 gr</td>
-              <td class="px-4 py-3 text-gray-700">Paket</td>
-              <td class="px-4 py-3 text-gray-700">%20</td>
-              <td class="px-4 py-3 font-semibold text-gray-900">₺245,00</td>
-            </tr>
-            <tr>
-              <td class="px-4 py-3 font-semibold text-gray-900">AY.CKR-TRY 2000</td>
-              <td class="px-4 py-3">
-                <p class="font-medium text-gray-900">Çaykur Tiryaki Dökme Çay</p>
-                <p class="text-gray-600 text-sm">2 kg ekonomik paket, yüksek tüketim için</p>
-              </td>
-              <td class="px-4 py-3 text-gray-700">2000 gr</td>
-              <td class="px-4 py-3 text-gray-700">Paket</td>
-              <td class="px-4 py-3 text-gray-700">%20</td>
-              <td class="px-4 py-3 font-semibold text-gray-900">₺500,00</td>
-            </tr>
-            <tr>
-              <td class="px-4 py-3 font-semibold text-gray-900">AY.CKR-TMR 125</td>
-              <td class="px-4 py-3">
-                <p class="font-medium text-gray-900">Çaykur Tomurcuk Çay</p>
-                <p class="text-gray-600 text-sm">Demlikte aroma güçlendirmek için 125 gr özel harman</p>
-              </td>
-              <td class="px-4 py-3 text-gray-700">125 gr</td>
-              <td class="px-4 py-3 text-gray-700">Paket</td>
-              <td class="px-4 py-3 text-gray-700">%20</td>
-              <td class="px-4 py-3 font-semibold text-gray-900">₺65,00</td>
-            </tr>
-            <tr>
-              <td class="px-4 py-3 font-semibold text-gray-900">AY.DGS-TRY 1000</td>
-              <td class="px-4 py-3">
-                <p class="font-medium text-gray-900">Doğuş Tiryaki Dökme Çay</p>
-                <p class="text-gray-600 text-sm">5 kg kolili seçenek, yemekhaneler için</p>
-              </td>
-              <td class="px-4 py-3 text-gray-700">5000 gr</td>
-              <td class="px-4 py-3 text-gray-700">Paket</td>
-              <td class="px-4 py-3 text-gray-700">%20</td>
-              <td class="px-4 py-3 font-semibold text-gray-900">₺1.100,00</td>
-            </tr>
-            <tr>
-              <td class="px-4 py-3 font-semibold text-gray-900">AY.LPT-YLW 32000</td>
-              <td class="px-4 py-3">
-                <p class="font-medium text-gray-900">Lipton Demlik Yellow Label</p>
-                <p class="text-gray-600 text-sm">100'lü demlik poşet × 16 paket, standart tat</p>
-              </td>
-              <td class="px-4 py-3 text-gray-700">16 paket</td>
-              <td class="px-4 py-3 text-gray-700">Kol</td>
-              <td class="px-4 py-3 text-gray-700">%20</td>
-              <td class="px-4 py-3 font-semibold text-gray-900">₺2.200,00</td>
-            </tr>
-          </tbody>
-        </table>
+      <div class="space-y-6">
+        <article class="product-card overflow-hidden">
+          <div class="grid gap-6 md:grid-cols-[minmax(0,220px)_1fr] items-center">
+            <figure class="p-6 md:p-8">
+              <div class="product-visual" role="img" aria-label="Çaykur Tiryaki dökme çay temsili görseli">
+                <span>ÇAYKUR</span>
+                <span>TİRYAKİ</span>
+              </div>
+            </figure>
+            <div class="p-6 md:p-8 space-y-4">
+              <div class="space-y-2">
+                <h3 class="text-xl font-semibold text-gray-900">Çaykur Tiryaki Dökme Çay</h3>
+                <p class="text-gray-600 text-sm md:text-base">1 kg ve 2 kg'lık seçenekler CSV'de geçtiği kodlarla birlikte listelenmiştir.</p>
+              </div>
+              <div class="overflow-x-auto border border-gray-200 rounded-2xl">
+                <table class="min-w-full divide-y divide-gray-200 text-sm">
+                  <thead class="bg-[#c50000] text-white">
+                    <tr>
+                      <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">Ürün Kodu</th>
+                      <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">Ürün Açıklaması</th>
+                      <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">Gramaj / Bilgi</th>
+                      <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">Birim</th>
+                      <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">KDV</th>
+                      <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">Liste Fiyatı</th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-gray-200">
+                    <tr>
+                      <td class="px-4 py-3 font-semibold text-gray-900">AY.CKR-TRY 1000</td>
+                      <td class="px-4 py-3 text-gray-900">AYKUR TRYAK DKME AY 1KG</td>
+                      <td class="px-4 py-3 text-gray-700">1000 GR</td>
+                      <td class="px-4 py-3 text-gray-700">PAKET</td>
+                      <td class="px-4 py-3 text-gray-700">%20</td>
+                      <td class="px-4 py-3 font-semibold text-gray-900">₺245,00</td>
+                    </tr>
+                    <tr>
+                      <td class="px-4 py-3 font-semibold text-gray-900">AY.CKR-TRY 2000</td>
+                      <td class="px-4 py-3 text-gray-900">AYKUR TRYAK DKME AY 2KG</td>
+                      <td class="px-4 py-3 text-gray-700">2000 GR</td>
+                      <td class="px-4 py-3 text-gray-700">PAKET</td>
+                      <td class="px-4 py-3 text-gray-700">%20</td>
+                      <td class="px-4 py-3 font-semibold text-gray-900">₺500,00</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card overflow-hidden">
+          <div class="grid gap-6 md:grid-cols-[minmax(0,220px)_1fr] items-center">
+            <figure class="p-6 md:p-8">
+              <div class="product-visual" role="img" aria-label="Çaykur Tomurcuk çay temsili görseli">
+                <span>ÇAYKUR</span>
+                <span>TOMURCUK</span>
+              </div>
+            </figure>
+            <div class="p-6 md:p-8 space-y-4">
+              <div class="space-y-2">
+                <h3 class="text-xl font-semibold text-gray-900">Çaykur Tomurcuk Çay</h3>
+                <p class="text-gray-600 text-sm md:text-base">CSV açıklaması “AYKUR TOMURCUK AY 125 gr” olan ürünün tüm değerleri aşağıda yer alır.</p>
+              </div>
+              <div class="overflow-x-auto border border-gray-200 rounded-2xl">
+                <table class="min-w-full divide-y divide-gray-200 text-sm">
+                  <thead class="bg-[#c50000] text-white">
+                    <tr>
+                      <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">Ürün Kodu</th>
+                      <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">Ürün Açıklaması</th>
+                      <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">Gramaj / Bilgi</th>
+                      <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">Birim</th>
+                      <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">KDV</th>
+                      <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">Liste Fiyatı</th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-gray-200">
+                    <tr>
+                      <td class="px-4 py-3 font-semibold text-gray-900">AY.CKR-TMR 125</td>
+                      <td class="px-4 py-3 text-gray-900">AYKUR TOMURCUK AY 125 gr</td>
+                      <td class="px-4 py-3 text-gray-700">125 GR</td>
+                      <td class="px-4 py-3 text-gray-700">PAKET</td>
+                      <td class="px-4 py-3 text-gray-700">%20</td>
+                      <td class="px-4 py-3 font-semibold text-gray-900">₺65,00</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card overflow-hidden">
+          <div class="grid gap-6 md:grid-cols-[minmax(0,220px)_1fr] items-center">
+            <figure class="p-6 md:p-8">
+              <div class="product-visual" role="img" aria-label="Doğuş Tiryaki dökme çay temsili görseli">
+                <span>DOĞUŞ</span>
+                <span>TİRYAKİ</span>
+              </div>
+            </figure>
+            <div class="p-6 md:p-8 space-y-4">
+              <div class="space-y-2">
+                <h3 class="text-xl font-semibold text-gray-900">Doğuş Tiryaki Dökme Çay</h3>
+                <p class="text-gray-600 text-sm md:text-base">5 kg kolili çözüm CSV kaydındaki “DOU TRYAK DKME AY” metniyle eşleşir.</p>
+              </div>
+              <div class="overflow-x-auto border border-gray-200 rounded-2xl">
+                <table class="min-w-full divide-y divide-gray-200 text-sm">
+                  <thead class="bg-[#c50000] text-white">
+                    <tr>
+                      <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">Ürün Kodu</th>
+                      <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">Ürün Açıklaması</th>
+                      <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">Gramaj / Bilgi</th>
+                      <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">Birim</th>
+                      <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">KDV</th>
+                      <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">Liste Fiyatı</th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-gray-200">
+                    <tr>
+                      <td class="px-4 py-3 font-semibold text-gray-900">AY.DGS-TRY 1000</td>
+                      <td class="px-4 py-3 text-gray-900">DOU TRYAK DKME AY</td>
+                      <td class="px-4 py-3 text-gray-700">5000 GR</td>
+                      <td class="px-4 py-3 text-gray-700">PAKET</td>
+                      <td class="px-4 py-3 text-gray-700">%20</td>
+                      <td class="px-4 py-3 font-semibold text-gray-900">₺1.100,00</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card overflow-hidden">
+          <div class="grid gap-6 md:grid-cols-[minmax(0,220px)_1fr] items-center">
+            <figure class="p-6 md:p-8">
+              <div class="product-visual" role="img" aria-label="Lipton demlik Yellow Label temsili görseli">
+                <span>LİPTON</span>
+                <span>YELLOW LABEL</span>
+              </div>
+            </figure>
+            <div class="p-6 md:p-8 space-y-4">
+              <div class="space-y-2">
+                <h3 class="text-xl font-semibold text-gray-900">Lipton Demlik Yellow Label</h3>
+                <p class="text-gray-600 text-sm md:text-base">CSV satırındaki “LPTON DEMLK YELLOW LABEL (100 AD. X320 GR )” açıklamasını aynı şekilde aktardık.</p>
+              </div>
+              <div class="overflow-x-auto border border-gray-200 rounded-2xl">
+                <table class="min-w-full divide-y divide-gray-200 text-sm">
+                  <thead class="bg-[#c50000] text-white">
+                    <tr>
+                      <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">Ürün Kodu</th>
+                      <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">Ürün Açıklaması</th>
+                      <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">Gramaj / Bilgi</th>
+                      <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">Birim</th>
+                      <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">KDV</th>
+                      <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">Liste Fiyatı</th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-gray-200">
+                    <tr>
+                      <td class="px-4 py-3 font-semibold text-gray-900">AY.LPT-YLW 32000</td>
+                      <td class="px-4 py-3 text-gray-900">LPTON DEMLK YELLOW LABEL (100 AD. X320 GR )</td>
+                      <td class="px-4 py-3 text-gray-700">16 PAKET</td>
+                      <td class="px-4 py-3 text-gray-700">KOL</td>
+                      <td class="px-4 py-3 text-gray-700">%20</td>
+                      <td class="px-4 py-3 font-semibold text-gray-900">₺2.200,00</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </article>
       </div>
     </section>
 
-    <section class="space-y-6">
+    <section class="space-y-8">
       <div class="space-y-2">
         <h2 class="text-2xl font-semibold text-[#c50000]">Hazır Kahveler ve Beyazlatıcılar</h2>
         <p class="text-gray-600 text-sm md:text-base">
-          Self-servis alanlarında aynı tada ulaşmak için paketli kahve ve beyazlatıcı çözümlerini tek kaynaktan sunuyoruz.
+          CSV kaynak dosyamızdaki kahve ve beyazlatıcı satırlarını marka bazında gruplayarak paket seçenekleriyle beraber aktarıyoruz.
         </p>
       </div>
-      <div class="overflow-x-auto bg-white border border-gray-200 rounded-2xl shadow-sm">
-        <table class="min-w-full divide-y divide-gray-200 text-sm">
-          <thead class="bg-[#c50000] text-white">
-            <tr>
-              <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">Ürün Kodu</th>
-              <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">Ürün</th>
-              <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">Ambalaj</th>
-              <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">Birim</th>
-              <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">KDV</th>
-              <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">Liste Fiyatı</th>
-            </tr>
-          </thead>
-          <tbody class="divide-y divide-gray-200">
-            <tr>
-              <td class="px-4 py-3 font-semibold text-gray-900">KHV.NST-BYZ 1000</td>
-              <td class="px-4 py-3">
-                <p class="font-medium text-gray-900">Nestlé Coffee Mate Kahve Beyazlatıcı</p>
-                <p class="text-gray-600 text-sm">400 gr ekonomik paket, kremamsı lezzet</p>
-              </td>
-              <td class="px-4 py-3 text-gray-700">400 gr</td>
-              <td class="px-4 py-3 text-gray-700">Paket</td>
-              <td class="px-4 py-3 text-gray-700">%20</td>
-              <td class="px-4 py-3 font-semibold text-gray-900">₺220,00</td>
-            </tr>
-            <tr>
-              <td class="px-4 py-3 font-semibold text-gray-900">KHV.NSC-CLS 1000</td>
-              <td class="px-4 py-3">
-                <p class="font-medium text-gray-900">Nescafé Classic</p>
-                <p class="text-gray-600 text-sm">1 kg endüstriyel paket, yüksek servis hacmi için</p>
-              </td>
-              <td class="px-4 py-3 text-gray-700">1000 gr</td>
-              <td class="px-4 py-3 text-gray-700">Paket</td>
-              <td class="px-4 py-3 text-gray-700">%20</td>
-              <td class="px-4 py-3 font-semibold text-gray-900">₺2.200,00</td>
-            </tr>
-            <tr>
-              <td class="px-4 py-3 font-semibold text-gray-900">KHV.NSC-CLS 200</td>
-              <td class="px-4 py-3">
-                <p class="font-medium text-gray-900">Nescafé Classic</p>
-                <p class="text-gray-600 text-sm">200 gr paket, küçük ofis kullanımlarına uygun</p>
-              </td>
-              <td class="px-4 py-3 text-gray-700">200 gr</td>
-              <td class="px-4 py-3 text-gray-700">Paket</td>
-              <td class="px-4 py-3 text-gray-700">%20</td>
-              <td class="px-4 py-3 font-semibold text-gray-900">₺290,00</td>
-            </tr>
-            <tr>
-              <td class="px-4 py-3 font-semibold text-gray-900">KHV.NSC-GLD 1000</td>
-              <td class="px-4 py-3">
-                <p class="font-medium text-gray-900">Nescafé Gold</p>
-                <p class="text-gray-600 text-sm">100 gr premium granül kahve</p>
-              </td>
-              <td class="px-4 py-3 text-gray-700">100 gr</td>
-              <td class="px-4 py-3 text-gray-700">Paket</td>
-              <td class="px-4 py-3 text-gray-700">%20</td>
-              <td class="px-4 py-3 font-semibold text-gray-900">₺230,00</td>
-            </tr>
-            <tr>
-              <td class="px-4 py-3 font-semibold text-gray-900">KHV.NST-MAT 500</td>
-              <td class="px-4 py-3">
-                <p class="font-medium text-gray-900">Nestlé Coffee Mate (5 gr × 100)</p>
-                <p class="text-gray-600 text-sm">Tek porsiyon paket, yüksek hijyen standardı</p>
-              </td>
-              <td class="px-4 py-3 text-gray-700">500 gr</td>
-              <td class="px-4 py-3 text-gray-700">Paket</td>
-              <td class="px-4 py-3 text-gray-700">%20</td>
-              <td class="px-4 py-3 font-semibold text-gray-900">₺245,00</td>
-            </tr>
-          </tbody>
-        </table>
+      <div class="space-y-6">
+        <article class="product-card overflow-hidden">
+          <div class="grid gap-6 md:grid-cols-[minmax(0,220px)_1fr] items-center">
+            <figure class="p-6 md:p-8">
+              <div class="product-visual" role="img" aria-label="Nescafé Classic ürün görseli">
+                <span>NESCAFÉ</span>
+                <span>CLASSIC</span>
+              </div>
+            </figure>
+            <div class="p-6 md:p-8 space-y-4">
+              <div class="space-y-2">
+                <h3 class="text-xl font-semibold text-gray-900">Nescafé Classic</h3>
+                <p class="text-gray-600 text-sm md:text-base">dogankazoglu1.csv dosyasında iki ayrı gramaj satırı bulunan Nescafé Classic ürünlerini aynı tabloda topladık.</p>
+              </div>
+              <div class="overflow-x-auto border border-gray-200 rounded-2xl">
+                <table class="min-w-full divide-y divide-gray-200 text-sm">
+                  <thead class="bg-[#c50000] text-white">
+                    <tr>
+                      <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">Ürün Kodu</th>
+                      <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">Ürün Açıklaması</th>
+                      <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">Gramaj / Bilgi</th>
+                      <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">Birim</th>
+                      <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">KDV</th>
+                      <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">Liste Fiyatı</th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-gray-200">
+                    <tr>
+                      <td class="px-4 py-3 font-semibold text-gray-900">KHV.NSC-CLS 1000</td>
+                      <td class="px-4 py-3 text-gray-900">NESCAFE CLASSIC  ZNEBLR KAHVE</td>
+                      <td class="px-4 py-3 text-gray-700">1000 GR</td>
+                      <td class="px-4 py-3 text-gray-700">PAKET</td>
+                      <td class="px-4 py-3 text-gray-700">%20</td>
+                      <td class="px-4 py-3 font-semibold text-gray-900">₺2.200,00</td>
+                    </tr>
+                    <tr>
+                      <td class="px-4 py-3 font-semibold text-gray-900">KHV.NSC-CLS 1000</td>
+                      <td class="px-4 py-3 text-gray-900">NESCAFE CLASSIC ZNEBLR KAHVE</td>
+                      <td class="px-4 py-3 text-gray-700">200 GR</td>
+                      <td class="px-4 py-3 text-gray-700">PAKET</td>
+                      <td class="px-4 py-3 text-gray-700">%20</td>
+                      <td class="px-4 py-3 font-semibold text-gray-900">₺290,00</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card overflow-hidden">
+          <div class="grid gap-6 md:grid-cols-[minmax(0,220px)_1fr] items-center">
+            <figure class="p-6 md:p-8">
+              <div class="product-visual" role="img" aria-label="Nescafé Gold ürün görseli">
+                <span>NESCAFÉ</span>
+                <span>GOLD</span>
+              </div>
+            </figure>
+            <div class="p-6 md:p-8 space-y-4">
+              <div class="space-y-2">
+                <h3 class="text-xl font-semibold text-gray-900">Nescafé Gold</h3>
+                <p class="text-gray-600 text-sm md:text-base">CSV açıklaması “NESCAFE GOLD ZNEBLR KAHVE” olan ürünün gramaj ve fiyat bilgileri birebir korunmuştur.</p>
+              </div>
+              <div class="overflow-x-auto border border-gray-200 rounded-2xl">
+                <table class="min-w-full divide-y divide-gray-200 text-sm">
+                  <thead class="bg-[#c50000] text-white">
+                    <tr>
+                      <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">Ürün Kodu</th>
+                      <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">Ürün Açıklaması</th>
+                      <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">Gramaj / Bilgi</th>
+                      <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">Birim</th>
+                      <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">KDV</th>
+                      <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">Liste Fiyatı</th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-gray-200">
+                    <tr>
+                      <td class="px-4 py-3 font-semibold text-gray-900">KHV.NSC-GLD 1000</td>
+                      <td class="px-4 py-3 text-gray-900">NESCAFE GOLD ZNEBLR KAHVE</td>
+                      <td class="px-4 py-3 text-gray-700">100 GR</td>
+                      <td class="px-4 py-3 text-gray-700">PAKET</td>
+                      <td class="px-4 py-3 text-gray-700">%20</td>
+                      <td class="px-4 py-3 font-semibold text-gray-900">₺230,00</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card overflow-hidden">
+          <div class="grid gap-6 md:grid-cols-[minmax(0,220px)_1fr] items-center">
+            <figure class="p-6 md:p-8">
+              <div class="product-visual" role="img" aria-label="Nestlé Coffee Mate ürün görseli">
+                <span>COFFEE MATE</span>
+                <span>ÜRÜN AİLESİ</span>
+              </div>
+            </figure>
+            <div class="p-6 md:p-8 space-y-4">
+              <div class="space-y-2">
+                <h3 class="text-xl font-semibold text-gray-900">Nestlé Coffee Mate</h3>
+                <p class="text-gray-600 text-sm md:text-base">Toz ve tek porsiyonluk Coffee Mate ürünleri CSV kodlarıyla birlikte listelenmiştir.</p>
+              </div>
+              <div class="overflow-x-auto border border-gray-200 rounded-2xl">
+                <table class="min-w-full divide-y divide-gray-200 text-sm">
+                  <thead class="bg-[#c50000] text-white">
+                    <tr>
+                      <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">Ürün Kodu</th>
+                      <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">Ürün Açıklaması</th>
+                      <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">Gramaj / Bilgi</th>
+                      <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">Birim</th>
+                      <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">KDV</th>
+                      <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">Liste Fiyatı</th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-gray-200">
+                    <tr>
+                      <td class="px-4 py-3 font-semibold text-gray-900">KHV.NST-BYZ 1000</td>
+                      <td class="px-4 py-3 text-gray-900">NESTLE COFFE MATE KAHVE BEYAZLATICI</td>
+                      <td class="px-4 py-3 text-gray-700">400GR</td>
+                      <td class="px-4 py-3 text-gray-700">PAKET</td>
+                      <td class="px-4 py-3 text-gray-700">%20</td>
+                      <td class="px-4 py-3 font-semibold text-gray-900">₺220,00</td>
+                    </tr>
+                    <tr>
+                      <td class="px-4 py-3 font-semibold text-gray-900">KHV.NST-MAT 500</td>
+                      <td class="px-4 py-3 text-gray-900">NESTLE COFFE MATE (5 gr x100)</td>
+                      <td class="px-4 py-3 text-gray-700">500 GR</td>
+                      <td class="px-4 py-3 text-gray-700">PAKET</td>
+                      <td class="px-4 py-3 text-gray-700">%20</td>
+                      <td class="px-4 py-3 font-semibold text-gray-900">₺245,00</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </article>
       </div>
     </section>
 
-    <section class="space-y-6">
+    <section class="space-y-8">
       <div class="space-y-2">
         <h2 class="text-2xl font-semibold text-[#c50000]">Türk Kahvesi Seçenekleri</h2>
         <p class="text-gray-600 text-sm md:text-base">
-          Geleneksel damak tadı için Mehmet Efendi markasının farklı gramajlarını stoklarımızda bulunduruyoruz.
+          dogankazoglu1.csv kaynağındaki Mehmet Efendi satırlarını gramaj ve birim bilgilerini değiştirmeden grupladık.
         </p>
       </div>
-      <div class="overflow-x-auto bg-white border border-gray-200 rounded-2xl shadow-sm">
-        <table class="min-w-full divide-y divide-gray-200 text-sm">
-          <thead class="bg-[#c50000] text-white">
-            <tr>
-              <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">Ürün Kodu</th>
-              <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">Ürün</th>
-              <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">Ambalaj</th>
-              <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">Birim</th>
-              <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">KDV</th>
-              <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">Liste Fiyatı</th>
-            </tr>
-          </thead>
-          <tbody class="divide-y divide-gray-200">
-            <tr>
-              <td class="px-4 py-3 font-semibold text-gray-900">KHV.MEF-TRK 1000</td>
-              <td class="px-4 py-3">
-                <p class="font-medium text-gray-900">Mehmet Efendi Türk Kahvesi</p>
-                <p class="text-gray-600 text-sm">100 gr vakumlu paket, taze öğütülmüş</p>
-              </td>
-              <td class="px-4 py-3 text-gray-700">100 gr</td>
-              <td class="px-4 py-3 text-gray-700">Paket</td>
-              <td class="px-4 py-3 text-gray-700">%20</td>
-              <td class="px-4 py-3 font-semibold text-gray-900">₺80,00</td>
-            </tr>
-            <tr>
-              <td class="px-4 py-3 font-semibold text-gray-900">KHV.MEF-TRK 72</td>
-              <td class="px-4 py-3">
-                <p class="font-medium text-gray-900">Mehmet Efendi Türk Kahvesi</p>
-                <p class="text-gray-600 text-sm">12 × 6 gr stick; minibar ve oda ikramları için</p>
-              </td>
-              <td class="px-4 py-3 text-gray-700">72 gr</td>
-              <td class="px-4 py-3 text-gray-700">Kol</td>
-              <td class="px-4 py-3 text-gray-700">%20</td>
-              <td class="px-4 py-3 font-semibold text-gray-900">₺85,00</td>
-            </tr>
-          </tbody>
-        </table>
+      <div class="space-y-6">
+        <article class="product-card overflow-hidden">
+          <div class="grid gap-6 md:grid-cols-[minmax(0,220px)_1fr] items-center">
+            <figure class="p-6 md:p-8">
+              <div class="product-visual" role="img" aria-label="Mehmet Efendi Türk kahvesi temsili görseli">
+                <span>MEHMET EFENDİ</span>
+                <span>TÜRK KAHVESİ</span>
+              </div>
+            </figure>
+            <div class="p-6 md:p-8 space-y-4">
+              <div class="space-y-2">
+                <h3 class="text-xl font-semibold text-gray-900">Mehmet Efendi Türk Kahvesi</h3>
+                <p class="text-gray-600 text-sm md:text-base">100 gr vakumlu paket ve 12 × 6 gr stick seçenekleri aynı tablo içinde sunulur.</p>
+              </div>
+              <div class="overflow-x-auto border border-gray-200 rounded-2xl">
+                <table class="min-w-full divide-y divide-gray-200 text-sm">
+                  <thead class="bg-[#c50000] text-white">
+                    <tr>
+                      <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">Ürün Kodu</th>
+                      <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">Ürün Açıklaması</th>
+                      <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">Gramaj / Bilgi</th>
+                      <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">Birim</th>
+                      <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">KDV</th>
+                      <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">Liste Fiyatı</th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-gray-200">
+                    <tr>
+                      <td class="px-4 py-3 font-semibold text-gray-900">KHV.MEF-TRK 1000</td>
+                      <td class="px-4 py-3 text-gray-900">MEHMET EFEND TRK KAHVES</td>
+                      <td class="px-4 py-3 text-gray-700">100 GR</td>
+                      <td class="px-4 py-3 text-gray-700">PAKET</td>
+                      <td class="px-4 py-3 text-gray-700">%20</td>
+                      <td class="px-4 py-3 font-semibold text-gray-900">₺80,00</td>
+                    </tr>
+                    <tr>
+                      <td class="px-4 py-3 font-semibold text-gray-900">KHV.MEF-TRK 72</td>
+                      <td class="px-4 py-3 text-gray-900">MEHMET EFEND TRK KAHVES (12 x6 gr)</td>
+                      <td class="px-4 py-3 text-gray-700">6 GR</td>
+                      <td class="px-4 py-3 text-gray-700">KOL</td>
+                      <td class="px-4 py-3 text-gray-700">%20</td>
+                      <td class="px-4 py-3 font-semibold text-gray-900">₺85,00</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </article>
       </div>
     </section>
+
+    <nav class="flex justify-center gap-3 pt-4" aria-label="Gıda ürün sayfaları">
+      <a href="#" class="pagination-link is-active" aria-current="page">1</a>
+      <a href="#" class="pagination-link" aria-disabled="true">2</a>
+      <a href="#" class="pagination-link" aria-disabled="true">3</a>
+    </nav>
 
     <div class="bg-red-50 border border-red-200 rounded-2xl p-6 md:flex md:items-center md:justify-between gap-6">
       <div class="space-y-2">
         <h3 class="text-xl font-semibold text-[#c50000]">İkram noktalarınız için tek elden tedarik</h3>
         <p class="text-gray-600 text-sm md:text-base">
-          CSV listesinde yer alan tüm ürünler düzenli stoklarımızda bulunur. Otomatik sipariş, konsinye ve özel marka talepleri için satış ekibimiz destek verir.
+          CSV listemizdeki çay, kahve ve şeker ürünleri düzenli stoklarımızda yer alır. Numune talebi ve güncel fiyat çalışmaları için satış ekibimizden hızlı destek alabilirsiniz.
         </p>
       </div>
       <div class="flex flex-col sm:flex-row sm:items-center gap-3 text-sm font-semibold text-[#c50000]">
