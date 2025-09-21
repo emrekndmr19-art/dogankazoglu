@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Profesyonel Hijyen Ekipmanları | Master Hijyen</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #ffffff;
+      color: #000000;
+    }
+    .nav-link {
+      position: relative;
+      color: #ffffff;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -5px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #ffffff;
+      transition: width 0.3s ease-in-out;
+    }
+    .nav-link:hover::after {
+      width: 100%;
+    }
+    .active-link::after {
+      width: 100%;
+    }
+  </style>
+</head>
+<body class="bg-white text-black">
+
+<header class="bg-[#c50000] sticky top-0 z-50 shadow-md">
+  <div class="container mx-auto px-4">
+    <div class="flex justify-center items-center py-4">
+      <img alt="Master Hijyen Logo" class="h-12" src="assets/images/masterlogo.png"/>
+    </div>
+    <div class="flex flex-col md:flex-row md:items-center md:justify-between py-2 border-t border-red-500">
+      <nav class="hidden md:flex items-center space-x-8 mx-auto">
+        <a class="nav-link" href="index.html">Anasayfa</a>
+        <a class="nav-link" href="hakkimizda.html">Hakkımızda</a>
+        <div class="relative group">
+          <a class="nav-link flex items-center" href="urunler.html">Ürünlerimiz <span class="material-icons text-sm ml-1">expand_more</span></a>
+          <div class="absolute hidden group-hover:block bg-white shadow-lg rounded-md mt-2 py-2 w-56 z-20">
+            <a class="block px-4 py-2 text-sm text-black hover:bg-gray-100" href="hijyensanayigrubu.html">Hijyen Sanayi Grubu</a>
+            <a class="block px-4 py-2 text-sm text-black hover:bg-gray-100" href="temizlikurunlerigrubu.html">Temizlik Ürünleri Grubu</a>
+            <a class="block px-4 py-2 text-sm text-black hover:bg-gray-100" href="kagit.html">Kağıt Sanayi Grubu</a>
+            <a class="block px-4 py-2 text-sm text-black hover:bg-gray-100" href="kisiselhijyen.html">Kişisel Hijyen</a>
+            <a class="block px-4 py-2 text-sm text-black hover:bg-gray-100" href="gida.html">Gıda Grubu</a>
+            <a class="block px-4 py-2 text-sm text-black hover:bg-gray-100" href="profhijyen.html">Profesyonel Hijyen Ekipmanları</a>
+          </div>
+        </div>
+        <a class="nav-link" href="#">Blog</a>
+        <a class="nav-link" href="iletisim.html">İletişim</a>
+      </nav>
+      <div class="flex justify-center md:justify-end items-center space-x-4 mt-4 md:mt-0">
+        <a class="hidden md:inline-block px-4 py-2 rounded-md border border-white text-white" href="https://masterhijyen.com/">E-KATALOG</a>
+        <a class="hidden md:inline-block px-4 py-2 rounded-md bg-white text-[#c50000] font-semibold" href="iletisim.html">İLETİŞİME GEÇ</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="min-h-[400px] py-12">
+  <div class="container mx-auto px-4 space-y-12">
+    <div class="max-w-3xl mx-auto text-center space-y-4">
+      <span class="inline-flex items-center justify-center rounded-full bg-red-100 text-[#c50000] px-3 py-1 text-sm font-medium">Endüstriyel hijyen yatırımları</span>
+      <h1 class="text-3xl md:text-4xl font-bold text-gray-900">Profesyonel Hijyen Ekipmanları</h1>
+      <p class="text-gray-600 text-sm md:text-base">
+        Üretim alanları, gıda tesisleri, sağlık kuruluşları ve ağır hizmet ortamları için dayanıklı hijyen ekipmanları sağlıyoruz.
+        Mekanik altyapınızla entegre çalışan çözümlerimiz, iş güvenliği ve kalite standartlarını aynı anda garanti eder.
+      </p>
+    </div>
+
+    <section class="space-y-6">
+      <div class="space-y-2">
+        <h2 class="text-2xl font-semibold text-[#c50000]">Hijyen İstasyonları ve Kontrol Noktaları</h2>
+        <p class="text-gray-600 text-sm md:text-base">Girişlerde hijyen bariyerleri oluşturarak çapraz kontaminasyon riskini düşüren çözümler.</p>
+      </div>
+      <div class="grid gap-6 md:grid-cols-3">
+        <article class="border border-gray-200 rounded-2xl p-6 shadow-sm hover:shadow-md transition">
+          <h3 class="text-lg font-semibold text-gray-900 mb-2">Paslanmaz Hijyen İstasyonları</h3>
+          <p class="text-gray-600 text-sm">Turnike, el yıkama ve kurutma modüllerini tek gövdede sunan IP65 korumalı sistemler.</p>
+          <ul class="text-xs text-gray-600 mt-3 space-y-1">
+            <li>• HACCP ve BRC standartlarına uyum</li>
+            <li>• Otomatik dezenfektan dozajlama</li>
+            <li>• RFID veya kartlı geçiş entegrasyonu</li>
+          </ul>
+        </article>
+        <article class="border border-gray-200 rounded-2xl p-6 shadow-sm hover:shadow-md transition">
+          <h3 class="text-lg font-semibold text-gray-900 mb-2">Ayaklı Dezenfektan Standları</h3>
+          <p class="text-gray-600 text-sm">Yoğun insan trafiği olan girişlerde temasız kullanım sağlayan pedallı veya sensörlü seçenekler.</p>
+          <ul class="text-xs text-gray-600 mt-3 space-y-1">
+            <li>• 1 L ve 5 L tank kapasitesi</li>
+            <li>• İç mekân/dış mekân dayanımı</li>
+            <li>• Kurumsal tasarım uygulama imkânı</li>
+          </ul>
+        </article>
+        <article class="border border-gray-200 rounded-2xl p-6 shadow-sm hover:shadow-md transition">
+          <h3 class="text-lg font-semibold text-gray-900 mb-2">Sensörlü Dispenser Çözümleri</h3>
+          <p class="text-gray-600 text-sm">Sabun, dezenfektan, kağıt havlu ve tuvalet kağıdı dispenserlerinde temassız kullanım.</p>
+          <ul class="text-xs text-gray-600 mt-3 space-y-1">
+            <li>• Li-ion şarjlı ve elektrikli modeller</li>
+            <li>• Hata ve doluluk takibi için IoT altyapısı</li>
+            <li>• ISO 22716 üretim şartlarına uygun</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="space-y-6">
+      <div class="space-y-2">
+        <h2 class="text-2xl font-semibold text-[#c50000]">Profesyonel Makine ve Donanımlar</h2>
+        <p class="text-gray-600 text-sm md:text-base">Geniş metrajlı zeminler ve zorlu yüzeyler için yüksek performanslı makineler sunuyoruz.</p>
+      </div>
+      <div class="overflow-x-auto bg-white border border-gray-200 rounded-2xl shadow-sm">
+        <table class="min-w-full divide-y divide-gray-200 text-sm">
+          <thead class="bg-[#c50000] text-white">
+            <tr>
+              <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">Makine</th>
+              <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">Kullanım Alanı</th>
+              <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">Teknik Özellikler</th>
+              <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">Servis Periyodu</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-gray-200">
+            <tr>
+              <td class="px-4 py-3 font-semibold text-gray-900">Endüstriyel Zemin Otomatı</td>
+              <td class="px-4 py-3 text-gray-700">Gıda üretim alanları, lojistik depoları</td>
+              <td class="px-4 py-3 text-gray-700">90 cm fırça genişliği, 120 L temiz su tankı</td>
+              <td class="px-4 py-3 text-gray-700">3 ayda bir bakım</td>
+            </tr>
+            <tr>
+              <td class="px-4 py-3 font-semibold text-gray-900">Soğuk Buharlı Dezenfeksiyon Ünitesi</td>
+              <td class="px-4 py-3 text-gray-700">Hastaneler, laboratuvarlar, ambalaj odaları</td>
+              <td class="px-4 py-3 text-gray-700">ULV atomizasyon, 50 mikron damlacık boyutu</td>
+              <td class="px-4 py-3 text-gray-700">6 ayda bir kalibrasyon</td>
+            </tr>
+            <tr>
+              <td class="px-4 py-3 font-semibold text-gray-900">Endüstriyel Vakum ve Süpürge Sistemleri</td>
+              <td class="px-4 py-3 text-gray-700">Ağır sanayi, talaşlı üretim tesisleri</td>
+              <td class="px-4 py-3 text-gray-700">HEPA filtre, yağ ve talaş ayrıştırıcı modül</td>
+              <td class="px-4 py-3 text-gray-700">Yıllık detaylı bakım</td>
+            </tr>
+            <tr>
+              <td class="px-4 py-3 font-semibold text-gray-900">Atık Yönetim Kompaktörleri</td>
+              <td class="px-4 py-3 text-gray-700">AVM, havaalanı ve yüksek hacimli işletmeler</td>
+              <td class="px-4 py-3 text-gray-700">10 m³ sıkıştırma kapasitesi, otomatik uyarı sistemi</td>
+              <td class="px-4 py-3 text-gray-700">6 ayda bir kontrol</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="space-y-6">
+      <div class="space-y-2">
+        <h2 class="text-2xl font-semibold text-[#c50000]">Proje Yönetimi ve Servis</h2>
+        <p class="text-gray-600 text-sm md:text-base">Sadece ekipman tedarik etmekle kalmıyor, işletmenize özel sürdürülebilir hijyen planları oluşturuyoruz.</p>
+      </div>
+      <div class="grid gap-6 md:grid-cols-3">
+        <div class="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm">
+          <h3 class="text-lg font-semibold text-gray-900 mb-2">Keşif ve Projelendirme</h3>
+          <p class="text-gray-600 text-sm">Saha keşfi sonrası 2D/3D yerleşim planı, enerji ve su altyapısı uyum analizleri.</p>
+        </div>
+        <div class="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm">
+          <h3 class="text-lg font-semibold text-gray-900 mb-2">Bakım &amp; Yedek Parça</h3>
+          <p class="text-gray-600 text-sm">Yetkili servis ekibimizle periyodik bakım, orijinal parça kullanımı ve 7/24 arıza takibi.</p>
+        </div>
+        <div class="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm">
+          <h3 class="text-lg font-semibold text-gray-900 mb-2">Operasyon Eğitimi</h3>
+          <p class="text-gray-600 text-sm">Saha ekibiniz için uygulamalı eğitim, kimyasal dozaj ve güvenlik prosedürü danışmanlığı.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="bg-red-50 border border-red-200 rounded-2xl p-6 md:flex md:items-center md:justify-between gap-6">
+      <div class="space-y-2">
+        <h3 class="text-xl font-semibold text-[#c50000]">Tesisinize özel hijyen yatırım planı</h3>
+        <p class="text-gray-600 text-sm md:text-base">
+          Proje bazlı ekipman kiralama, satın alma ve bakım anlaşmaları için uzmanlarımızla iletişime geçin. Finansal modelleme ve yatırım geri dönüşü hesaplarını birlikte yapalım.
+        </p>
+      </div>
+      <div class="flex flex-col sm:flex-row sm:items-center gap-3 text-sm font-semibold text-[#c50000]">
+        <a class="inline-flex items-center justify-center rounded-full border border-[#c50000] px-5 py-2 bg-white hover:bg-[#c50000] hover:text-white transition" href="tel:+905541406565">0554 140 65 65</a>
+        <a class="inline-flex items-center justify-center rounded-full border border-[#c50000] px-5 py-2 bg-white hover:bg-[#c50000] hover:text-white transition" href="mailto:dogan@masterhijyen.com">dogan@masterhijyen.com</a>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="bg-[#c50000] text-white py-12 mt-16">
+  <div class="container mx-auto px-4">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div>
+        <img src="assets/images/masterlogo.png" alt="Master Hijyen Logo" class="h-12 mb-4">
+        <p class="text-sm">Endüstriyel hijyen projelerinde uçtan uca çözüm ortağınız.</p>
+      </div>
+      <div class="grid grid-cols-2 gap-4 text-sm">
+        <div>
+          <h3 class="font-semibold mb-2">Kategorilerimiz</h3>
+          <ul class="space-y-2">
+            <li><a class="hover:underline" href="hijyensanayigrubu.html">Hijyen Sanayi Grubu</a></li>
+            <li><a class="hover:underline" href="temizlikurunlerigrubu.html">Temizlik Ürünleri Grubu</a></li>
+            <li><a class="hover:underline" href="kagit.html">Kağıt Sanayi Grubu</a></li>
+            <li><a class="hover:underline" href="kisiselhijyen.html">Kişisel Hijyen</a></li>
+            <li><a class="hover:underline" href="gida.html">Gıda Grubu</a></li>
+            <li><a class="hover:underline" href="profhijyen.html">Profesyonel Hijyen Ekipmanları</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-semibold mb-2">Kurumsal</h3>
+          <ul class="space-y-1">
+            <li><a class="hover:underline" href="hakkimizda.html">Hakkımızda</a></li>
+            <li><a class="hover:underline" href="iletisim.html">İletişim</a></li>
+            <li><a class="hover:underline" href="#">Blog</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="text-center md:text-right space-y-2">
+        <p class="text-3xl font-bold">4,5<span class="text-lg">/5</span></p>
+        <div class="text-yellow-400">★ ★ ★ ★ ☆</div>
+        <a href="iletisim.html" class="inline-block border border-white text-white px-4 py-2 rounded-full text-sm hover:bg-white hover:text-[#c50000] transition">Hemen Değerlendir</a>
+      </div>
+    </div>
+    <div class="border-t border-white border-opacity-30 mt-8 pt-4 text-center text-sm">
+      Copyright © 2025 Master Hijyen | Tüm hakları saklıdır.
+    </div>
+  </div>
+</footer>
+
+<div class="contact-fab group fixed bottom-5 right-5 z-50">
+  <div class="flex space-x-2 items-center bg-gray-800 text-white px-4 py-2 rounded-full shadow-lg">
+    <a href="tel:+905541406565" class="material-icons" aria-label="Telefon ile ara">call</a>
+    <a href="https://wa.me/905541406565" class="material-icons" aria-label="WhatsApp üzerinden iletişim">whatsapp</a>
+    <a href="mailto:dogan@masterhijyen.com" class="material-icons" aria-label="E-posta gönder">email</a>
+  </div>
+</div>
+
+<script src="main.js"></script>
+</body>
+</html>

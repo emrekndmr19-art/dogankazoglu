@@ -2,11 +2,11 @@
 <html lang="tr">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Master Hijyen, Temizlik ve Gıda Ürünleri</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Temizlik Ürünleri Grubu | Master Hijyen</title>
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"/>
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
   <style>
     body {
       font-family: 'Poppins', sans-serif;
@@ -34,264 +34,286 @@
     .active-link::after {
       width: 100%;
     }
-    .logo {
-      font-family: 'Brush Script MT', cursive;
-      font-size: 2.5rem;
-      color: #ffffff;
-    }
   </style>
 </head>
 <body class="bg-white text-black">
 
-<!-- Header -->
 <header class="bg-[#c50000] sticky top-0 z-50 shadow-md">
   <div class="container mx-auto px-4">
     <div class="flex justify-center items-center py-4">
-      <img alt="Logo" class="h-12" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDMxkSIRWfwkJKExx_XKDn-NMlljvk4ZEbAylm4btJzoADXsPTgwObjArHHmRv-G_vaCLtfha5ZKgS4wZy8Wym8kgww7Y2oJoo9469884B6rbspz2F8cPSJl_6nq6ViWJw-g5ommdZ0MxeR6j4a2iiQWMDuJwHemNORifX13N-WrxyWh7-M0MKmTvZf3FihxW-dOpprftUWMwQaBEZ2EbofKjo9XlEsIJj8W67eR9K4hc-IO8nyDJZ1KZR65XMZO6eZq0-CpfkWDR5C"/>
+      <img alt="Master Hijyen Logo" class="h-12" src="assets/images/masterlogo.png" />
     </div>
-    <div class="flex justify-between items-center py-2 border-t border-red-500">
+    <div class="flex flex-col md:flex-row md:items-center md:justify-between py-2 border-t border-red-500">
       <nav class="hidden md:flex items-center space-x-8 mx-auto">
-<a class="nav-link active-link" href="index.html">Anasayfa</a>
-<a class="nav-link" href="hakkimizda.html">Hakkımızda</a>
-<div class="relative group">
-<a class="nav-link flex items-center" href="#">Ürünlerimiz <span class="material-icons text-sm ml-1">expand_more</span></a>
-<div class="absolute hidden group-hover:block bg-white shadow-lg rounded-md mt-2 py-2 w-48 z-20">
-<a class="block px-4 py-2 text-sm text-black hover:bg-gray-100" href="hijyensanayigrubu.html">Hijyen Sanayi Grubu</a>
-<a class="block px-4 py-2 text-sm text-black hover:bg-gray-100" href="temizlikurunlerigrubu.html">Temizlik Ürünleri Grubu</a>
-<a class="block px-4 py-2 text-sm text-black hover:bg-gray-100" href="kagit.html">Kağıt Sanayi Grubu</a>
-<a class="block px-4 py-2 text-sm text-black hover:bg-gray-100" href="kisiselhijyen.html">Kişisel Hijyen</a>
-<a class="block px-4 py-2 text-sm text-black hover:bg-gray-100" href="gida.html">Gıda Grubu</a>
-<a class="block px-4 py-2 text-sm text-black hover:bg-gray-100" href="profhijyen.html">Profesyonel Hijyen Ekipmanları</a>
-</div>
-</div>
-<a class="nav-link" href="#">Blog</a>
-<a class="nav-link" href="iletisim.html">İletişim</a>
-</nav>
+        <a class="nav-link" href="index.html">Anasayfa</a>
+        <a class="nav-link" href="hakkimizda.html">Hakkımızda</a>
+        <div class="relative group">
+          <a class="nav-link flex items-center" href="urunler.html">Ürünlerimiz <span class="material-icons text-sm ml-1">expand_more</span></a>
+          <div class="absolute hidden group-hover:block bg-white shadow-lg rounded-md mt-2 py-2 w-56 z-20">
+            <a class="block px-4 py-2 text-sm text-black hover:bg-gray-100" href="hijyensanayigrubu.html">Hijyen Sanayi Grubu</a>
+            <a class="block px-4 py-2 text-sm text-black hover:bg-gray-100" href="temizlikurunlerigrubu.html">Temizlik Ürünleri Grubu</a>
+            <a class="block px-4 py-2 text-sm text-black hover:bg-gray-100" href="kagit.html">Kağıt Sanayi Grubu</a>
+            <a class="block px-4 py-2 text-sm text-black hover:bg-gray-100" href="kisiselhijyen.html">Kişisel Hijyen</a>
+            <a class="block px-4 py-2 text-sm text-black hover:bg-gray-100" href="gida.html">Gıda Grubu</a>
+            <a class="block px-4 py-2 text-sm text-black hover:bg-gray-100" href="profhijyen.html">Profesyonel Hijyen Ekipmanları</a>
+          </div>
+        </div>
+        <a class="nav-link" href="#">Blog</a>
+        <a class="nav-link" href="iletisim.html">İletişim</a>
       </nav>
-      <div class="flex items-center space-x-4">
+      <div class="flex justify-center md:justify-end items-center space-x-4 mt-4 md:mt-0">
         <a class="hidden md:inline-block px-4 py-2 rounded-md border border-white text-white" href="https://masterhijyen.com/">E-KATALOG</a>
-        <a class="hidden md:inline-block px-4 py-2 rounded-md bg-white text-[#c50000] font-semibold" href="#">İLETİŞİME GEÇ</a>
+        <a class="hidden md:inline-block px-4 py-2 rounded-md bg-white text-[#c50000] font-semibold" href="iletisim.html">İLETİŞİME GEÇ</a>
       </div>
     </div>
   </div>
 </header>
 
-<!-- MAIN Content Area (Her sayfada burayı dolduracaksın) -->
-
-</div>
-<section class="container mx-auto px-4 py-12">
-  <h2 class="text-2xl font-semibold text-[#c50000] mb-8 border-b pb-2 border-red-300">TEMİZLİK ÜRÜNLERİ GRUBU</h2>
-  <div class="grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-8">
-    
-    <!-- Ürün Kartı -->
-    <div class="border rounded-lg p-4 shadow-sm hover:shadow-md transition">
-      <img src="equinox.jpg" alt="Equinox Hijyenik Elde Bulaşık Yıkama" class="h-32 object-contain mb-2 mx-auto">
-      <h3 class="font-bold text-sm">EQUINOX</h3>
-      <p class="text-gray-600 text-sm">Hijyenik elde bulaşık yıkama deterjanı</p>
+<main class="min-h-[400px] py-12">
+  <div class="container mx-auto px-4 space-y-12">
+    <div class="max-w-3xl mx-auto text-center space-y-4">
+      <span class="inline-flex items-center justify-center rounded-full bg-red-100 text-[#c50000] px-3 py-1 text-sm font-medium">Profesyonel temizlik kimyasalları</span>
+      <h1 class="text-3xl md:text-4xl font-bold text-gray-900">Temizlik Ürünleri Grubu</h1>
+      <p class="text-gray-600 text-sm md:text-base">
+        Endüstriyel mutfaklardan otel odalarına kadar tüm alanlar için konsantre temizlik çözümleri sunuyoruz.
+        Köpük kontrolü yüksek formüllerimiz ve dozaj planlarımızla hem hijyen standartlarını hem de tüketim verimliliğini aynı anda yönetebilirsiniz.
+      </p>
     </div>
 
-    <div class="border rounded-lg p-4 shadow-sm hover:shadow-md transition">
-      <img src="equ.jpg" alt="EQU Yağ ve Kir Çözücü Köpüklü Sıvı" class="h-32 object-contain mb-2 mx-auto">
-      <h3 class="font-bold text-sm">EQU</h3>
-      <p class="text-gray-600 text-sm">Yağ ve kir çözücü köpüklü sıvı</p>
-    </div>
-
-    <div class="border rounded-lg p-4 shadow-sm hover:shadow-md transition">
-      <img src="angel-flora.jpg" alt="Angel Flora Parfümlü Yüzey Temizleyici" class="h-32 object-contain mb-2 mx-auto">
-      <h3 class="font-bold text-sm">ANGEL FLORA</h3>
-      <p class="text-gray-600 text-sm">Parfümlü yüzey temizleyici</p>
-    </div>
-
-    <div class="border rounded-lg p-4 shadow-sm hover:shadow-md transition">
-      <img src="hyp-ekstra.jpg" alt="HYP Ekstra Ultra Kıvamlı Çamaşır Suyu" class="h-32 object-contain mb-2 mx-auto">
-      <h3 class="font-bold text-sm">HYP EKSTRA</h3>
-      <p class="text-gray-600 text-sm">Ultra kıvamlı çamaşır suyu</p>
-    </div>
-
-    <div class="border rounded-lg p-4 shadow-sm hover:shadow-md transition">
-      <img src="hyp.jpg" alt="HYP Çamaşır Suyu" class="h-32 object-contain mb-2 mx-auto">
-      <h3 class="font-bold text-sm">HYP</h3>
-      <p class="text-gray-600 text-sm">Çamaşır suyu</p>
-    </div>
-
-    <div class="border rounded-lg p-4 shadow-sm hover:shadow-md transition">
-      <img src="min.jpg" alt="MIN Mineralli Sıvı Ovma" class="h-32 object-contain mb-2 mx-auto">
-      <h3 class="font-bold text-sm">MIN</h3>
-      <p class="text-gray-600 text-sm">Mineralli sıvı ovma maddesi</p>
-    </div>
-
-    <section class="container mx-auto px-4 py-12 space-y-20 text-center">
-
-  <!-- BEYAZ SABUN KOKULU -->
-  <div class="space-y-6">
-    <img src="https://via.placeholder.com/600x200?text=Beyaz+Sabun+Kokulu+Temizlik" alt="Beyaz Sabun Kokulu" class="mx-auto rounded shadow-lg">
-    <h2 class="text-3xl font-bold text-[#c50000]">BEYAZ SABUN KOKULU YÜZEY TEMİZLİK</h2>
-    <p class="text-gray-700 max-w-4xl mx-auto">
-      Tüm yıkanabilen ve silinebilen yüzeylerin genel temizliğinde kullanılır. Yüksek parfümlü ve hoş kokuludur.
-      Yüzeyleri çizmeden temizler ve temizlik sonrası durulama gerektirmez.
-    </p>
-
-    <div class="flex flex-wrap justify-center gap-6 pt-4">
-      <div>
-        <img src="https://via.placeholder.com/100x150?text=1L" class="mx-auto h-28" alt="T-101">
-        <p class="mt-1 font-semibold">1 LT<br><span class="text-gray-600">T-101</span></p>
+    <section class="space-y-6">
+      <div class="space-y-2 text-center md:text-left">
+        <h2 class="text-2xl font-semibold text-[#c50000]">Öne Çıkan Ürünler</h2>
+        <p class="text-gray-600 text-sm md:text-base">En sık tercih edilen konsantrelerimiz, hızlı teslimat ve uygulama eğitimleriyle birlikte sunulur.</p>
       </div>
-      <div>
-        <img src="https://via.placeholder.com/100x150?text=2.5L" class="mx-auto h-28" alt="T-102">
-        <p class="mt-1 font-semibold">2.5 LT<br><span class="text-gray-600">T-102</span></p>
+      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <article class="border border-gray-200 rounded-2xl p-6 shadow-sm hover:shadow-md transition">
+          <h3 class="text-lg font-semibold text-gray-900">Equinox</h3>
+          <p class="text-gray-600 text-sm md:text-base mb-3">Hijyenik elde bulaşık yıkama deterjanı, yağ çözücü aktiflerle güçlendirilmiş.</p>
+          <ul class="text-sm text-gray-600 space-y-1">
+            <li>• 5 L ve 20 L bidon seçenekleri</li>
+            <li>• Yoğun köpük, nötr pH</li>
+            <li>• Gıda uyumlu hammaddeler</li>
+          </ul>
+        </article>
+        <article class="border border-gray-200 rounded-2xl p-6 shadow-sm hover:shadow-md transition">
+          <h3 class="text-lg font-semibold text-gray-900">Angel Flora</h3>
+          <p class="text-gray-600 text-sm md:text-base mb-3">Parfümlü yüzey temizleyici, kalıcı koku ve hızlı kuruyan formül.</p>
+          <ul class="text-sm text-gray-600 space-y-1">
+            <li>• 1 L, 5 L ve 20 L ambalaj</li>
+            <li>• Mop ve otomat uyumlu</li>
+            <li>• İz bırakmayan parlaklık</li>
+          </ul>
+        </article>
+        <article class="border border-gray-200 rounded-2xl p-6 shadow-sm hover:shadow-md transition">
+          <h3 class="text-lg font-semibold text-gray-900">HYP Ekstra</h3>
+          <p class="text-gray-600 text-sm md:text-base mb-3">Ultra kıvamlı çamaşır suyu, yoğun dezenfeksiyon gereken alanlara özel.</p>
+          <ul class="text-sm text-gray-600 space-y-1">
+            <li>• Yoğun kıvam sayesinde dik yüzeylerde tutunur</li>
+            <li>• Ağır kokuları bloke eder</li>
+            <li>• Renkli yüzeylere uygun seyreltilmiş kullanım</li>
+          </ul>
+        </article>
+        <article class="border border-gray-200 rounded-2xl p-6 shadow-sm hover:shadow-md transition">
+          <h3 class="text-lg font-semibold text-gray-900">MIN Mineralli Ovma</h3>
+          <p class="text-gray-600 text-sm md:text-base mb-3">Zorlu lekeler için mineralli krem yapısı ile hassas yüzeylerde güvenli.</p>
+          <ul class="text-sm text-gray-600 space-y-1">
+            <li>• Metal, seramik ve krom yüzeylerde iz bırakmaz</li>
+            <li>• Kolay durulama teknolojisi</li>
+            <li>• Yüksek konsantre formül</li>
+          </ul>
+        </article>
+        <article class="border border-gray-200 rounded-2xl p-6 shadow-sm hover:shadow-md transition">
+          <h3 class="text-lg font-semibold text-gray-900">Profesyonel Cam &amp; Yüzey</h3>
+          <p class="text-gray-600 text-sm md:text-base mb-3">Geniş alanlar için alkolsüz cam ve yüzey temizleyici çözümü.</p>
+          <ul class="text-sm text-gray-600 space-y-1">
+            <li>• 750 ml hazır kullanım ve 5 L konsantre</li>
+            <li>• Hızlı kurur, leke bırakmaz</li>
+            <li>• Otel, AVM ve ofisler için ideal</li>
+          </ul>
+        </article>
+        <article class="border border-gray-200 rounded-2xl p-6 shadow-sm hover:shadow-md transition">
+          <h3 class="text-lg font-semibold text-gray-900">Hijyenik Dezenfektan</h3>
+          <p class="text-gray-600 text-sm md:text-base mb-3">Klor bazlı güçlü dezenfeksiyon çözümü, HACCP süreçleriyle uyumlu.</p>
+          <ul class="text-sm text-gray-600 space-y-1">
+            <li>• 1 L, 5 L ve 20 L ambalaj</li>
+            <li>• Yüzeyde kalıntı bırakmadan etki</li>
+            <li>• Merkezi dozaj pompalarıyla uyum</li>
+          </ul>
+        </article>
       </div>
-      <div>
-        <img src="https://via.placeholder.com/100x150?text=5L" class="mx-auto h-28" alt="T-103">
-        <p class="mt-1 font-semibold">5 LT<br><span class="text-gray-600">T-103</span></p>
+    </section>
+
+    <section class="space-y-6">
+      <div class="space-y-2">
+        <h2 class="text-2xl font-semibold text-[#c50000]">Konsantre Yüzey Temizleyicileri</h2>
+        <p class="text-gray-600 text-sm md:text-base">Beyaz sabun kokusundan ağır kir çözücülere kadar geniş ürün gamımızla tüm yüzeylerde iz bırakmayan temizlik sağlıyoruz.</p>
       </div>
-      <div>
-        <img src="https://via.placeholder.com/100x150?text=20L" class="mx-auto h-28" alt="T-104">
-        <p class="mt-1 font-semibold">20 LT<br><span class="text-gray-600">T-104</span></p>
+      <div class="overflow-x-auto bg-white border border-gray-200 rounded-2xl shadow-sm">
+        <table class="min-w-full divide-y divide-gray-200 text-sm">
+          <thead class="bg-[#c50000] text-white">
+            <tr>
+              <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">Ürün</th>
+              <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">Koku / Etki</th>
+              <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">Ambalaj Seçenekleri</th>
+              <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">Kullanım Dozu</th>
+              <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">Kod</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-gray-200">
+            <tr>
+              <td class="px-4 py-3 font-semibold text-gray-900">Beyaz Sabun Kokulu Genel Temizlik</td>
+              <td class="px-4 py-3 text-gray-700">Klasik beyaz sabun aroması, çizmeden temizler</td>
+              <td class="px-4 py-3 text-gray-700">1 L, 2.5 L, 5 L, 20 L</td>
+              <td class="px-4 py-3 text-gray-700">1:80 - 1:120 arası sulandırma</td>
+              <td class="px-4 py-3 text-gray-700">T-101 · T-104</td>
+            </tr>
+            <tr>
+              <td class="px-4 py-3 font-semibold text-gray-900">Klozet &amp; Pisuvar İç Temizleyici</td>
+              <td class="px-4 py-3 text-gray-700">Yoğun kıvamlı, pas ve kireç çözücü</td>
+              <td class="px-4 py-3 text-gray-700">1 L ve 5 L profesyonel bidon</td>
+              <td class="px-4 py-3 text-gray-700">Hazır kullanım / fırçalama</td>
+              <td class="px-4 py-3 text-gray-700">R-8203 · R-8103</td>
+            </tr>
+            <tr>
+              <td class="px-4 py-3 font-semibold text-gray-900">Mineralli Sıvı Ovma Maddesi</td>
+              <td class="px-4 py-3 text-gray-700">Mikro mineral içerikli, çizmeden parlaklık</td>
+              <td class="px-4 py-3 text-gray-700">750 ml krem şişe ve 5 L endüstriyel paket</td>
+              <td class="px-4 py-3 text-gray-700">Hazır kullanım</td>
+              <td class="px-4 py-3 text-gray-700">MIN-500 · MIN-5000</td>
+            </tr>
+            <tr>
+              <td class="px-4 py-3 font-semibold text-gray-900">Angel Flora Yüzey Temizleyici</td>
+              <td class="px-4 py-3 text-gray-700">Kalıcı parfüm, iz bırakmayan formül</td>
+              <td class="px-4 py-3 text-gray-700">1 L pompalı, 5 L bidon</td>
+              <td class="px-4 py-3 text-gray-700">1:100 standart dozaj</td>
+              <td class="px-4 py-3 text-gray-700">ANG-1000 · ANG-5000</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-xs text-gray-500">Tüm ürünlerimiz EN standartları ile uyumludur ve kullanım kılavuzlarıyla teslim edilir.</p>
+    </section>
+
+    <section class="space-y-6">
+      <div class="space-y-2">
+        <h2 class="text-2xl font-semibold text-[#c50000]">Mutfak &amp; Bulaşıkhane Programı</h2>
+        <p class="text-gray-600 text-sm md:text-base">Endüstriyel mutfaklarda hijyeni korurken ekipman ömrünü uzatan ürünlerimizi tek tabloda toplayın.</p>
+      </div>
+      <div class="overflow-x-auto bg-white border border-gray-200 rounded-2xl shadow-sm">
+        <table class="min-w-full divide-y divide-gray-200 text-sm">
+          <thead class="bg-[#c50000] text-white">
+            <tr>
+              <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">Ürün</th>
+              <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">Kullanım Alanı</th>
+              <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">Ambalaj</th>
+              <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">pH / Etki</th>
+              <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">Not</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-gray-200">
+            <tr>
+              <td class="px-4 py-3 font-semibold text-gray-900">Equinox</td>
+              <td class="px-4 py-3 text-gray-700">Elde bulaşık yıkama, servis ekipmanları</td>
+              <td class="px-4 py-3 text-gray-700">5 L &amp; 20 L bidon</td>
+              <td class="px-4 py-3 text-gray-700">Nötr pH, köpük kontrollü</td>
+              <td class="px-4 py-3 text-gray-700">Yumuşak su bölgelerinde bile etkin</td>
+            </tr>
+            <tr>
+              <td class="px-4 py-3 font-semibold text-gray-900">EQU Yağ Çözücü</td>
+              <td class="px-4 py-3 text-gray-700">Ocak, davlumbaz ve zeminler</td>
+              <td class="px-4 py-3 text-gray-700">1 L sprey, 5 L konsantre</td>
+              <td class="px-4 py-3 text-gray-700">Alkali, yüksek yağ çözücü</td>
+              <td class="px-4 py-3 text-gray-700">Sıcak yüzeylere uygulanabilir</td>
+            </tr>
+            <tr>
+              <td class="px-4 py-3 font-semibold text-gray-900">HYP Ekstra</td>
+              <td class="px-4 py-3 text-gray-700">Zemin, lavabo ve drenaj dezenfeksiyonu</td>
+              <td class="px-4 py-3 text-gray-700">4 kg jel, 20 kg varil</td>
+              <td class="px-4 py-3 text-gray-700">Klor bazlı, yoğun kıvamlı</td>
+              <td class="px-4 py-3 text-gray-700">Koku giderme ve beyazlatma</td>
+            </tr>
+            <tr>
+              <td class="px-4 py-3 font-semibold text-gray-900">Hijyenik Durulama Katkısı</td>
+              <td class="px-4 py-3 text-gray-700">Endüstriyel bulaşık makinesi</td>
+              <td class="px-4 py-3 text-gray-700">20 L drum</td>
+              <td class="px-4 py-3 text-gray-700">Asidik, su lekesi önleyici</td>
+              <td class="px-4 py-3 text-gray-700">Parlatıcı etkisiyle camlarda iz bırakmaz</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-xs text-gray-500">Dozaj pompaları ve kullanım talimatları kurulum sırasında sahada teslim edilir.</p>
+    </section>
+
+    <section class="space-y-6">
+      <div class="space-y-2">
+        <h2 class="text-2xl font-semibold text-[#c50000]">Çamaşırhane ve Oda Bakım Programı</h2>
+        <p class="text-gray-600 text-sm md:text-base">Housekeeping ekipleriniz için hijyen süreçlerini standartlaştıran ürün gamı ve servis desteği.</p>
+      </div>
+      <div class="grid gap-6 md:grid-cols-3">
+        <div class="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm">
+          <h3 class="text-lg font-semibold text-gray-900 mb-2">Çamaşır Deterjanları</h3>
+          <p class="text-gray-600 text-sm">Renkli ve beyaz çamaşırlar için ayrı formüller, otomatik dozaj sistemine uyumlu.</p>
+        </div>
+        <div class="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm">
+          <h3 class="text-lg font-semibold text-gray-900 mb-2">Leke Çıkarıcı Ajanlar</h3>
+          <p class="text-gray-600 text-sm">Protein, yağ ve pigment lekelerinde hedefe yönelik çözümler, düşük dozajda yüksek performans.</p>
+        </div>
+        <div class="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm">
+          <h3 class="text-lg font-semibold text-gray-900 mb-2">Oda Spreyleri &amp; Dezenfektanlar</h3>
+          <p class="text-gray-600 text-sm">Misafir odalarında kalıcı tazelik sağlayan, yüzeye zarar vermeyen dezenfektan seçenekleri.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="bg-red-50 border border-red-200 rounded-2xl p-6 md:flex md:items-center md:justify-between gap-6">
+      <div class="space-y-2">
+        <h3 class="text-xl font-semibold text-[#c50000]">Temizlik planınızı birlikte kurgulayalım</h3>
+        <p class="text-gray-600 text-sm md:text-base">
+          İşletmenize özel dozaj şemaları, numune ürünler ve personel eğitimleri için satış ekibimizle iletişime geçin.
+          Yoğun kullanım alanlarında tüketimi optimize eden raporlama desteği sunuyoruz.
+        </p>
+      </div>
+      <div class="flex flex-col sm:flex-row sm:items-center gap-3 text-sm font-semibold text-[#c50000]">
+        <a class="inline-flex items-center justify-center rounded-full border border-[#c50000] px-5 py-2 bg-white hover:bg-[#c50000] hover:text-white transition" href="tel:+905541406565">0554 140 65 65</a>
+        <a class="inline-flex items-center justify-center rounded-full border border-[#c50000] px-5 py-2 bg-white hover:bg-[#c50000] hover:text-white transition" href="mailto:dogan@masterhijyen.com">dogan@masterhijyen.com</a>
       </div>
     </div>
-  </div>
-
-  <!-- KLOZET VE PİSUVAR -->
-  <div class="space-y-6">
-    <img src="https://via.placeholder.com/600x200?text=Klozet+ve+Pisuvar+Temizleyici" alt="Klozet ve Pisuvar" class="mx-auto rounded shadow-lg">
-    <h2 class="text-3xl font-bold text-[#c50000]">KLOZET VE PİSUVAR İÇİ TEMİZLEME MADDESİ</h2>
-    <p class="text-gray-700 max-w-4xl mx-auto">
-      Klozet ve pisuvar içinde oluşmuş pas, kireç, üre taş tabakalarını temizlemek için kullanılır.
-      Ultra kıvam sayesinde dik yüzeylere kolayca yapışır. Ağır idrar kokusunu bloke eder ve hoş bir çam kokusuna sahiptir.
-    </p>
-
-    <div class="overflow-x-auto flex justify-center">
-      <table class="text-sm text-left text-gray-600 border border-gray-300 shadow-lg">
-        <thead class="bg-gray-100 text-gray-800 text-center">
-          <tr>
-            <th class="px-6 py-3">ÜRÜN KODU</th>
-            <th class="px-6 py-3">AMBALAJ TÜRÜ</th>
-            <th class="px-6 py-3">NET AĞIRLIK</th>
-            <th class="px-6 py-3">PAKET-BİRİM</th>
-          </tr>
-        </thead>
-        <tbody class="text-center">
-          <tr class="border-t">
-            <td class="px-6 py-3">R-8203</td>
-            <td class="px-6 py-3">1 Lt Bidon</td>
-            <td class="px-6 py-3">1.00 kg</td>
-            <td class="px-6 py-3">12 Adet Karton İçinde</td>
-          </tr>
-          <tr class="border-t">
-            <td class="px-6 py-3">R-8103</td>
-            <td class="px-6 py-3">5 Lt Bidon</td>
-            <td class="px-6 py-3">5.00 kg</td>
-            <td class="px-6 py-3">4 Adet Karton İçinde</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-
-  <!-- Mineralli Sıvı Ovma -->
-  <div class="space-y-6">
-    <img src="https://via.placeholder.com/600x200?text=Mineralli+Sıvı+Ovma" alt="Mineralli Ovma" class="mx-auto rounded shadow-lg">
-    <h2 class="text-3xl font-bold text-[#c50000]">MİNERALLİ SIVI OVMA MADDESİ</h2>
-    <p class="text-gray-700 max-w-4xl mx-auto">
-      Kremlidir, iki kat daha yoğun formülüyle en inatçı lekeleri kolayca temizler. Ayrıca durulaması kolaydır.
-      Yenilenen özel kremi sayesinde emaye, plastik, boyalı yüzeyler, seramik, porselen, alüminyum ve krom gibi tüm yüzeylerde güvenle kullanılabilir.
-      Diğer sıradan kremler gibi yüzeye zarar vermez.
-    </p>
-
-    <div class="overflow-x-auto flex justify-center">
-      <table class="text-sm text-left text-gray-600 border border-gray-300 shadow-lg">
-        <thead class="bg-gray-100 text-gray-800 text-center">
-          <tr>
-            <th class="px-6 py-3">ÜRÜN KODU</th>
-            <th class="px-6 py-3">AMBALAJ TÜRÜ</th>
-            <th class="px-6 py-3">NET AĞIRLIK</th>
-            <th class="px-6 py-3">PAKET-BİRİM</th>
-          </tr>
-        </thead>
-        <tbody class="text-center">
-          <tr class="border-t">
-            <td class="px-6 py-3">R-8119</td>
-            <td class="px-6 py-3">5 Lt Bidon</td>
-            <td class="px-6 py-3">5.00 kg</td>
-            <td class="px-6 py-3">4 Adet Karton İçinde</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-
-</section>
-
-
-  </div>
-</section>
-
-  <div class="container mx-auto px-4">
-    <!-- 🔽 Buraya her sayfa için özel içerik gelecek -->
-     
   </div>
 </main>
 
-<!-- Footer -->
 <footer class="bg-[#c50000] text-white py-12 mt-16">
   <div class="container mx-auto px-4">
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
       <div>
-        <img src="https://cdn.egegorsel.com/ege-hijyen-logo-white.png" alt="Master Hijyen Logo" class="h-12 mb-4">
-        <p class="text-sm">Kaliteli ve güvenilir temizlik malzemeleriyle hijyenik çözümler sunuyoruz</p>
+        <img src="assets/images/masterlogo.png" alt="Master Hijyen Logo" class="h-12 mb-4" />
+        <p class="text-sm">Temizlik ve hijyen ürünlerinde profesyonel çözümler sunuyoruz.</p>
       </div>
       <div class="grid grid-cols-2 gap-4 text-sm">
         <div>
           <h3 class="font-semibold mb-2">Kategorilerimiz</h3>
           <ul class="space-y-2">
-  <li>
-    <a class="block px-4 py-2 text-sm text-white hover:bg-gray-300" href="hijyensanayigrubu.html">
-      Hijyen Sanayi Grubu
-    </a>
-  </li>
-  <li>
-    <a class="block px-4 py-2 text-sm text-white hover:bg-gray-300" href="temizlikurunlerigrubu.html">
-      Temizlik Ürünleri Grubu
-    </a>
-  </li>
-  <li>
-    <a class="block px-4 py-2 text-sm text-white hover:bg-gray-300" href="kagıtsanayi.html">
-      Kağıt Sanayi Grubu
-    </a>
-  </li>
-  <li>
-    <a class="block px-4 py-2 text-sm text-white hover:bg-gray-300" href="kisiselhijyen.html">
-      Kişisel Hijyen
-    </a>
-  </li>
-  <li>
-    <a class="block px-4 py-2 text-sm text-white hover:bg-gray-300" href="gida.html">
-      Gıda Grubu
-    </a>
-  </li>
-  <li>
-    <a class="block px-4 py-2 text-sm text-white hover:bg-gray-300" href="profhijyen.html">
-      Profesyonel Hijyen Ekipmanları
-    </a>
-  </li>
-</ul>
-
+            <li><a class="hover:underline" href="hijyensanayigrubu.html">Hijyen Sanayi Grubu</a></li>
+            <li><a class="hover:underline" href="temizlikurunlerigrubu.html">Temizlik Ürünleri Grubu</a></li>
+            <li><a class="hover:underline" href="kagit.html">Kağıt Sanayi Grubu</a></li>
+            <li><a class="hover:underline" href="kisiselhijyen.html">Kişisel Hijyen</a></li>
+            <li><a class="hover:underline" href="gida.html">Gıda Grubu</a></li>
+            <li><a class="hover:underline" href="profhijyen.html">Profesyonel Hijyen Ekipmanları</a></li>
+          </ul>
         </div>
         <div>
           <h3 class="font-semibold mb-2">Kurumsal</h3>
           <ul class="space-y-1">
-            <li><a href="#" class="hover:underline">Hakkımızda</a></li>
-            <li><a href="#" class="hover:underline">İletişim</a></li>
-            <li><a href="#" class="hover:underline">Blog</a></li>
+            <li><a class="hover:underline" href="hakkimizda.html">Hakkımızda</a></li>
+            <li><a class="hover:underline" href="iletisim.html">İletişim</a></li>
+            <li><a class="hover:underline" href="#">Blog</a></li>
           </ul>
         </div>
       </div>
-      <div class="text-center md:text-right">
-        <p class="text-3xl font-bold">4,5<span class="text-lg">/5</span></p>
-        <div class="text-yellow-400 mb-2">★ ★ ★ ★ ☆</div>
-        <a href="#" class="inline-block border border-white text-white px-4 py-2 rounded-full text-sm hover:bg-white hover:text-[#c50000] transition">
-          Hemen Değerlendir
-        </a>
+      <div class="text-center md:text-right space-y-2">
+        <p class="text-3xl font-bold">4,6<span class="text-lg">/5</span></p>
+        <div class="text-yellow-400">★ ★ ★ ★ ☆</div>
+        <a href="iletisim.html" class="inline-block border border-white text-white px-4 py-2 rounded-full text-sm hover:bg-white hover:text-[#c50000] transition">Hemen Değerlendir</a>
       </div>
     </div>
     <div class="border-t border-white border-opacity-30 mt-8 pt-4 text-center text-sm">
@@ -300,14 +322,14 @@
   </div>
 </footer>
 
-<!-- Sabit iletişim butonları (mevcut kodundaki) -->
 <div class="contact-fab group fixed bottom-5 right-5 z-50">
   <div class="flex space-x-2 items-center bg-gray-800 text-white px-4 py-2 rounded-full shadow-lg">
-    <a href="#" class="material-icons">call</a>
-    <a href="#" class="material-icons">whatsapp</a>
-    <a href="#" class="material-icons">email</a>
+    <a href="tel:+905541406565" class="material-icons" aria-label="Telefon ile ara">call</a>
+    <a href="https://wa.me/905541406565" class="material-icons" aria-label="WhatsApp üzerinden iletişim">whatsapp</a>
+    <a href="mailto:dogan@masterhijyen.com" class="material-icons" aria-label="E-posta gönder">email</a>
   </div>
 </div>
+
 <script src="main.js"></script>
 </body>
 </html>
