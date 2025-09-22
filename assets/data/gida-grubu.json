@@ -1,87 +1,57 @@
 [
   {
-    "isim": "IRMAK TEK SARGILI KÜP ŞEKER",
-    "kategori": "Şeker Ürünleri",
+    "kod": "BHR-KRB 1000",
+    "isim": "BAHARAT KARABİBER (1000 ADET)",
+    "bilgi": "0,5 GR",
+    "birim": "KOLİ",
+    "kdv": "1%",
+    "fiyat": null,
+    "kategori": "Baharat Çözümleri",
+    "grup": "Gıda Grubu",
     "resim": null
   },
   {
-    "isim": "SARGILI KÜP ŞEKER",
-    "kategori": "Şeker Ürünleri",
+    "kod": "BHR-PUL 1000",
+    "isim": "BAHARAT PULBİBER (1000 ADET)",
+    "bilgi": "0,5 GR",
+    "birim": "KOLİ",
+    "kdv": "1%",
+    "fiyat": null,
+    "kategori": "Baharat Çözümleri",
+    "grup": "Gıda Grubu",
     "resim": null
   },
   {
-    "isim": "BEYAZ STİCK TOZ ŞEKER ( 4 gr x 1000 )",
-    "kategori": "Şeker Ürünleri",
+    "kod": "BHR-TUZ 24",
+    "isim": "BAHARAT TUZ (24 PAKET)",
+    "bilgi": "800 GR",
+    "birim": "KOLİ",
+    "kdv": "1%",
+    "fiyat": null,
+    "kategori": "Şeker & Tuz Ürünleri",
+    "grup": "Gıda Grubu",
     "resim": null
   },
   {
-    "isim": "COFFE TİME FİLTRE KAHVE KAĞIDI NO:4",
-    "kategori": "Kahveler",
+    "kod": "BHR-ŞKRKÜP 5",
+    "isim": "BAHARAT ŞEKER KÜP (5 KG)",
+    "bilgi": "3 GR",
+    "birim": "KOLİ",
+    "kdv": "1%",
+    "fiyat": null,
+    "kategori": "Şeker & Tuz Ürünleri",
+    "grup": "Gıda Grubu",
     "resim": null
   },
   {
-    "isim": "FİLTRE KAHVE COLOMBİA",
-    "kategori": "Kahveler",
-    "resim": null
-  },
-  {
-    "isim": "ÇAYKUR TİRYAKİ DÖKME ÇAY 1KG",
-    "kategori": "Çaylar",
-    "resim": null
-  },
-  {
-    "isim": "ÇAYKUR TİRYAKİ DÖKME ÇAY 2KG",
-    "kategori": "Çaylar",
-    "resim": null
-  },
-  {
-    "isim": "ÇAYKUR TOMURCUK ÇAY 125 gr",
-    "kategori": "Çaylar",
-    "resim": null
-  },
-  {
-    "isim": "DOĞUŞ TİRYAKİ DÖKME ÇAY",
-    "kategori": "Çaylar",
-    "resim": null
-  },
-  {
-    "isim": "LİPTON DEMLİK YELLOW LABEL (100 AD. X320 GR )",
-    "kategori": "Çaylar",
-    "resim": null
-  },
-  {
-    "isim": "NESTLE COFFE MATE KAHVE BEYAZLATICI",
-    "kategori": "Kahveler",
-    "resim": null
-  },
-  {
-    "isim": "NESCAFE CLASSIC  ÇÖZÜNEBİLİR KAHVE",
-    "kategori": "Kahveler",
-    "resim": null
-  },
-  {
-    "isim": "NESCAFE CLASSIC ÇÖZÜNEBİLİR KAHVE",
-    "kategori": "Kahveler",
-    "resim": null
-  },
-  {
-    "isim": "NESCAFE GOLD ÇÖZÜNEBİLİR KAHVE",
-    "kategori": "Kahveler",
-    "resim": null
-  },
-  {
-    "isim": "NESTLE COFFE MATE (5 gr x100)",
-    "kategori": "Kahveler",
-    "resim": null
-  },
-  {
-    "isim": "MEHMET EFENDİ TÜRK KAHVESİ",
-    "kategori": "Kahveler",
-    "resim": null
-  },
-  {
-    "isim": "MEHMET EFENDİ TÜRK KAHVESİ (12 x6 gr)",
-    "kategori": "Kahveler",
+    "kod": "BHR-ŞKRSTC 1000",
+    "isim": "BAHARAT ŞEKER STİCK (1000 ADET)",
+    "bilgi": "3 GR",
+    "birim": "KOLİ",
+    "kdv": "1%",
+    "fiyat": null,
+    "kategori": "Şeker & Tuz Ürünleri",
+    "grup": "Gıda Grubu",
     "resim": null
   }
 ]
