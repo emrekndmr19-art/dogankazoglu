@@ -67,7 +67,6 @@
 <a class="nav-link" href="#">Blog</a>
 <a class="nav-link" href="iletisim.html">İletişim</a>
 </nav>
-      </nav>
       <div class="flex items-center space-x-4">
         <a class="hidden md:inline-block px-4 py-2 rounded-md border border-white text-white" href="https://masterhijyen.com/">E-KATALOG</a>
         <a class="hidden md:inline-block px-4 py-2 rounded-md bg-white text-[#c50000] font-semibold" href="#">İLETİŞİME GEÇ</a>
@@ -77,162 +76,37 @@
 </header>
 
 <!-- MAIN Content Area (Her sayfada burayı dolduracaksın) -->
-
-</div>
-<section class="container mx-auto px-4 py-12">
-  <h2 class="text-2xl font-semibold text-[#c50000] mb-8 border-b pb-2 border-red-300">TEMİZLİK ÜRÜNLERİ GRUBU</h2>
-  <div class="grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-8">
-    
-    <!-- Ürün Kartı -->
-    <div class="border rounded-lg p-4 shadow-sm hover:shadow-md transition">
-      <img src="equinox.jpg" alt="Equinox Hijyenik Elde Bulaşık Yıkama" class="h-32 object-contain mb-2 mx-auto">
-      <h3 class="font-bold text-sm">EQUINOX</h3>
-      <p class="text-gray-600 text-sm">Hijyenik elde bulaşık yıkama deterjanı</p>
+<main class="min-h-[400px] py-12">
+  <div class="container mx-auto px-4 space-y-12">
+    <div class="max-w-3xl mx-auto text-center space-y-4">
+      <span class="inline-flex items-center justify-center rounded-full bg-red-100 text-[#c50000] px-3 py-1 text-sm font-medium">Profesyonel temizlik destekleri</span>
+      <h1 class="text-3xl md:text-4xl font-bold text-gray-900">Temizlik Ürünleri Grubu</h1>
+      <p class="text-gray-600 text-sm md:text-base">
+        Zemin bakımı, yüzey temizliği ve dezenfeksiyon ihtiyaçlarını karşılayan endüstriyel temizlik ürünleri için veri altyapısı sunar.
+      </p>
     </div>
 
-    <div class="border rounded-lg p-4 shadow-sm hover:shadow-md transition">
-      <img src="equ.jpg" alt="EQU Yağ ve Kir Çözücü Köpüklü Sıvı" class="h-32 object-contain mb-2 mx-auto">
-      <h3 class="font-bold text-sm">EQU</h3>
-      <p class="text-gray-600 text-sm">Yağ ve kir çözücü köpüklü sıvı</p>
-    </div>
-
-    <div class="border rounded-lg p-4 shadow-sm hover:shadow-md transition">
-      <img src="angel-flora.jpg" alt="Angel Flora Parfümlü Yüzey Temizleyici" class="h-32 object-contain mb-2 mx-auto">
-      <h3 class="font-bold text-sm">ANGEL FLORA</h3>
-      <p class="text-gray-600 text-sm">Parfümlü yüzey temizleyici</p>
-    </div>
-
-    <div class="border rounded-lg p-4 shadow-sm hover:shadow-md transition">
-      <img src="hyp-ekstra.jpg" alt="HYP Ekstra Ultra Kıvamlı Çamaşır Suyu" class="h-32 object-contain mb-2 mx-auto">
-      <h3 class="font-bold text-sm">HYP EKSTRA</h3>
-      <p class="text-gray-600 text-sm">Ultra kıvamlı çamaşır suyu</p>
-    </div>
-
-    <div class="border rounded-lg p-4 shadow-sm hover:shadow-md transition">
-      <img src="hyp.jpg" alt="HYP Çamaşır Suyu" class="h-32 object-contain mb-2 mx-auto">
-      <h3 class="font-bold text-sm">HYP</h3>
-      <p class="text-gray-600 text-sm">Çamaşır suyu</p>
-    </div>
-
-    <div class="border rounded-lg p-4 shadow-sm hover:shadow-md transition">
-      <img src="min.jpg" alt="MIN Mineralli Sıvı Ovma" class="h-32 object-contain mb-2 mx-auto">
-      <h3 class="font-bold text-sm">MIN</h3>
-      <p class="text-gray-600 text-sm">Mineralli sıvı ovma maddesi</p>
-    </div>
-
-    <section class="container mx-auto px-4 py-12 space-y-20 text-center">
-
-  <!-- BEYAZ SABUN KOKULU -->
-  <div class="space-y-6">
-    <img src="https://via.placeholder.com/600x200?text=Beyaz+Sabun+Kokulu+Temizlik" alt="Beyaz Sabun Kokulu" class="mx-auto rounded shadow-lg">
-    <h2 class="text-3xl font-bold text-[#c50000]">BEYAZ SABUN KOKULU YÜZEY TEMİZLİK</h2>
-    <p class="text-gray-700 max-w-4xl mx-auto">
-      Tüm yıkanabilen ve silinebilen yüzeylerin genel temizliğinde kullanılır. Yüksek parfümlü ve hoş kokuludur.
-      Yüzeyleri çizmeden temizler ve temizlik sonrası durulama gerektirmez.
-    </p>
-
-    <div class="flex flex-wrap justify-center gap-6 pt-4">
-      <div>
-        <img src="https://via.placeholder.com/100x150?text=1L" class="mx-auto h-28" alt="T-101">
-        <p class="mt-1 font-semibold">1 LT<br><span class="text-gray-600">T-101</span></p>
+    <section
+      class="space-y-6"
+      data-category-root
+      data-category-json="assets/data/temizlik-urunleri.json"
+      data-empty-message="Temizlik ürünleri katalog güncellemesi hazırlanıyor."
+    >
+      <div class="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+        <div class="space-y-2">
+          <h2 class="text-2xl font-semibold text-[#c50000]">Ürün Listesi</h2>
+          <p class="text-gray-600 text-sm md:text-base">
+            Temizlik kimyasalı ve yardımcı ürün kartları, görsel alanları korunarak otomatik listelenir.
+          </p>
+        </div>
+        <p class="text-sm text-gray-500 font-medium" data-product-count></p>
       </div>
-      <div>
-        <img src="https://via.placeholder.com/100x150?text=2.5L" class="mx-auto h-28" alt="T-102">
-        <p class="mt-1 font-semibold">2.5 LT<br><span class="text-gray-600">T-102</span></p>
-      </div>
-      <div>
-        <img src="https://via.placeholder.com/100x150?text=5L" class="mx-auto h-28" alt="T-103">
-        <p class="mt-1 font-semibold">5 LT<br><span class="text-gray-600">T-103</span></p>
-      </div>
-      <div>
-        <img src="https://via.placeholder.com/100x150?text=20L" class="mx-auto h-28" alt="T-104">
-        <p class="mt-1 font-semibold">20 LT<br><span class="text-gray-600">T-104</span></p>
-      </div>
-    </div>
-  </div>
 
-  <!-- KLOZET VE PİSUVAR -->
-  <div class="space-y-6">
-    <img src="https://via.placeholder.com/600x200?text=Klozet+ve+Pisuvar+Temizleyici" alt="Klozet ve Pisuvar" class="mx-auto rounded shadow-lg">
-    <h2 class="text-3xl font-bold text-[#c50000]">KLOZET VE PİSUVAR İÇİ TEMİZLEME MADDESİ</h2>
-    <p class="text-gray-700 max-w-4xl mx-auto">
-      Klozet ve pisuvar içinde oluşmuş pas, kireç, üre taş tabakalarını temizlemek için kullanılır.
-      Ultra kıvam sayesinde dik yüzeylere kolayca yapışır. Ağır idrar kokusunu bloke eder ve hoş bir çam kokusuna sahiptir.
-    </p>
-
-    <div class="overflow-x-auto flex justify-center">
-      <table class="text-sm text-left text-gray-600 border border-gray-300 shadow-lg">
-        <thead class="bg-gray-100 text-gray-800 text-center">
-          <tr>
-            <th class="px-6 py-3">ÜRÜN KODU</th>
-            <th class="px-6 py-3">AMBALAJ TÜRÜ</th>
-            <th class="px-6 py-3">NET AĞIRLIK</th>
-            <th class="px-6 py-3">PAKET-BİRİM</th>
-          </tr>
-        </thead>
-        <tbody class="text-center">
-          <tr class="border-t">
-            <td class="px-6 py-3">R-8203</td>
-            <td class="px-6 py-3">1 Lt Bidon</td>
-            <td class="px-6 py-3">1.00 kg</td>
-            <td class="px-6 py-3">12 Adet Karton İçinde</td>
-          </tr>
-          <tr class="border-t">
-            <td class="px-6 py-3">R-8103</td>
-            <td class="px-6 py-3">5 Lt Bidon</td>
-            <td class="px-6 py-3">5.00 kg</td>
-            <td class="px-6 py-3">4 Adet Karton İçinde</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-
-  <!-- Mineralli Sıvı Ovma -->
-  <div class="space-y-6">
-    <img src="https://via.placeholder.com/600x200?text=Mineralli+Sıvı+Ovma" alt="Mineralli Ovma" class="mx-auto rounded shadow-lg">
-    <h2 class="text-3xl font-bold text-[#c50000]">MİNERALLİ SIVI OVMA MADDESİ</h2>
-    <p class="text-gray-700 max-w-4xl mx-auto">
-      Kremlidir, iki kat daha yoğun formülüyle en inatçı lekeleri kolayca temizler. Ayrıca durulaması kolaydır.
-      Yenilenen özel kremi sayesinde emaye, plastik, boyalı yüzeyler, seramik, porselen, alüminyum ve krom gibi tüm yüzeylerde güvenle kullanılabilir.
-      Diğer sıradan kremler gibi yüzeye zarar vermez.
-    </p>
-
-    <div class="overflow-x-auto flex justify-center">
-      <table class="text-sm text-left text-gray-600 border border-gray-300 shadow-lg">
-        <thead class="bg-gray-100 text-gray-800 text-center">
-          <tr>
-            <th class="px-6 py-3">ÜRÜN KODU</th>
-            <th class="px-6 py-3">AMBALAJ TÜRÜ</th>
-            <th class="px-6 py-3">NET AĞIRLIK</th>
-            <th class="px-6 py-3">PAKET-BİRİM</th>
-          </tr>
-        </thead>
-        <tbody class="text-center">
-          <tr class="border-t">
-            <td class="px-6 py-3">R-8119</td>
-            <td class="px-6 py-3">5 Lt Bidon</td>
-            <td class="px-6 py-3">5.00 kg</td>
-            <td class="px-6 py-3">4 Adet Karton İçinde</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-
-</section>
-
-
-  </div>
-</section>
-
-  <div class="container mx-auto px-4">
-    <!-- 🔽 Buraya her sayfa için özel içerik gelecek -->
-     
+      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3" data-category-grid></div>
+      <p class="text-sm text-gray-500" data-empty-state hidden></p>
+    </section>
   </div>
 </main>
-
-<!-- Footer -->
 <footer class="bg-[#c50000] text-white py-12 mt-16">
   <div class="container mx-auto px-4">
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -255,7 +129,7 @@
     </a>
   </li>
   <li>
-    <a class="block px-4 py-2 text-sm text-white hover:bg-gray-300" href="kagıtsanayi.html">
+    <a class="block px-4 py-2 text-sm text-white hover:bg-gray-300" href="kagit.html">
       Kağıt Sanayi Grubu
     </a>
   </li>
@@ -309,5 +183,6 @@
   </div>
 </div>
 <script src="main.js"></script>
+<script src="assets/js/category.js"></script>
 </body>
 </html>

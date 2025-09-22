@@ -58,7 +58,7 @@
 <div class="absolute hidden group-hover:block bg-white shadow-lg rounded-md mt-2 py-2 w-48 z-20">
 <a class="block px-4 py-2 text-sm text-black hover:bg-gray-100" href="hijyensanayigrubu.html">Hijyen Sanayi Grubu</a>
 <a class="block px-4 py-2 text-sm text-black hover:bg-gray-100" href="temizlikurunlerigrubu.html">Temizlik Ürünleri Grubu</a>
-<a class="block px-4 py-2 text-sm text-black hover:bg-gray-100" href="kagitsanayi.html">Kağıt Sanayi Grubu</a>
+<a class="block px-4 py-2 text-sm text-black hover:bg-gray-100" href="kagit.html">Kağıt Sanayi Grubu</a>
 <a class="block px-4 py-2 text-sm text-black hover:bg-gray-100" href="kisiselhijyen.html">Kişisel Hijyen</a>
 <a class="block px-4 py-2 text-sm text-black hover:bg-gray-100" href="gida.html">Gıda Grubu</a>
 <a class="block px-4 py-2 text-sm text-black hover:bg-gray-100" href="profhijyen.html">Profesyonel Hijyen Ekipmanları</a>
@@ -77,146 +77,34 @@
 
 <!-- MAIN Content Area (Her sayfada burayı dolduracaksın) -->
 <main class="min-h-[400px] py-12">
-  <div class="container mx-auto px-4">
-    <!-- 🔽 Buraya her sayfa için özel içerik gelecek -->
-     <!DOCTYPE html>
-<html lang="tr">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hijyen Sanayi Grubu</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      background-color: #fff;
-      color: #111;
-    }
-
-    main {
-      padding: 40px 20px;
-      max-width: 1200px;
-      margin: auto;
-    }
-
-    .title {
-      text-align: center;
-      font-size: 2.5rem;
-      font-weight: bold;
-      color: #ef4444; /* red-500 */
-      margin-bottom: 40px;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 30px;
-    }
-
-    .card {
-      border: 2px solid #111;
-      border-radius: 10px;
-      padding: 16px;
-      text-align: center;
-      background-color: #f9f9f9;
-      transition: transform 0.3s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
-    }
-
-    .card img {
-      width: 100%;
-      height: 180px;
-      object-fit: contain;
-      background-color: #e5e5e5;
-      border-radius: 6px;
-      margin-bottom: 12px;
-    }
-
-    .card-title {
-      font-weight: bold;
-      color: #111;
-      font-size: 1.1rem;
-    }
-
-    .subtext {
-      font-size: 0.9rem;
-      color: #333;
-      margin-top: 6px;
-    }
-  </style>
-</head>
-<body>
-
-<main>
-  <div class="title">HİJYEN SANAYİ GRUBU</div>
-  
-  <div class="grid">
-    
-    <div class="card">
-      <img src="placeholder1.jpg" alt="Beyaz Latex Eldiven">
-      <div class="card-title">BEYAZ LATEX ELDİVEN</div>
+  <div class="container mx-auto px-4 space-y-12">
+    <div class="max-w-3xl mx-auto text-center space-y-4">
+      <span class="inline-flex items-center justify-center rounded-full bg-red-100 text-[#c50000] px-3 py-1 text-sm font-medium">Endüstriyel hijyen çözümleri</span>
+      <h1 class="text-3xl md:text-4xl font-bold text-gray-900">Hijyen Sanayi Grubu</h1>
+      <p class="text-gray-600 text-sm md:text-base">
+        Üretim hatları ve profesyonel hizmet alanları için gerekli hijyen ekipmanlarını standartlara uygun şekilde planlamanıza yardımcı olur.
+      </p>
     </div>
 
-    <div class="card">
-      <img src="placeholder2.jpg" alt="Mavi Nitril Eldiven">
-      <div class="card-title">MAVİ NİTRİL ELDİVEN</div>
-    </div>
+    <section
+      class="space-y-6"
+      data-category-root
+      data-category-json="assets/data/hijyen-sanayi.json"
+      data-empty-message="Hijyen sanayi ürünleri kısa süre içinde eklenecektir."
+    >
+      <div class="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+        <div class="space-y-2">
+          <h2 class="text-2xl font-semibold text-[#c50000]">Ürün Listesi</h2>
+          <p class="text-gray-600 text-sm md:text-base">
+            CSV verilerinden hazırlanan ürün listesi, fotoğraf alanları boş bırakılarak kolay güncelleme yapılmasına uygundur.
+          </p>
+        </div>
+        <p class="text-sm text-gray-500 font-medium" data-product-count></p>
+      </div>
 
-    <div class="card">
-      <img src="placeholder3.jpg" alt="Siyah Nitril Eldiven">
-      <div class="card-title">SİYAH NİTRİL ELDİVEN</div>
-    </div>
-
-    <div class="card">
-      <img src="placeholder4.jpg" alt="Yeşil Nitril Eldiven">
-      <div class="card-title">YEŞİL NİTRİL ELDİVEN</div>
-    </div>
-
-    <div class="card">
-      <img src="placeholder5.jpg" alt="Mob Grubu">
-      <div class="card-title">MOB GRUBU</div>
-    </div>
-
-    <div class="card">
-      <img src="placeholder6.jpg" alt="Temizlik Arabaları">
-      <div class="card-title">TEMİZLİK ARABALARI</div>
-    </div>
-
-    <div class="card">
-      <img src="placeholder7.jpg" alt="Mikrofiber Bezler">
-      <div class="card-title">MİKROFİBER BEZLER</div>
-    </div>
-
-    <div class="card">
-      <img src="placeholder8.jpg" alt="Fırça ve Süpürge">
-      <div class="card-title">FIRÇA & SÜPÜRGE</div>
-    </div>
-
-    <div class="card">
-      <img src="placeholder9.jpg" alt="Çöp Torbaları">
-      <div class="card-title">ÇÖP TORBALARI</div>
-    </div>
-
-    <div class="card">
-      <img src="placeholder10.jpg" alt="Karton Bardaklar">
-      <div class="card-title">KARTON BARDAKLAR</div>
-      <div class="subtext">4 Oz, 7 Oz, 12 Oz <br> Renk ve desen seçenekli</div>
-    </div>
-
-    <div class="card">
-      <img src="placeholder11.jpg" alt="Tahta Karıştırıcı">
-      <div class="card-title">TAHTA KARIŞTIRICI</div>
-    </div>
-
-  </div>
-</main>
-
-</body>
-</html>
-
+      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3" data-category-grid></div>
+      <p class="text-sm text-gray-500" data-empty-state hidden></p>
+    </section>
   </div>
 </main>
 
@@ -243,7 +131,7 @@
     </a>
   </li>
   <li>
-    <a class="block px-4 py-2 text-sm text-white hover:bg-gray-300" href="kagıtsanayi.html">
+    <a class="block px-4 py-2 text-sm text-white hover:bg-gray-300" href="kagit.html">
       Kağıt Sanayi Grubu
     </a>
   </li>
@@ -297,5 +185,6 @@
   </div>
 </div>
 <script src="main.js"></script>
+<script src="assets/js/category.js"></script>
 </body>
 </html>
