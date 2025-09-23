@@ -44,6 +44,40 @@
       contentWrapper.appendChild(badge);
     }
 
+    if (product && product.kod) {
+      const code = document.createElement('p');
+      code.className = 'text-sm text-gray-500';
+      code.textContent = `Ürün Kodu: ${product.kod}`;
+      contentWrapper.appendChild(code);
+    }
+
+    if (product && product.bilgi) {
+      const details = document.createElement('p');
+      details.className = 'text-sm text-gray-600';
+      details.textContent = product.bilgi;
+      contentWrapper.appendChild(details);
+    }
+
+    if (product) {
+      const metaItems = [];
+      if (product.birim) {
+        metaItems.push(`Birim: ${product.birim}`);
+      }
+      if (product.kdv) {
+        metaItems.push(`KDV: ${product.kdv}`);
+      }
+      if (product.fiyat) {
+        metaItems.push(`Fiyat: ${product.fiyat}`);
+      }
+
+      if (metaItems.length > 0) {
+        const meta = document.createElement('p');
+        meta.className = 'text-xs text-gray-400';
+        meta.textContent = metaItems.join(' • ');
+        contentWrapper.appendChild(meta);
+      }
+    }
+
     card.appendChild(mediaWrapper);
     card.appendChild(contentWrapper);
 

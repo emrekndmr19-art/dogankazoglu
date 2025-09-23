@@ -1,0 +1,35 @@
+[
+  {
+    "kod": "KĞT.FTK-A4 2500",
+    "isim": "KAĞIT A4 FOTOKOPİ (500 ADET X 5 PAKET)",
+    "bilgi": "BASKISIZ",
+    "birim": "KOLİ",
+    "kdv": "10%",
+    "fiyat": null,
+    "kategori": "Genel Ürünler",
+    "grup": "Kırtasiye Grubu",
+    "resim": null
+  },
+  {
+    "kod": "KĞT.RLO-KASA 270",
+    "isim": "KAĞIT RULO KASA 80 MM X 30 METRE (10 ADET X 27 PAKET)",
+    "bilgi": "BASKISIZ",
+    "birim": "KOLİ",
+    "kdv": "20%",
+    "fiyat": null,
+    "kategori": "Genel Ürünler",
+    "grup": "Kırtasiye Grubu",
+    "resim": null
+  },
+  {
+    "kod": "KĞT.RLO-POS 600",
+    "isim": "KAĞIT RULO POS 56 MM X 14 METRE (10 ADET X 60 PAKET)",
+    "bilgi": "BASKISIZ",
+    "birim": "KOLİ",
+    "kdv": "20%",
+    "fiyat": null,
+    "kategori": "Genel Ürünler",
+    "grup": "Kırtasiye Grubu",
+    "resim": null
+  }
+]

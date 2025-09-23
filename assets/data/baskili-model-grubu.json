@@ -1,0 +1,57 @@
+[
+  {
+    "kod": "KĞT.AMR-BYZ 500",
+    "isim": "KAĞIT AMERİKAN SERVİS BEYAZ 30 X 40 CM (500 ADET)",
+    "bilgi": "BASKILI",
+    "birim": "KOLİ",
+    "kdv": "20%",
+    "fiyat": null,
+    "kategori": "Genel Ürünler",
+    "grup": "Baskılı Model Grubu",
+    "resim": null
+  },
+  {
+    "kod": "KĞT.SFT-70.100 10",
+    "isim": "KAĞIT SÜLFİT 70 X 100 CM (10 KG)",
+    "bilgi": "BASKILI",
+    "birim": "KOLİ",
+    "kdv": "20%",
+    "fiyat": null,
+    "kategori": "Genel Ürünler",
+    "grup": "Baskılı Model Grubu",
+    "resim": null
+  },
+  {
+    "kod": "PŞT.BLK-BLI0 5000",
+    "isim": "POŞET BLOK BASKILI NO:0 (100 ADET X 50 PAKET)",
+    "bilgi": "20 X 30 CM / 7,9 KG",
+    "birim": "KOLİ",
+    "kdv": "20%",
+    "fiyat": null,
+    "kategori": "Kilitleme Poşetleri",
+    "grup": "Baskılı Model Grubu",
+    "resim": null
+  },
+  {
+    "kod": "PŞT.BLK-BLI1 5000",
+    "isim": "POŞET BLOK BASKILI NO:1 (100 ADET X 50 PAKET)",
+    "bilgi": "22 X 33 CM / 10,2 KG",
+    "birim": "KOLİ",
+    "kdv": "20%",
+    "fiyat": null,
+    "kategori": "Kilitleme Poşetleri",
+    "grup": "Baskılı Model Grubu",
+    "resim": null
+  },
+  {
+    "kod": "PŞT.BLK-BLI2 3000",
+    "isim": "POŞET BLOK BASKILI NO:2 (100 ADET X 30 PAKET)",
+    "bilgi": "26 X 38 CM / 8,3 KG",
+    "birim": "KOLİ",
+    "kdv": "20%",
+    "fiyat": null,
+    "kategori": "Kilitleme Poşetleri",
+    "grup": "Baskılı Model Grubu",
+    "resim": null
+  }
+]
