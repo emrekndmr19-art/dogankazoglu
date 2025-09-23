@@ -151,40 +151,46 @@ document.addEventListener('DOMContentLoaded', () => {
       keywords: ['ürünler', 'ürün', 'ürünlerimiz', 'katalog', 'ürün kataloğu', 'ürün listesi']
     },
     {
-      title: 'Hijyen Sanayi Grubu',
-      url: 'hijyensanayigrubu.html',
-      description: 'Endüstriyel hijyen çözümlerimizi inceleyin.',
-      keywords: ['hijyen sanayi', 'sanayi grubu', 'endüstriyel hijyen', 'sanayi ürünleri']
+      title: 'Kağıt Grubu',
+      url: 'kagit-grubu.html',
+      description: 'Kağıt havlu, peçete ve rulo çözümlerimizi keşfedin.',
+      keywords: ['kağıt', 'kagit', 'kağıt grubu', 'peçete', 'havlu']
     },
     {
-      title: 'Temizlik Ürünleri Grubu',
-      url: 'temizlikurunlerigrubu.html',
-      description: 'Profesyonel temizlik ürünlerimizi keşfedin.',
-      keywords: ['temizlik', 'temizlik ürünleri', 'temizlik grubu', 'profesyonel temizlik']
+      title: 'Plastik Grubu',
+      url: 'plastik-grubu.html',
+      description: 'Plastik bardak ve servis ekipmanlarımızı inceleyin.',
+      keywords: ['plastik', 'tek kullanımlık', 'plastik bardak', 'servis ürünleri']
     },
     {
-      title: 'Kağıt Sanayi Grubu',
-      url: 'kagit.html',
-      description: 'Kağıt ürünleri ve çözümlerimize göz atın.',
-      keywords: ['kağıt', 'kagit', 'kağıt sanayi', 'kâğıt ürünleri', 'peçete']
+      title: 'Kimyasal Grubu',
+      url: 'kimyasal-grubu.html',
+      description: 'Endüstriyel temizlik kimyasallarımızı görüntüleyin.',
+      keywords: ['kimyasal', 'temizlik kimyasalları', 'dezenfektan', 'sanayi kimyasalı']
     },
     {
-      title: 'Kişisel Hijyen',
-      url: 'kisiselhijyen.html',
-      description: 'Kişisel bakım ve hijyen ürünlerimizi görün.',
-      keywords: ['kişisel hijyen', 'kisisel hijyen', 'kişisel bakım', 'bakım ürünleri']
+      title: 'Ambalaj Grubu',
+      url: 'ambalaj-grubu.html',
+      description: 'Koli, streç film ve paketleme ürünlerini keşfedin.',
+      keywords: ['ambalaj', 'koli', 'streç film', 'paketleme']
     },
     {
       title: 'Gıda Grubu',
-      url: 'gida.html',
-      description: 'Gıda grubu ürünlerimizi keşfedin.',
-      keywords: ['gıda', 'gida', 'gıda grubu', 'gıda ürünleri', 'food']
+      url: 'gida-grubu.html',
+      description: 'İkram ve gıda ürünlerimizi inceleyin.',
+      keywords: ['gıda', 'gida', 'gıda grubu', 'ikram', 'kahve']
     },
     {
-      title: 'Profesyonel Hijyen Ekipmanları',
-      url: 'profhijyen.html',
-      description: 'Profesyonel kullanım için hijyen ekipmanları.',
-      keywords: ['profesyonel hijyen', 'hijyen ekipmanları', 'ekipman', 'profhijyen']
+      title: 'Kırtasiye Grubu',
+      url: 'kirtasiye-grubu.html',
+      description: 'Ofis kırtasiye ve sarf malzemelerimizi görün.',
+      keywords: ['kırtasiye', 'kirtasiye', 'ofis malzemeleri', 'kalem']
+    },
+    {
+      title: 'Baskılı Model Grubu',
+      url: 'baskili-model-grubu.html',
+      description: 'Özel baskılı bardak ve ambalaj seçeneklerini keşfedin.',
+      keywords: ['baskılı', 'baskili', 'özel baskı', 'kurumsal ambalaj']
     },
     {
       title: 'İletişim',
