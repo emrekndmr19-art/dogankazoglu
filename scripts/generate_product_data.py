@@ -16,29 +16,137 @@ CSV_PATHS = [
 ]
 OUTPUT_ALL = BASE_DIR / "urunler.json"
 
-GIDA_KEYWORDS = {
-    "ŞEKER",
-    "TUZ",
-    "BAHARAT",
+TURKISH_TRANSLATION_TABLE = str.maketrans("ÇĞİÖŞÜ", "CGIOSU")
+
+FOOD_PREFIXES = {"BHR", "CAY", "KHV", "SKR"}
+FOOD_KEYWORDS = {
     "KAHVE",
-    "COFFE",
-    "COFFEE",
-    "NESCAF",
     "NESCAFE",
+    "CAFE",
     "ÇAY",
-    "DOĞUŞ",
-    "DOGUS",
-    "LİPTON",
+    "CAY",
     "LIPTON",
-    "MATE",
+    "DOGUS",
+    "DOĞUŞ",
+    "BAHARAT",
+    "KARABIBER",
+    "PULBIBER",
+    "TUZ",
+    "SEKER",
+    "ŞEKER",
 }
-GIDA_CODE_PREFIXES = ("BHR", "ÇAY", "CAY", "KHV", "ŞKR", "SKR")
-KISISEL_KEYWORDS = {"ELDİVEN", "BONE", "GALOŞ", "KOLLUK", "MASK", "KOLONYA", "MENDİL", "LOSYON"}
-KISISEL_KMY_KEYWORDS = {"KOLONYA", "MENDİL"}
-PERSONAL_FROM_HJY = {"BONE", "KOLLUK", "GALOŞ"}
-HIJYEN_KEYWORDS = {"HAVLU", "TUVALET KAĞIDI", "PEÇETE"}
-TEMIZ_KEYWORDS = {"DETERJAN", "TEMİZLEYİCİ", "ÇÖZÜCÜ", "PARLATICI", "SABUN", "BLOK", "PARFÜMÜ", "YAĞ SÖKÜCÜ", "YUMUŞATICI"}
-PACKAGING_PREFIXES = {"KRT", "KĞT", "ALM", "PLS", "PŞT", "EKJ", "AHŞ", "SZD", "LST", "STR"}
+
+CHEMICAL_PREFIXES = {"KMY"}
+CHEMICAL_KEYWORDS = {
+    "DETERJAN",
+    "TEMIZLEYICI",
+    "TEMİZLEYİCİ",
+    "SABUN",
+    "PARLATICI",
+    "SOKUCU",
+    "SÖKÜCÜ",
+    "YUMUSATICI",
+    "YUMUŞATICI",
+    "PARFUM",
+    "PARFÜM",
+    "KIREC",
+    "KIREÇ",
+    "PAS",
+    "CAM",
+    "KREM",
+}
+
+PAPER_KEYWORDS = {
+    "HAVLU",
+    "PECETE",
+    "PEÇETE",
+    "TUVALET",
+    "KAGIDI",
+    "KAGIT",
+    "KAĞIT",
+    "DISPENSER",
+    "ICHTEN",
+    "ICTEN",
+    "JUMBO",
+}
+
+PLASTIC_PREFIXES = {"PLS", "ELD", "HJY", "APR", "EKJ"}
+PLASTIC_KEYWORDS = {
+    "PLASTIK",
+    "PLASTİK",
+    "ELDIVEN",
+    "ELDİVEN",
+    "PIPET",
+    "PİPET",
+    "SOS",
+    "BARDAK",
+    "TABAK",
+    "KASE",
+    "BONE",
+    "GALOŞ",
+    "GALOS",
+    "KOLLUK",
+    "MOP",
+    "KOVA",
+    "CEKPAS",
+    "ÇEKPAS",
+    "SAP",
+    "FIRCA",
+    "FIRÇA",
+    "APARAT",
+}
+
+PACKAGING_PREFIXES = {"PST", "ALM", "KRT", "STR", "LST", "BNT", "SZD", "AHS", "KRS"}
+PACKAGING_KEYWORDS = {
+    "POSET",
+    "POŞET",
+    "ALUMINYUM",
+    "ALÜMİNYUM",
+    "STREC",
+    "STREÇ",
+    "KILIT",
+    "KİLİT",
+    "SIZDIRMAZ",
+    "KUTU",
+    "TEPSI",
+    "TEPSİ",
+    "KAPAK",
+    "KAP",
+    "KASA",
+    "LASTIK",
+    "LASTİK",
+    "RULO",
+    "MUAYENE",
+    "MASA",
+    "ORTUSU",
+    "ORTÜSÜ",
+    "KRAFT",
+    "GAZETE",
+    "CANTA",
+    "ÇANTA",
+    "SERVIS",
+    "SERVİS",
+}
+
+STATIONERY_PREFIXES = {"KGT"}
+STATIONERY_KEYWORDS = {
+    "FOTOKOPI",
+    "FOTOKOPİ",
+    "YAZARKASA",
+    "YAZAR KASA",
+    "FIS",
+    "FİŞ",
+    "Z RAPORU",
+}
+
+BASKILI_CODE_PATTERNS = ("-BLI", ".AMR", ".SFT")
+BASKILI_KEYWORDS = {"BASKILI"}
+
+
+def _simplify(value: Optional[str]) -> str:
+    if not value:
+        return ""
+    return value.upper().translate(TURKISH_TRANSLATION_TABLE)
 
 
 def _normalise_multiline(value: str) -> Optional[str]:
@@ -53,49 +161,80 @@ def _clean_value(value: str) -> Optional[str]:
     return value or None
 
 
-def _assign_group(code: str, name: str) -> str:
-    upper_code = code.upper()
-    upper_name = name.upper()
+def _contains_any(value: str, keywords: Iterable[str]) -> bool:
+    if not value:
+        return False
+    return any(keyword and keyword in value for keyword in keywords)
 
-    if upper_code.startswith(GIDA_CODE_PREFIXES) or any(
-        keyword in upper_name for keyword in GIDA_KEYWORDS
-    ):
+
+def _assign_group(code: str, name: str, info: Optional[str] = None) -> str:
+    simplified_code = _simplify(code)
+    simplified_name = _simplify(name)
+    simplified_info = _simplify(info)
+
+    prefix = simplified_code.split(".")[0].split("-")[0]
+
+    def matches(keywords: Iterable[str]) -> bool:
+        return _contains_any(simplified_name, keywords) or _contains_any(simplified_info, keywords)
+
+    if prefix in FOOD_PREFIXES or matches(FOOD_KEYWORDS):
         return "Gıda Grubu"
 
-    if upper_code.startswith("ELD") or any(keyword in upper_name for keyword in KISISEL_KEYWORDS):
-        return "Kişisel Hijyen"
+    if prefix in CHEMICAL_PREFIXES or matches(CHEMICAL_KEYWORDS):
+        return "Kimyasal Grubu"
 
-    if upper_code.startswith("HJY") and any(keyword in upper_name for keyword in PERSONAL_FROM_HJY):
-        return "Kişisel Hijyen"
+    if (
+        any(pattern in simplified_code for pattern in BASKILI_CODE_PATTERNS)
+        or matches(BASKILI_KEYWORDS)
+    ):
+        return "Baskılı Model Grubu"
 
-    if upper_code.startswith("KMY") and any(keyword in upper_name for keyword in KISISEL_KMY_KEYWORDS):
-        return "Kişisel Hijyen"
+    is_packaging_prefix = prefix in PACKAGING_PREFIXES
+    is_plastic_prefix = prefix in PLASTIC_PREFIXES
+    is_stationery_prefix = prefix in STATIONERY_PREFIXES
+    is_master_prefix = prefix == "MASTER"
 
-    if upper_code.startswith("KMY"):
-        return "Temizlik Ürünleri Grubu"
+    looks_packaging = matches(PACKAGING_KEYWORDS)
+    looks_plastic = matches(PLASTIC_KEYWORDS)
+    looks_stationery = matches(STATIONERY_KEYWORDS)
+    looks_paper = matches(PAPER_KEYWORDS) or is_master_prefix
 
-    if upper_code.startswith("HJY"):
-        return "Profesyonel Hijyen Ekipmanları"
+    if is_stationery_prefix or looks_stationery:
+        if looks_packaging:
+            return "Ambalaj Grubu"
+        return "Kırtasiye Grubu"
 
-    if upper_code.startswith("APR") or "APARAT" in upper_name or "TEMİZLİK ARABASI" in upper_name or "KONTEYNER" in upper_name:
-        return "Profesyonel Hijyen Ekipmanları"
+    if is_packaging_prefix:
+        return "Ambalaj Grubu"
 
-    if upper_code.startswith("MASTER") or any(keyword in upper_name for keyword in HIJYEN_KEYWORDS):
-        return "Hijyen Sanayi Grubu"
+    if is_plastic_prefix:
+        return "Plastik Grubu"
 
-    if any(keyword in upper_name for keyword in TEMIZ_KEYWORDS):
-        return "Temizlik Ürünleri Grubu"
+    if is_master_prefix:
+        if looks_packaging:
+            return "Ambalaj Grubu"
+        return "Kağıt Grubu"
 
-    prefix = upper_code.split(".")[0].split("-")[0]
-    if prefix in PACKAGING_PREFIXES or upper_code.startswith("BNT") or upper_code.startswith("STR"):
-        return "Kağıt Sanayi Grubu"
+    if looks_plastic:
+        return "Plastik Grubu"
 
-    return "Kağıt Sanayi Grubu"
+    if looks_packaging:
+        return "Ambalaj Grubu"
+
+    if looks_paper:
+        return "Kağıt Grubu"
+
+    if simplified_name and ("URUN" in simplified_name or "ÜRÜN" in simplified_name):
+        return "Ambalaj Grubu"
+
+    return "Ambalaj Grubu"
 
 
 def _assign_subcategory(name: str) -> str:
-    upper_name = name.upper()
+    upper_name = (name or "").upper()
 
+    if "MASA ÖRTÜSÜ" in upper_name:
+        return "Masa Örtüleri"
     if "Z HAVLU" in upper_name:
         return "Z Kat Havlular"
     if "HAREKETLİ HAVLU" in upper_name:
@@ -122,18 +261,79 @@ def _assign_subcategory(name: str) -> str:
         return "Kare Peçeteler"
     if "MENDİL" in upper_name:
         return "Mendiller"
+    if "HAVLU" in upper_name:
+        return "Kağıt Havlular"
+
     if "ELDİVEN" in upper_name:
         return "Tek Kullanımlık Eldivenler"
     if "BONE" in upper_name or "GALOŞ" in upper_name or "KOLLUK" in upper_name:
         return "Kişisel Koruyucu Ürünler"
-    if "KOLONYA" in upper_name:
-        return "Kolonya Çözümleri"
-    if "SIVI SABUN" in upper_name or "KÖPÜK SABUN" in upper_name:
-        return "Sıvı Sabunlar"
+    if "PİPET" in upper_name:
+        return "Pipetler"
+    if "SOS KAP" in upper_name:
+        return "Sos Kapları"
+    if "BARDAK" in upper_name:
+        if "KARTON" in upper_name or "PAP" in upper_name:
+            return "Karton Bardaklar"
+        return "Plastik Bardaklar"
+    if "TABAK" in upper_name:
+        return "Servis Tabakları"
+    if "KASE" in upper_name:
+        return "Servis Kaseleri"
+    if "STREÇ" in upper_name:
+        return "Streç Filmler"
+
+    if "ALÜMİNYUM" in upper_name and "KAPAK" in upper_name:
+        return "Alüminyum Kapaklar"
+    if "ALÜMİNYUM" in upper_name:
+        return "Alüminyum Kaplar"
+    if "SIZDIRMAZ" in upper_name:
+        return "Sızdırmaz Kaplar"
+    if "LASTİK" in upper_name:
+        return "Paketleme Lastikleri"
+    if "KARIŞTIRICI" in upper_name or "KÜRDAN" in upper_name:
+        return "Servis Aksesuarları"
+    if "BANT" in upper_name:
+        return "Paketleme Bantları"
+
+    if "POŞET" in upper_name:
+        if "ÇÖP" in upper_name or "KONTEYNER" in upper_name or "DÖK" in upper_name:
+            return "Çöp Poşetleri"
+        if "KİLİTLİ" in upper_name:
+            return "Kilitli Poşetler"
+        if "GIDA" in upper_name or "ŞARKÜTERİ" in upper_name:
+            return "Gıda Poşetleri"
+        if "TAKVİYELİ" in upper_name:
+            return "Takviyeli Taşıma Poşetleri"
+        return "Taşıma Poşetleri"
+
+    if "RULO" in upper_name and "POŞET" not in upper_name:
+        return "Rulo Ürünler"
+
+    if "FOTOKOP" in upper_name or "A4" in upper_name:
+        return "Ofis Kağıtları"
+    if "KASA" in upper_name or "POS" in upper_name:
+        return "Kasa ve Pos Ruloları"
+    if "AMERİKAN SERVİS" in upper_name:
+        return "Amerikan Servisler"
+    if "GAZETE" in upper_name:
+        return "Gazete Kağıtları"
+    if "SÜLFİT" in upper_name or "SULFIT" in upper_name:
+        return "Baskılı Kağıtlar"
+    if "ÇANTA" in upper_name or "CANTA" in upper_name:
+        return "Kağıt Çantalar"
+    if "KESE" in upper_name or "TORBA" in upper_name or "POĞAÇA" in upper_name or "POGACA" in upper_name:
+        return "Kağıt Kese ve Torbalar"
+
     if "KAHVE" in upper_name or "NESCAF" in upper_name or "COFFE" in upper_name:
         return "Kahve Çözümleri"
     if "ÇAY" in upper_name or "LİPTON" in upper_name or "DOĞUŞ" in upper_name:
         return "Çay Çözümleri"
+
+    if "KOLONYA" in upper_name:
+        return "Kolonya Çözümleri"
+    if "SIVI SABUN" in upper_name or "KÖPÜK SABUN" in upper_name:
+        return "Sıvı Sabunlar"
     if "BULAŞIK MAKİNE" in upper_name or "BULAŞIK" in upper_name:
         return "Bulaşık Kimyasalları"
     if "YAĞ SÖKÜCÜ" in upper_name or "KİREÇ PAS" in upper_name:
@@ -146,42 +346,24 @@ def _assign_subcategory(name: str) -> str:
         return "Cam Temizleyiciler"
     if "WC" in upper_name:
         return "WC Hijyen Ürünleri"
-    if "HAVLU" in upper_name:
-        return "Kağıt Havlular"
-    if "POŞET" in upper_name or "KİLİTLİ" in upper_name:
-        return "Kilitleme Poşetleri"
-    if "SOS KAP" in upper_name:
-        return "Sos Kapları"
-    if "ALÜMİNYUM" in upper_name:
-        return "Alüminyum Kaplar"
-    if "SIZDIRMAZ" in upper_name:
-        return "Sızdırmaz Kaplar"
-    if "TABAK" in upper_name:
-        return "Servis Tabakları"
-    if "KESE" in upper_name or "TORBA" in upper_name or "POĞAÇA" in upper_name:
-        return "Kağıt Kese ve Torbalar"
-    if "KARTON BARDAK" in upper_name:
-        return "Karton Bardaklar"
-    if "KARIŞTIRICI" in upper_name or "KÜRDAN" in upper_name:
-        return "Servis Aksesuarları"
-    if "LASTİK" in upper_name:
-        return "Paketleme Lastikleri"
-    if "BANT" in upper_name:
-        return "Paketleme Bantları"
-    if "STREÇ" in upper_name:
-        return "Streç Filmler"
     if "SÜNGER" in upper_name or "BEZ" in upper_name or "TOPTEL" in upper_name:
         return "Temizlik Yardımcıları"
-    if "MOP" in upper_name or "ÇEKPAS" in upper_name or "APARAT" in upper_name or "SAP" in upper_name or "FIRÇA" in upper_name or "TEMİZLİK ARABASI" in upper_name:
+    if (
+        "MOP" in upper_name
+        or "ÇEKPAS" in upper_name
+        or "APARAT" in upper_name
+        or "SAP" in upper_name
+        or "FIRÇA" in upper_name
+        or "TEMİZLİK ARABASI" in upper_name
+    ):
         return "Profesyonel Temizlik Ekipmanları"
+    if "KLOZET KAPAK ÖRTÜSÜ" in upper_name:
+        return "Klozet Kapak Örtüleri"
     if "ŞEKER" in upper_name or "TUZ" in upper_name:
         return "Şeker & Tuz Ürünleri"
     if "BAHARAT" in upper_name or "KARABİBER" in upper_name or "PULBİBER" in upper_name:
         return "Baharat Çözümleri"
-    if "MASA ÖRTÜSÜ" in upper_name:
-        return "Masa Örtüleri"
-    if "KLOZET KAPAK ÖRTÜSÜ" in upper_name:
-        return "Klozet Kapak Örtüleri"
+
     return "Genel Ürünler"
 
 
@@ -275,7 +457,7 @@ def generate_products() -> List[Dict[str, Optional[str]]]:
             name = _normalise_multiline(name_raw) or code or "İsimsiz Ürün"
             info = _normalise_multiline(info_raw)
 
-            group = _assign_group(code, name)
+            group = _assign_group(code, name, info)
             subcategory = _assign_subcategory(name)
 
             product = {

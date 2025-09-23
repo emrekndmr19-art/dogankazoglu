@@ -1,4 +1,6 @@
 (function () {
+  const collator = new Intl.Collator('tr-TR', { sensitivity: 'base' });
+
   const formatCount = (count) => {
     if (typeof count !== 'number') {
       return '';
@@ -10,6 +12,8 @@
 
     return `${count} ürün listelendi`;
   };
+
+  const normalise = (value) => (value || '').toLocaleLowerCase('tr-TR');
 
   const createCard = (product) => {
     const card = document.createElement('article');
@@ -84,47 +88,6 @@
     return card;
   };
 
-  const renderProducts = (section, products) => {
-    const grid = section.querySelector('[data-category-grid]');
-    const countEl = section.querySelector('[data-product-count]');
-    const emptyState = section.querySelector('[data-empty-state]');
-
-    if (!grid) {
-      return;
-    }
-
-    if (!Array.isArray(products) || products.length === 0) {
-      grid.innerHTML = '';
-
-      if (emptyState) {
-        emptyState.textContent = section.dataset.emptyMessage || 'Bu kategori için ürünler hazırlanıyor.';
-        emptyState.hidden = false;
-      }
-
-      if (countEl) {
-        countEl.textContent = formatCount(0);
-      }
-
-      return;
-    }
-
-    const fragment = document.createDocumentFragment();
-    products.forEach((product) => {
-      fragment.appendChild(createCard(product));
-    });
-
-    grid.innerHTML = '';
-    grid.appendChild(fragment);
-
-    if (emptyState) {
-      emptyState.hidden = true;
-    }
-
-    if (countEl) {
-      countEl.textContent = formatCount(products.length);
-    }
-  };
-
   const handleError = (section) => {
     const emptyState = section.querySelector('[data-empty-state]');
     const countEl = section.querySelector('[data-product-count]');
@@ -141,6 +104,94 @@
     if (emptyState) {
       emptyState.textContent = section.dataset.errorMessage || 'Ürünler yüklenirken bir sorun oluştu. Lütfen daha sonra tekrar deneyin.';
       emptyState.hidden = false;
+    }
+  };
+
+  const selectProducts = (section, payload) => {
+    let items = [];
+
+    if (Array.isArray(payload)) {
+      items = payload;
+    } else if (payload && Array.isArray(payload.items)) {
+      items = payload.items;
+    } else if (payload && Array.isArray(payload.products)) {
+      items = payload.products;
+    } else if (payload && Array.isArray(payload.data)) {
+      items = payload.data;
+    }
+
+    const groupFilter = normalise(section.dataset.filterGroup);
+    const categoryFilter = normalise(section.dataset.filterCategory);
+
+    if (!groupFilter && !categoryFilter) {
+      return items;
+    }
+
+    return items.filter((product) => {
+      const groupMatches = !groupFilter || normalise(product && product.grup) === groupFilter;
+      const categoryMatches = !categoryFilter || normalise(product && product.kategori) === categoryFilter;
+      return groupMatches && categoryMatches;
+    });
+  };
+
+  const renderProducts = (section, products) => {
+    const grid = section.querySelector('[data-category-grid]');
+    const countEl = section.querySelector('[data-product-count]');
+    const emptyState = section.querySelector('[data-empty-state]');
+
+    if (!grid) {
+      return;
+    }
+
+    const safeProducts = Array.isArray(products) ? products : [];
+
+    if (!safeProducts.length) {
+      grid.innerHTML = '';
+
+      if (emptyState) {
+        emptyState.textContent = section.dataset.emptyMessage || 'Bu kategori için ürünler hazırlanıyor.';
+        emptyState.hidden = false;
+      }
+
+      if (countEl) {
+        countEl.textContent = formatCount(0);
+      }
+
+      return;
+    }
+
+    const sorted = safeProducts
+      .slice()
+      .sort((a, b) => {
+        const groupComparison = collator.compare(a && a.grup ? a.grup : '', b && b.grup ? b.grup : '');
+        if (groupComparison !== 0) {
+          return groupComparison;
+        }
+
+        const categoryComparison = collator.compare(a && a.kategori ? a.kategori : '', b && b.kategori ? b.kategori : '');
+        if (categoryComparison !== 0) {
+          return categoryComparison;
+        }
+
+        const nameA = a && a.isim ? a.isim : '';
+        const nameB = b && b.isim ? b.isim : '';
+        return collator.compare(nameA, nameB);
+      });
+
+    const fragment = document.createDocumentFragment();
+    sorted.forEach((product) => {
+      fragment.appendChild(createCard(product));
+    });
+
+    grid.innerHTML = '';
+    grid.appendChild(fragment);
+
+    if (emptyState) {
+      emptyState.hidden = true;
+    }
+
+    if (countEl) {
+      countEl.textContent = formatCount(sorted.length);
     }
   };
 
@@ -177,7 +228,8 @@
           return response.json();
         })
         .then((data) => {
-          renderProducts(section, data);
+          const products = selectProducts(section, data);
+          renderProducts(section, products);
         })
         .catch((error) => {
           console.error('Kategori verisi yüklenirken hata oluştu:', error);
