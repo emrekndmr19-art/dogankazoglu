@@ -10,7 +10,7 @@ import csv
 import json
 from collections import defaultdict
 from pathlib import Path
-from typing import Dict, Iterable, List, Optional, Sequence, Tuple
+from typing import Callable, Dict, Iterable, List, Optional, Sequence, Tuple
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 CSV_SOURCES: Sequence[Tuple[Path, str]] = (
@@ -18,6 +18,10 @@ CSV_SOURCES: Sequence[Tuple[Path, str]] = (
     (BASE_DIR / "dogankazoglu2.csv", "utf-8-sig"),
 )
 LEGACY_INPUT = BASE_DIR / "legacy-urunler.json"
+EXISTING_EXPORTS: Sequence[Path] = (
+    BASE_DIR / "urunler.json",
+    BASE_DIR / "urunler2.json",
+)
 OUTPUT_ALL = BASE_DIR / "urunler.json"
 OUTPUT_ALL_V2 = BASE_DIR / "urunler2.json"
 GROUP_ORDER: Sequence[str] = (
@@ -126,6 +130,131 @@ STATIONERY_KEYWORDS = {
     "A5",
     "A6",
 }
+
+PAPER_MATCH_KEYWORDS = {
+    "HAVLU",
+    "PEÇETE",
+    "PEÇ",
+    "TUVALET",
+    "KAĞIT",
+    "KÂĞIT",
+    "MENDİL",
+}
+
+CLEANING_MATCH_KEYWORDS = {
+    "TEMİZ",
+    "DETERJAN",
+    "ÇÖZÜCÜ",
+    "PARLATICI",
+    "ÇAMAŞIR",
+    "BULAŞIK",
+    "SANİT",
+    "SANIT",
+    "DEZENF",
+    "HİJYEN",
+    "HYGIENE",
+    "KİREÇ",
+    "PAS",
+    "WC",
+}
+
+PROFESSIONAL_HYGIENE_KEYWORDS = {
+    "PROFESYONEL",
+    "EKİPMAN",
+    "MOP",
+    "TEMİZLİK ARABASI",
+    "ARABA",
+    "ÇEKPAS",
+    "SAP",
+    "KOVA",
+    "FIRÇA",
+    "APARAT",
+    "SÜPÜRGE",
+    "TEMİZLİK YARDIMCILARI",
+}
+
+PERSONAL_HYGIENE_KEYWORDS = {
+    "ELDİVEN",
+    "KORUYUCU",
+    "KOLONYA",
+    "SABUN",
+    "MENDİL",
+    "MASKE",
+    "BONE",
+    "GALOŞ",
+    "KOLLUK",
+    "ŞAPKA",
+}
+
+
+def _matches_any(value: str, keywords: Iterable[str]) -> bool:
+    upper_value = value.upper()
+    return any(keyword in upper_value for keyword in keywords)
+
+
+def _is_paper_product(product: Dict[str, Optional[str]]) -> bool:
+    group = product.get("grup") or ""
+    category = product.get("kategori") or ""
+    name = product.get("isim") or ""
+    return (
+        group == "Kağıt Grubu"
+        or _matches_any(category, PAPER_MATCH_KEYWORDS)
+        or _matches_any(name, PAPER_MATCH_KEYWORDS)
+    )
+
+
+def _is_cleaning_product(product: Dict[str, Optional[str]]) -> bool:
+    group = product.get("grup") or ""
+    category = product.get("kategori") or ""
+    name = product.get("isim") or ""
+    return (
+        group == "Kimyasal Grubu"
+        or _matches_any(category, CLEANING_MATCH_KEYWORDS)
+        or _matches_any(name, CLEANING_MATCH_KEYWORDS)
+    )
+
+
+def _is_professional_hygiene_product(product: Dict[str, Optional[str]]) -> bool:
+    category = product.get("kategori") or ""
+    name = product.get("isim") or ""
+    group = product.get("grup") or ""
+    return (
+        group == "Plastik Grubu"
+        or _matches_any(category, PROFESSIONAL_HYGIENE_KEYWORDS)
+        or _matches_any(name, PROFESSIONAL_HYGIENE_KEYWORDS)
+    )
+
+
+def _is_personal_hygiene_product(product: Dict[str, Optional[str]]) -> bool:
+    category = product.get("kategori") or ""
+    name = product.get("isim") or ""
+    return _matches_any(category, PERSONAL_HYGIENE_KEYWORDS) or _matches_any(
+        name, PERSONAL_HYGIENE_KEYWORDS
+    )
+
+
+def _is_industrial_hygiene_product(product: Dict[str, Optional[str]]) -> bool:
+    group = product.get("grup") or ""
+    if group in {"Gıda Grubu", "Kırtasiye Grubu", "Baskılı Model Grubu"}:
+        return False
+    return group in {
+        "Kağıt Grubu",
+        "Plastik Grubu",
+        "Kimyasal Grubu",
+        "Ambalaj Grubu",
+    }
+
+
+COMPATIBILITY_FILES: Sequence[Tuple[Path, Callable[[Dict[str, Optional[str]]], bool]]] = (
+    (BASE_DIR / "assets" / "data" / "kagit-sanayi.json", _is_paper_product),
+    (BASE_DIR / "assets" / "data" / "temizlik-urunleri.json", _is_cleaning_product),
+    (
+        BASE_DIR / "assets" / "data" / "profesyonel-hijyen.json",
+        _is_professional_hygiene_product,
+    ),
+    (BASE_DIR / "assets" / "data" / "kisisel-hijyen.json", _is_personal_hygiene_product),
+    (BASE_DIR / "assets" / "data" / "hijyen-sanayi.json", _is_industrial_hygiene_product),
+)
 
 
 def _fix_text(value: str) -> str:
@@ -290,74 +419,115 @@ def _load_rows(csv_path: Path, encoding: str) -> Iterable[Dict[str, str]]:
     return normalised_rows
 
 
-def _load_legacy_products(path: Path) -> List[Dict[str, Optional[str]]]:
+def _extract_text(entry: Dict[str, object], keys: Sequence[str]) -> Optional[str]:
+    for key in keys:
+        value = entry.get(key)
+        if isinstance(value, str):
+            fixed = _fix_text(value).strip()
+            if fixed:
+                return fixed
+    return None
+
+
+def _extract_multiline(entry: Dict[str, object], keys: Sequence[str]) -> Optional[str]:
+    for key in keys:
+        value = entry.get(key)
+        if isinstance(value, str) and value.strip():
+            normalised = _normalise_multiline(value)
+            if normalised:
+                return normalised
+    return None
+
+
+def _extract_clean(entry: Dict[str, object], keys: Sequence[str]) -> Optional[str]:
+    for key in keys:
+        value = entry.get(key)
+        if isinstance(value, str):
+            cleaned = _clean_value(value)
+            if cleaned:
+                return cleaned
+    return None
+
+
+def _extract_image(entry: Dict[str, object], keys: Sequence[str]) -> Optional[str]:
+    for key in keys:
+        value = entry.get(key)
+        if isinstance(value, str):
+            stripped = value.strip()
+            if stripped:
+                return stripped
+    return None
+
+
+def _coerce_product_entry(entry: Dict[str, object]) -> Optional[Dict[str, Optional[str]]]:
+    name = _extract_multiline(entry, ["isim", "name", "ÜRÜN İSİM", "urun", "title"])
+    if not name:
+        fallback = _extract_text(entry, ["isim", "name", "ÜRÜN İSİM", "urun", "title"])
+        if not fallback:
+            return None
+        name = fallback
+
+    info = _extract_multiline(entry, ["bilgi", "açıklama", "description", "info"])
+    code = _extract_clean(entry, ["kod", "ürün kod", "code", "product_code"])
+    unit = _extract_clean(entry, ["birim", "unit"])
+    vat = _extract_clean(entry, ["kdv", "vat"])
+    price = _extract_clean(entry, ["fiyat", "price", "fiyat.", "tutar"])
+
+    category_hint = _extract_text(entry, ["kategori", "category"])
+    group_hint = _extract_text(entry, ["grup", "group"])
+    image = _extract_image(entry, ["resim", "image"])
+
+    subcategory = _assign_subcategory(name)
+    if category_hint and (not subcategory or subcategory == "Genel Ürünler"):
+        subcategory = category_hint
+
+    group = group_hint or _assign_group(code or "", name, info)
+
+    return {
+        "kod": code,
+        "isim": name,
+        "bilgi": info,
+        "birim": unit,
+        "kdv": vat,
+        "fiyat": price,
+        "kategori": subcategory or category_hint or "Genel Ürünler",
+        "grup": group,
+        "resim": image,
+    }
+
+
+def _load_product_collection(path: Path) -> List[Dict[str, Optional[str]]]:
     if not path.exists():
         return []
 
     with path.open("r", encoding="utf-8") as handle:
-        data = json.load(handle)
+        try:
+            data = json.load(handle)
+        except json.JSONDecodeError:
+            return []
 
-    legacy_products: List[Dict[str, Optional[str]]] = []
+    if not isinstance(data, list):
+        return []
+
+    products: List[Dict[str, Optional[str]]] = []
     for entry in data:
         if not isinstance(entry, dict):
             continue
+        product = _coerce_product_entry(entry)
+        if product:
+            products.append(product)
+    return products
 
-        name_source = entry.get("isim") or entry.get("name") or ""
-        if not isinstance(name_source, str):
-            continue
 
-        name = _fix_text(name_source).strip()
-        if not name:
-            continue
+def _load_legacy_products(path: Path) -> List[Dict[str, Optional[str]]]:
+    return _load_product_collection(path)
 
-        info_raw = entry.get("bilgi")
-        info = _normalise_multiline(info_raw) if isinstance(info_raw, str) else None
 
-        code_raw = entry.get("kod")
-        code = _clean_value(code_raw) if isinstance(code_raw, str) else None
-
-        unit_raw = entry.get("birim")
-        unit = _clean_value(unit_raw) if isinstance(unit_raw, str) else None
-
-        vat_raw = entry.get("kdv")
-        vat = _clean_value(vat_raw) if isinstance(vat_raw, str) else None
-
-        price_raw = entry.get("fiyat")
-        price = _clean_value(price_raw) if isinstance(price_raw, str) else None
-
-        category_hint_raw = entry.get("kategori")
-        category_hint = _clean_value(category_hint_raw) if isinstance(category_hint_raw, str) else None
-
-        group_hint_raw = entry.get("grup")
-        group_hint = _clean_value(group_hint_raw) if isinstance(group_hint_raw, str) else None
-
-        subcategory = _assign_subcategory(name)
-        if category_hint and (not subcategory or subcategory == "Genel Ürünler"):
-            subcategory = category_hint
-
-        group = group_hint or _assign_group(code or "", name, info)
-
-        image_raw = entry.get("resim")
-        if isinstance(image_raw, str):
-            image = image_raw.strip() or None
-        else:
-            image = None
-
-        legacy_products.append(
-            {
-                "kod": code,
-                "isim": name,
-                "bilgi": info,
-                "birim": unit,
-                "kdv": vat,
-                "fiyat": price,
-                "kategori": subcategory or category_hint or "Genel Ürünler",
-                "grup": group,
-                "resim": image,
-            }
-        )
-
-    return legacy_products
+def _load_existing_exports(paths: Sequence[Path]) -> List[Dict[str, Optional[str]]]:
+    products: List[Dict[str, Optional[str]]] = []
+    for path in paths:
+        products.extend(_load_product_collection(path))
+    return products
 
 
 def generate_products() -> List[Dict[str, Optional[str]]]:
@@ -400,6 +570,7 @@ def generate_products() -> List[Dict[str, Optional[str]]]:
         missing_str = ", ".join(str(path) for path in missing_sources)
         raise FileNotFoundError(f"Eksik CSV kaynakları: {missing_str}")
 
+    products.extend(_load_existing_exports(EXISTING_EXPORTS))
     products.extend(_load_legacy_products(LEGACY_INPUT))
 
     seen_names = set()
@@ -462,6 +633,16 @@ def main() -> None:
             ),
         )
         _write_json(output_path, entries)
+
+    for output_path, predicate in COMPATIBILITY_FILES:
+        compat_entries = sorted(
+            [item for item in products if predicate(item)],
+            key=lambda item: (
+                item.get("kategori") or "",
+                item.get("isim") or "",
+            ),
+        )
+        _write_json(output_path, compat_entries)
 
     summary = {group: len(grouped.get(group, [])) for group in GROUP_ORDER}
     print(json.dumps(summary, ensure_ascii=False, indent=2))
