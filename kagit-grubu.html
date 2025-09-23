@@ -39,20 +39,6 @@
       font-size: 2.5rem;
       color: #ffffff;
     }
-    .btn-primary {
-      background-color: #ffffff;
-      color: #c50000;
-      transition: background-color 0.3s, color 0.3s;
-    }
-    .btn-primary:hover {
-      background-color: #f3f4f6;
-      color: #c50000;
-    }
-    .btn-secondary {
-      background-color: transparent;
-      color: #ffffff;
-      border: 1px solid #ffffff;
-    }
   </style>
 </head>
 <body class="bg-white text-black">
@@ -61,141 +47,44 @@
 <header class="bg-[#c50000] sticky top-0 z-50 shadow-md">
   <div class="container mx-auto px-4">
     <div class="flex justify-center items-center py-4">
-      <img alt="Logo" class="h-12" src="assets/images/masterlogo.png"/>
+      <img alt="Logo" class="h-12" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDMxkSIRWfwkJKExx_XKDn-NMlljvk4ZEbAylm4btJzoADXsPTgwObjArHHmRv-G_vaCLtfha5ZKgS4wZy8Wym8kgww7Y2oJoo9469884B6rbspz2F8cPSJl_6nq6ViWJw-g5ommdZ0MxeR6j4a2iiQWMDuJwHemNORifX13N-WrxyWh7-M0MKmTvZf3FihxW-dOpprftUWMwQaBEZ2EbofKjo9XlEsIJj8W67eR9K4hc-IO8nyDJZ1KZR65XMZO6eZq0-CpfkWDR5C"/>
     </div>
     <div class="flex justify-between items-center py-2 border-t border-red-500">
-      <div class="flex-1 md:flex-none"></div>
       <nav class="hidden md:flex items-center space-x-8 mx-auto">
-        <a class="nav-link" href="index.html">Anasayfa</a>
-        <a class="nav-link" href="hakkimizda.html">Hakkımızda</a>
-        <div class="relative group">
-          <a class="nav-link flex items-center active-link" href="urunler.html">Ürünlerimiz <span class="material-icons text-sm ml-1">expand_more</span></a>
-          <div class="absolute hidden group-hover:block bg-white shadow-lg rounded-md mt-2 py-2 w-48 z-20">
-            <a class="block px-4 py-2 text-sm font-semibold text-[#c50000] bg-red-50 hover:bg-red-100" href="kagit-grubu.html" aria-current="page">Kağıt Grubu</a>
-            <a class="block px-4 py-2 text-sm text-black hover:bg-gray-100" href="plastik-grubu.html">Plastik Grubu</a>
-            <a class="block px-4 py-2 text-sm text-black hover:bg-gray-100" href="kimyasal-grubu.html">Kimyasal Grubu</a>
-            <a class="block px-4 py-2 text-sm text-black hover:bg-gray-100" href="ambalaj-grubu.html">Ambalaj Grubu</a>
-            <a class="block px-4 py-2 text-sm text-black hover:bg-gray-100" href="gida-grubu.html">Gıda Grubu</a>
-            <a class="block px-4 py-2 text-sm text-black hover:bg-gray-100" href="kirtasiye-grubu.html">Kırtasiye Grubu</a>
-            <a class="block px-4 py-2 text-sm text-black hover:bg-gray-100" href="baskili-model-grubu.html">Baskılı Model Grubu</a>
-          </div>
-        </div>
-        <a class="nav-link" href="#">Blog</a>
-        <a class="nav-link" href="iletisim.html">İletişim</a>
+<a class="nav-link active-link" href="index.html">Anasayfa</a>
+<a class="nav-link" href="hakkimizda.html">Hakkımızda</a>
+<div class="relative group">
+<a class="nav-link flex items-center" href="#">Ürünlerimiz <span class="material-icons text-sm ml-1">expand_more</span></a>
+<div class="absolute hidden group-hover:block bg-white shadow-lg rounded-md mt-2 py-2 w-48 z-20">
+<a class="block px-4 py-2 text-sm text-black hover:bg-gray-100" href="kagit-grubu.html">Kağıt Grubu</a>
+<a class="block px-4 py-2 text-sm text-black hover:bg-gray-100" href="plastik-grubu.html">Plastik Grubu</a>
+<a class="block px-4 py-2 text-sm text-black hover:bg-gray-100" href="kimyasal-grubu.html">Kimyasal Grubu</a>
+<a class="block px-4 py-2 text-sm text-black hover:bg-gray-100" href="ambalaj-grubu.html">Ambalaj Grubu</a>
+<a class="block px-4 py-2 text-sm text-black hover:bg-gray-100" href="gida-grubu.html">Gıda Grubu</a>
+<a class="block px-4 py-2 text-sm text-black hover:bg-gray-100" href="kirtasiye-grubu.html">Kırtasiye Grubu</a>
+<a class="block px-4 py-2 text-sm text-black hover:bg-gray-100" href="baskili-model-grubu.html">Baskılı Model Grubu</a>
+</div>
+</div>
+<a class="nav-link" href="#">Blog</a>
+<a class="nav-link" href="iletisim.html">İletişim</a>
+</nav>
       </nav>
-      <div class="flex items-center space-x-3 md:space-x-4">
-        <button
-          id="searchToggle"
-          type="button"
-          class="flex items-center text-white transition hover:text-gray-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-[#c50000]"
-          aria-haspopup="dialog"
-          aria-expanded="false"
-          aria-controls="searchOverlay"
-        >
-          <span class="material-icons" aria-hidden="true">search</span>
-          <span class="ml-2 hidden lg:inline">Arama</span>
-          <span class="sr-only">Site içi aramayı aç</span>
-        </button>
-        <a class="hidden md:inline-block px-4 py-2 rounded-md btn-secondary" href="https://masterhijyen.com/">E-KATALOG</a>
-        <a class="hidden md:inline-block px-4 py-2 rounded-md btn-primary font-semibold" href="iletisim.html">İLETİŞİME GEÇ</a>
+      <div class="flex items-center space-x-4">
+        <a class="hidden md:inline-block px-4 py-2 rounded-md border border-white text-white" href="https://masterhijyen.com/">E-KATALOG</a>
+        <a class="hidden md:inline-block px-4 py-2 rounded-md bg-white text-[#c50000] font-semibold" href="#">İLETİŞİME GEÇ</a>
       </div>
-    </div>
-    <div class="md:hidden flex justify-center py-2 border-t border-red-500">
-      <nav class="flex items-center space-x-6">
-        <a class="nav-link" href="index.html">Anasayfa</a>
-        <a class="nav-link" href="hakkimizda.html">Hakkımızda</a>
-        <div class="relative group">
-          <a class="nav-link flex items-center active-link" href="urunler.html">Ürünlerimiz <span class="material-icons text-sm ml-1">expand_more</span></a>
-          <div class="absolute hidden group-hover:block bg-white shadow-lg rounded-md mt-2 py-2 w-48 z-10">
-            <a class="block px-4 py-2 text-sm font-semibold text-[#c50000] bg-red-50 hover:bg-red-100" href="kagit-grubu.html" aria-current="page">Kağıt Grubu</a>
-            <a class="block px-4 py-2 text-sm text-black hover:bg-gray-100" href="plastik-grubu.html">Plastik Grubu</a>
-            <a class="block px-4 py-2 text-sm text-black hover:bg-gray-100" href="kimyasal-grubu.html">Kimyasal Grubu</a>
-            <a class="block px-4 py-2 text-sm text-black hover:bg-gray-100" href="ambalaj-grubu.html">Ambalaj Grubu</a>
-            <a class="block px-4 py-2 text-sm text-black hover:bg-gray-100" href="gida-grubu.html">Gıda Grubu</a>
-            <a class="block px-4 py-2 text-sm text-black hover:bg-gray-100" href="kirtasiye-grubu.html">Kırtasiye Grubu</a>
-            <a class="block px-4 py-2 text-sm text-black hover:bg-gray-100" href="baskili-model-grubu.html">Baskılı Model Grubu</a>
-          </div>
-        </div>
-        <a class="nav-link" href="#">Blog</a>
-        <a class="nav-link" href="iletisim.html">İletişim</a>
-      </nav>
     </div>
   </div>
 </header>
 
-<div
-  id="searchOverlay"
-  class="fixed inset-0 bg-black/50 backdrop-blur-sm hidden items-start justify-center pt-24 px-4 z-50"
-  role="dialog"
-  aria-modal="true"
-  aria-labelledby="searchInput"
->
-  <div class="relative w-full max-w-3xl bg-white rounded-2xl shadow-2xl p-6">
-    <button
-      id="searchClose"
-      type="button"
-      class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#c50000] focus-visible:ring-offset-2 focus-visible:ring-offset-white rounded-full p-1"
-    >
-      <span class="material-icons" aria-hidden="true">close</span>
-      <span class="sr-only">Aramayı kapat</span>
-    </button>
-    <form id="searchForm" class="space-y-4">
-      <div>
-        <label for="searchInput" class="block text-sm font-medium text-gray-600">Site içerisinde arayın</label>
-        <div class="mt-2 relative">
-          <span class="material-icons absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">search</span>
-          <input
-            id="searchInput"
-            type="search"
-            class="w-full border border-gray-200 rounded-lg py-3 pl-11 pr-4 text-base focus:outline-none focus:ring-2 focus:ring-[#c50000] focus:border-transparent transition"
-            placeholder="Ürün, kategori veya sayfa adı yazın..."
-            autocomplete="off"
-          />
-        </div>
-      </div>
-    </form>
-    <ul
-      id="searchSuggestions"
-      class="mt-4 border border-gray-200 rounded-lg divide-y divide-gray-200 max-h-64 overflow-y-auto hidden"
-    ></ul>
-    <p
-      id="searchEmptyState"
-      data-default-message="Aramanızla eşleşen sonuç bulunamadı."
-      class="mt-6 text-center text-sm text-gray-500 hidden"
-    >
-      Aramanızla eşleşen sonuç bulunamadı.
-    </p>
-  </div>
-</div>
-
-<!-- MAIN Content Area -->
+<!-- MAIN Content Area (Her sayfada burayı dolduracaksın) -->
 <main class="min-h-[400px] py-12">
-  <div class="container mx-auto px-4 space-y-12">
-    <header class="max-w-3xl mx-auto text-center space-y-4">
-      <p class="text-sm uppercase tracking-wider text-[#c50000]">Kategori Sayfası</p>
-      <h1 class="text-3xl md:text-4xl font-bold text-[#c50000]">Kağıt Grubu</h1>
-      <p class="text-gray-600 text-base md:text-lg">
-        Profesyonel işletmeler için dispenser uyumlu kağıt havlular, peçeteler ve endüstriyel rulolardan oluşan ürün gamımızı yeni katalog düzenine taşıyoruz.
-      </p>
-      <p class="text-sm text-gray-500">
-        İçerik güncellemesi tamamlanana kadar öne çıkan ürün listemiz aşağıda yer alacaktır.
-      </p>
-    </header>
-
-    <section
-      class="space-y-6"
-      data-category-root
-      data-category-json="urunler.json"
-      data-filter-group="Kağıt Grubu"
-      data-empty-message="Kağıt grubu ürünleri kısa süre içinde eklenecek."
-      data-error-message="Ürünler yüklenirken bir sorun oluştu. Lütfen daha sonra tekrar deneyin."
-    >
-      <div class="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-        <h2 class="text-xl font-semibold text-gray-900">Ürün Listesi</h2>
-        <p class="text-sm text-gray-500" data-product-count>Ürünler yükleniyor…</p>
+  <div class="container mx-auto px-4">
+    <section class="min-h-[200px] flex items-center justify-center text-center">
+      <div class="space-y-4">
+        <h1 class="text-3xl md:text-4xl font-bold text-[#c50000]">Kağıt Grubu</h1>
+        <p class="text-gray-600 text-base">Bu kategori için içerik yakında eklenecek.</p>
       </div>
-      <p class="text-sm text-gray-500" data-empty-state hidden>Kağıt grubu ürünleri kısa süre içinde eklenecek.</p>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" data-category-grid></div>
     </section>
   </div>
 </main>
@@ -212,42 +101,43 @@
         <div>
           <h3 class="font-semibold mb-2">Kategorilerimiz</h3>
           <ul class="space-y-2">
-            <li>
-              <a class="block px-4 py-2 text-sm text-white hover:bg-gray-300" href="kagit-grubu.html">
-                Kağıt Grubu
-              </a>
-            </li>
-            <li>
-              <a class="block px-4 py-2 text-sm text-white hover:bg-gray-300" href="plastik-grubu.html">
-                Plastik Grubu
-              </a>
-            </li>
-            <li>
-              <a class="block px-4 py-2 text-sm text-white hover:bg-gray-300" href="kimyasal-grubu.html">
-                Kimyasal Grubu
-              </a>
-            </li>
-            <li>
-              <a class="block px-4 py-2 text-sm text-white hover:bg-gray-300" href="ambalaj-grubu.html">
-                Ambalaj Grubu
-              </a>
-            </li>
-            <li>
-              <a class="block px-4 py-2 text-sm text-white hover:bg-gray-300" href="gida-grubu.html">
-                Gıda Grubu
-              </a>
-            </li>
-            <li>
-              <a class="block px-4 py-2 text-sm text-white hover:bg-gray-300" href="kirtasiye-grubu.html">
-                Kırtasiye Grubu
-              </a>
-            </li>
-            <li>
-              <a class="block px-4 py-2 text-sm text-white hover:bg-gray-300" href="baskili-model-grubu.html">
-                Baskılı Model Grubu
-              </a>
-            </li>
-          </ul>
+  <li>
+    <a class="block px-4 py-2 text-sm text-white hover:bg-gray-300" href="kagit-grubu.html">
+      Kağıt Grubu
+    </a>
+  </li>
+  <li>
+    <a class="block px-4 py-2 text-sm text-white hover:bg-gray-300" href="plastik-grubu.html">
+      Plastik Grubu
+    </a>
+  </li>
+  <li>
+    <a class="block px-4 py-2 text-sm text-white hover:bg-gray-300" href="kimyasal-grubu.html">
+      Kimyasal Grubu
+    </a>
+  </li>
+  <li>
+    <a class="block px-4 py-2 text-sm text-white hover:bg-gray-300" href="ambalaj-grubu.html">
+      Ambalaj Grubu
+    </a>
+  </li>
+  <li>
+    <a class="block px-4 py-2 text-sm text-white hover:bg-gray-300" href="gida-grubu.html">
+      Gıda Grubu
+    </a>
+  </li>
+  <li>
+    <a class="block px-4 py-2 text-sm text-white hover:bg-gray-300" href="kirtasiye-grubu.html">
+      Kırtasiye Grubu
+    </a>
+  </li>
+  <li>
+    <a class="block px-4 py-2 text-sm text-white hover:bg-gray-300" href="baskili-model-grubu.html">
+      Baskılı Model Grubu
+    </a>
+  </li>
+</ul>
+
         </div>
         <div>
           <h3 class="font-semibold mb-2">Kurumsal</h3>
@@ -272,7 +162,7 @@
   </div>
 </footer>
 
-<!-- Sabit iletişim butonları -->
+<!-- Sabit iletişim butonları (mevcut kodundaki) -->
 <div class="contact-fab group fixed bottom-5 right-5 z-50">
   <div class="flex space-x-2 items-center bg-gray-800 text-white px-4 py-2 rounded-full shadow-lg">
     <a href="#" class="material-icons">call</a>
@@ -280,8 +170,7 @@
     <a href="#" class="material-icons">email</a>
   </div>
 </div>
-
-<script src="assets/js/category.js"></script>
 <script src="main.js"></script>
 </body>
 </html>
+
