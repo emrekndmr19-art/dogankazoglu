@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
-"""Generate structured product JSON data from the dogankazoglu2.csv source."""
+"""Generate structured product JSON data from the CSV sources.
+
+The script consolidates entries into both ``urunler.json`` (for the site)
+and ``urunler2.json`` (for the requested combined export)."""
 
 from __future__ import annotations
 
@@ -16,6 +19,7 @@ CSV_SOURCES: Sequence[Tuple[Path, str]] = (
 )
 LEGACY_INPUT = BASE_DIR / "legacy-urunler.json"
 OUTPUT_ALL = BASE_DIR / "urunler.json"
+OUTPUT_ALL_V2 = BASE_DIR / "urunler2.json"
 GROUP_ORDER: Sequence[str] = (
     "Kağıt Grubu",
     "Plastik Grubu",
@@ -442,6 +446,7 @@ def _write_json(path: Path, data: Iterable[Dict[str, Optional[str]]]) -> None:
 def main() -> None:
     products = generate_products()
     _write_json(OUTPUT_ALL, products)
+    _write_json(OUTPUT_ALL_V2, products)
 
     grouped: Dict[str, List[Dict[str, Optional[str]]]] = defaultdict(list)
     for product in products:
