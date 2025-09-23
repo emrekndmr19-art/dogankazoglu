@@ -7,10 +7,13 @@ import csv
 import json
 from collections import defaultdict
 from pathlib import Path
-from typing import Dict, Iterable, List, Optional
+from typing import Dict, Iterable, List, Optional, Tuple
 
 BASE_DIR = Path(__file__).resolve().parent.parent
-CSV_PATH = BASE_DIR / "dogankazoglu2.csv"
+CSV_PATHS = [
+    BASE_DIR / "dogankazoglu1.csv",
+    BASE_DIR / "dogankazoglu2.csv",
+]
 OUTPUT_ALL = BASE_DIR / "urunler2.json"
 CATEGORY_FILES: Dict[str, Path] = {
     "Gıda Grubu": BASE_DIR / "assets" / "data" / "gida-grubu.json",
@@ -21,7 +24,23 @@ CATEGORY_FILES: Dict[str, Path] = {
     "Temizlik Ürünleri Grubu": BASE_DIR / "assets" / "data" / "temizlik-urunleri.json",
 }
 
-GIDA_KEYWORDS = {"ŞEKER", "TUZ", "BAHARAT"}
+GIDA_KEYWORDS = {
+    "ŞEKER",
+    "TUZ",
+    "BAHARAT",
+    "KAHVE",
+    "COFFE",
+    "COFFEE",
+    "NESCAF",
+    "NESCAFE",
+    "ÇAY",
+    "DOĞUŞ",
+    "DOGUS",
+    "LİPTON",
+    "LIPTON",
+    "MATE",
+}
+GIDA_CODE_PREFIXES = ("BHR", "ÇAY", "CAY", "KHV", "ŞKR", "SKR")
 KISISEL_KEYWORDS = {"ELDİVEN", "BONE", "GALOŞ", "KOLLUK", "MASK", "KOLONYA", "MENDİL", "LOSYON"}
 KISISEL_KMY_KEYWORDS = {"KOLONYA", "MENDİL"}
 PERSONAL_FROM_HJY = {"BONE", "KOLLUK", "GALOŞ"}
@@ -46,7 +65,9 @@ def _assign_group(code: str, name: str) -> str:
     upper_code = code.upper()
     upper_name = name.upper()
 
-    if any(keyword in upper_name for keyword in GIDA_KEYWORDS) or upper_code.startswith("BHR"):
+    if upper_code.startswith(GIDA_CODE_PREFIXES) or any(
+        keyword in upper_name for keyword in GIDA_KEYWORDS
+    ):
         return "Gıda Grubu"
 
     if upper_code.startswith("ELD") or any(keyword in upper_name for keyword in KISISEL_KEYWORDS):
@@ -117,6 +138,10 @@ def _assign_subcategory(name: str) -> str:
         return "Kolonya Çözümleri"
     if "SIVI SABUN" in upper_name or "KÖPÜK SABUN" in upper_name:
         return "Sıvı Sabunlar"
+    if "KAHVE" in upper_name or "NESCAF" in upper_name or "COFFE" in upper_name:
+        return "Kahve Çözümleri"
+    if "ÇAY" in upper_name or "LİPTON" in upper_name or "DOĞUŞ" in upper_name:
+        return "Çay Çözümleri"
     if "BULAŞIK MAKİNE" in upper_name or "BULAŞIK" in upper_name:
         return "Bulaşık Kimyasalları"
     if "YAĞ SÖKÜCÜ" in upper_name or "KİREÇ PAS" in upper_name:
@@ -168,56 +193,119 @@ def _assign_subcategory(name: str) -> str:
     return "Genel Ürünler"
 
 
+def _read_csv_rows(csv_path: Path) -> List[List[str]]:
+    encodings = ("utf-8-sig", "cp1254", "latin-1")
+    last_error: Optional[Exception] = None
+
+    for encoding in encodings:
+        try:
+            with csv_path.open("r", encoding=encoding, newline="") as handle:
+                reader = csv.reader(handle, delimiter=";")
+                return list(reader)
+        except UnicodeDecodeError as exc:  # pragma: no cover - defensive branch
+            last_error = exc
+
+    if last_error is not None:
+        raise RuntimeError(f"CSV dosyası okunamadı: {csv_path}") from last_error
+
+    return []
+
+
 def _load_rows(csv_path: Path) -> Iterable[Dict[str, str]]:
-    with csv_path.open("r", encoding="utf-8-sig", newline="") as handle:
-        reader = csv.reader(handle, delimiter=";")
-        rows = list(reader)
+    rows = _read_csv_rows(csv_path)
 
     if len(rows) <= 4:
         return []
 
-    header = rows[3]
     normalised_rows: List[Dict[str, str]] = []
     for raw_row in rows[4:]:
         if not any(cell.strip() for cell in raw_row):
             continue
-        record = dict(zip(header, raw_row))
+
+        padded = list(raw_row[:8])
+        if len(padded) < 8:
+            padded.extend(["" for _ in range(8 - len(padded))])
+
+        record = {
+            "code": padded[2].strip(),
+            "name": padded[3],
+            "info": padded[4],
+            "unit": padded[5],
+            "vat": padded[6],
+            "price": padded[7],
+        }
         normalised_rows.append(record)
+
     return normalised_rows
 
 
+def _product_key(code: str, name: str, info: Optional[str]) -> Tuple[str, ...]:
+    code_clean = code.strip().upper()
+    if code_clean:
+        return ("code", code_clean)
+
+    name_clean = " ".join((name or "").upper().split())
+    info_clean = " ".join((info or "").upper().split()) if info else ""
+    return ("name", name_clean, info_clean)
+
+
+def _merge_product(existing: Dict[str, Optional[str]], new_values: Dict[str, Optional[str]]) -> None:
+    for field in ("kod", "isim", "bilgi", "birim", "kdv", "kategori", "grup"):
+        value = new_values.get(field)
+        if value:
+            existing[field] = value
+
+    fiyat = new_values.get("fiyat")
+    if fiyat is not None:
+        existing["fiyat"] = fiyat
+
+
 def generate_products() -> List[Dict[str, Optional[str]]]:
-    if not CSV_PATH.exists():
-        raise FileNotFoundError(f"CSV kaynağı bulunamadı: {CSV_PATH}")
+    existing_sources = [path for path in CSV_PATHS if path.exists()]
+    if not existing_sources:
+        raise FileNotFoundError(
+            "CSV kaynağı bulunamadı: "
+            + ", ".join(str(path) for path in CSV_PATHS)
+        )
 
     products: List[Dict[str, Optional[str]]] = []
+    product_index: Dict[Tuple[str, ...], Dict[str, Optional[str]]] = {}
 
-    for row in _load_rows(CSV_PATH):
-        code = row.get("ÜRÜN KOD", "").strip()
-        name_raw = row.get("ÜRÜN İSİM", "")
-        info_raw = row.get("ÜRÜN BİLGİ", "")
-        unit_raw = row.get("BİRİM", "")
-        vat_raw = row.get("KDV", "")
-        price_raw = row.get("FİYAT.", "")
+    for csv_path in existing_sources:
+        for row in _load_rows(csv_path):
+            code = row.get("code", "").strip()
+            name_raw = row.get("name", "")
+            info_raw = row.get("info", "")
+            unit_raw = row.get("unit", "")
+            vat_raw = row.get("vat", "")
+            price_raw = row.get("price", "")
 
-        name = _normalise_multiline(name_raw) or code or "İsimsiz Ürün"
-        info = _normalise_multiline(info_raw)
+            name = _normalise_multiline(name_raw) or code or "İsimsiz Ürün"
+            info = _normalise_multiline(info_raw)
 
-        group = _assign_group(code, name)
-        subcategory = _assign_subcategory(name)
+            group = _assign_group(code, name)
+            subcategory = _assign_subcategory(name)
 
-        product = {
-            "kod": code or None,
-            "isim": name,
-            "bilgi": info,
-            "birim": _clean_value(unit_raw),
-            "kdv": _clean_value(vat_raw),
-            "fiyat": _clean_value(price_raw),
-            "kategori": subcategory,
-            "grup": group,
-            "resim": None,
-        }
-        products.append(product)
+            product = {
+                "kod": code or None,
+                "isim": name,
+                "bilgi": info,
+                "birim": _clean_value(unit_raw),
+                "kdv": _clean_value(vat_raw),
+                "fiyat": _clean_value(price_raw),
+                "kategori": subcategory,
+                "grup": group,
+                "resim": None,
+            }
+
+            key = _product_key(code, name, info)
+            existing = product_index.get(key)
+            if existing:
+                _merge_product(existing, product)
+            else:
+                product_index[key] = product
+
+    products = list(product_index.values())
 
     products.sort(key=lambda item: (item["grup"], item["kategori"], item["isim"]))
     return products

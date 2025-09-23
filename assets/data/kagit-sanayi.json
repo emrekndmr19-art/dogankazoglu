@@ -671,12 +671,23 @@
     "resim": null
   },
   {
+    "kod": "KRT.BRD-12 2000",
+    "isim": "KARTON BARDAK 12 OZ (100 ADET X 20 PAKET)",
+    "bilgi": "6,5 GR",
+    "birim": "KOLİ",
+    "kdv": "20%",
+    "fiyat": "?1.650,00",
+    "kategori": "Karton Bardaklar",
+    "grup": "Kağıt Sanayi Grubu",
+    "resim": null
+  },
+  {
     "kod": "KRT.BRD-4 3000",
     "isim": "KARTON BARDAK 4 OZ (50 ADET X 60 PAKET)",
     "bilgi": "2,5 GR",
     "birim": "KOLİ",
     "kdv": "20%",
-    "fiyat": null,
+    "fiyat": "?900,00",
     "kategori": "Karton Bardaklar",
     "grup": "Kağıt Sanayi Grubu",
     "resim": null
@@ -687,7 +698,7 @@
     "bilgi": "3,3 GR",
     "birim": "KOLİ",
     "kdv": "20%",
-    "fiyat": null,
+    "fiyat": "?950,00",
     "kategori": "Karton Bardaklar",
     "grup": "Kağıt Sanayi Grubu",
     "resim": null
@@ -704,12 +715,23 @@
     "resim": null
   },
   {
+    "kod": "KRT.BRD-7STD 3000",
+    "isim": "KARTON BARDAK 7 OZ STANDART (50 ADET X 60 PAKET)",
+    "bilgi": "3,6 GR",
+    "birim": "KOLİ",
+    "kdv": "20%",
+    "fiyat": "?1.000,00",
+    "kategori": "Karton Bardaklar",
+    "grup": "Kağıt Sanayi Grubu",
+    "resim": null
+  },
+  {
     "kod": "KRT.BRD-8 2000",
     "isim": "KARTON BARDAK 8 OZ (50 ADET X 40 PAKET)",
     "bilgi": "5,7 GR",
     "birim": "KOLİ",
     "kdv": "20%",
-    "fiyat": null,
+    "fiyat": "?1.500,00",
     "kategori": "Karton Bardaklar",
     "grup": "Kağıt Sanayi Grubu",
     "resim": null
@@ -2184,6 +2206,28 @@
     "birim": "KOLİ",
     "kdv": "20%",
     "fiyat": null,
+    "kategori": "Servis Aksesuarları",
+    "grup": "Kağıt Sanayi Grubu",
+    "resim": null
+  },
+  {
+    "kod": "KRS.THT-1000",
+    "isim": "TAHTA KARIŞTIRICI 1000'Lİ PAKET",
+    "bilgi": "1000 ADET",
+    "birim": "PAKET",
+    "kdv": "20%",
+    "fiyat": "?140,00",
+    "kategori": "Servis Aksesuarları",
+    "grup": "Kağıt Sanayi Grubu",
+    "resim": null
+  },
+  {
+    "kod": "KRS.THT-500",
+    "isim": "TAHTA KARIŞTIRICI 500' LÜ PAKET",
+    "bilgi": "500 ADET",
+    "birim": "PAKET",
+    "kdv": "20%",
+    "fiyat": "?80,00",
     "kategori": "Servis Aksesuarları",
     "grup": "Kağıt Sanayi Grubu",
     "resim": null
