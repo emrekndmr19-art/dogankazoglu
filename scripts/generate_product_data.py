@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
-"""Generate structured product JSON data from the dogankazoglu2.csv source."""
+"""Generate a unified product JSON file from the CSV catalog sources."""
 
 from __future__ import annotations
 
 import csv
 import json
-from collections import defaultdict
+from collections import Counter
 from pathlib import Path
 from typing import Dict, Iterable, List, Optional, Tuple
 
@@ -14,15 +14,7 @@ CSV_PATHS = [
     BASE_DIR / "dogankazoglu1.csv",
     BASE_DIR / "dogankazoglu2.csv",
 ]
-OUTPUT_ALL = BASE_DIR / "urunler2.json"
-CATEGORY_FILES: Dict[str, Path] = {
-    "Gıda Grubu": BASE_DIR / "assets" / "data" / "gida-grubu.json",
-    "Hijyen Sanayi Grubu": BASE_DIR / "assets" / "data" / "hijyen-sanayi.json",
-    "Kağıt Sanayi Grubu": BASE_DIR / "assets" / "data" / "kagit-sanayi.json",
-    "Kişisel Hijyen": BASE_DIR / "assets" / "data" / "kisisel-hijyen.json",
-    "Profesyonel Hijyen Ekipmanları": BASE_DIR / "assets" / "data" / "profesyonel-hijyen.json",
-    "Temizlik Ürünleri Grubu": BASE_DIR / "assets" / "data" / "temizlik-urunleri.json",
-}
+OUTPUT_ALL = BASE_DIR / "urunler.json"
 
 GIDA_KEYWORDS = {
     "ŞEKER",
@@ -322,16 +314,13 @@ def main() -> None:
     products = generate_products()
     _write_json(OUTPUT_ALL, products)
 
-    grouped: Dict[str, List[Dict[str, Optional[str]]]] = defaultdict(list)
+    summary_counter: Counter[str] = Counter()
     for product in products:
-        grouped[product["grup"]].append(product)
+        group = product.get("grup")
+        if group:
+            summary_counter[group] += 1
 
-    for group_name, output_path in CATEGORY_FILES.items():
-        entries = sorted(grouped.get(group_name, []), key=lambda item: (item["kategori"], item["isim"]))
-        _write_json(output_path, entries)
-
-    summary = {group: len(items) for group, items in grouped.items()}
-    print(json.dumps(summary, ensure_ascii=False, indent=2))
+    print(json.dumps(dict(summary_counter), ensure_ascii=False, indent=2))
 
 
 if __name__ == "__main__":
