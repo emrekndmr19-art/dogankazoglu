@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Master Hijyen, Temizlik ve Gıda Ürünleri</title>
+  <title>Kimyasal Grubu | Master Hijyen</title>
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"/>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
@@ -56,17 +56,19 @@
 <div class="relative group">
 <a class="nav-link flex items-center" href="#">Ürünlerimiz <span class="material-icons text-sm ml-1">expand_more</span></a>
 <div class="absolute hidden group-hover:block bg-white shadow-lg rounded-md mt-2 py-2 w-48 z-20">
-<a class="block px-4 py-2 text-sm text-black hover:bg-gray-100" href="hijyensanayigrubu.html">Hijyen Sanayi Grubu</a>
-<a class="block px-4 py-2 text-sm text-black hover:bg-gray-100" href="temizlikurunlerigrubu.html">Temizlik Ürünleri Grubu</a>
-<a class="block px-4 py-2 text-sm text-black hover:bg-gray-100" href="kagit.html">Kağıt Sanayi Grubu</a>
-<a class="block px-4 py-2 text-sm text-black hover:bg-gray-100" href="kisiselhijyen.html">Kişisel Hijyen</a>
-<a class="block px-4 py-2 text-sm text-black hover:bg-gray-100" href="gida.html">Gıda Grubu</a>
-<a class="block px-4 py-2 text-sm text-black hover:bg-gray-100" href="profhijyen.html">Profesyonel Hijyen Ekipmanları</a>
+<a class="block px-4 py-2 text-sm text-black hover:bg-gray-100" href="kagit-grubu.html">Kağıt Grubu</a>
+<a class="block px-4 py-2 text-sm text-black hover:bg-gray-100" href="plastik-grubu.html">Plastik Grubu</a>
+<a class="block px-4 py-2 text-sm text-black hover:bg-gray-100" href="kimyasal-grubu.html">Kimyasal Grubu</a>
+<a class="block px-4 py-2 text-sm text-black hover:bg-gray-100" href="ambalaj-grubu.html">Ambalaj Grubu</a>
+<a class="block px-4 py-2 text-sm text-black hover:bg-gray-100" href="gida-grubu.html">Gıda Grubu</a>
+<a class="block px-4 py-2 text-sm text-black hover:bg-gray-100" href="kirtasiye-grubu.html">Kırtasiye Grubu</a>
+<a class="block px-4 py-2 text-sm text-black hover:bg-gray-100" href="baskili-model-grubu.html">Baskılı Model Grubu</a>
 </div>
 </div>
 <a class="nav-link" href="#">Blog</a>
 <a class="nav-link" href="iletisim.html">İletişim</a>
 </nav>
+      </nav>
       <div class="flex items-center space-x-4">
         <a class="hidden md:inline-block px-4 py-2 rounded-md border border-white text-white" href="https://masterhijyen.com/">E-KATALOG</a>
         <a class="hidden md:inline-block px-4 py-2 rounded-md bg-white text-[#c50000] font-semibold" href="#">İLETİŞİME GEÇ</a>
@@ -77,36 +79,35 @@
 
 <!-- MAIN Content Area (Her sayfada burayı dolduracaksın) -->
 <main class="min-h-[400px] py-12">
-  <div class="container mx-auto px-4 space-y-12">
-    <div class="max-w-3xl mx-auto text-center space-y-4">
-      <span class="inline-flex items-center justify-center rounded-full bg-red-100 text-[#c50000] px-3 py-1 text-sm font-medium">Profesyonel temizlik destekleri</span>
-      <h1 class="text-3xl md:text-4xl font-bold text-gray-900">Temizlik Ürünleri Grubu</h1>
-      <p class="text-gray-600 text-sm md:text-base">
-        Zemin bakımı, yüzey temizliği ve dezenfeksiyon ihtiyaçlarını karşılayan endüstriyel temizlik ürünleri için veri altyapısı sunar.
-      </p>
-    </div>
-
+  <div class="container mx-auto px-4">
     <section
-      class="space-y-6"
+      class="space-y-12"
       data-category-root
-      data-category-json="assets/data/temizlik-urunleri.json"
-      data-empty-message="Temizlik ürünleri katalog güncellemesi hazırlanıyor."
+      data-category-json="urunler.json"
+      data-filter-group="Kimyasal Grubu"
+      data-empty-message="Kimyasal grubu ürünleri kısa süre içinde eklenecek."
+      data-error-message="Ürünler yüklenirken bir sorun oluştu. Lütfen daha sonra tekrar deneyin."
     >
-      <div class="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
-        <div class="space-y-2">
-          <h2 class="text-2xl font-semibold text-[#c50000]">Ürün Listesi</h2>
-          <p class="text-gray-600 text-sm md:text-base">
-            Temizlik kimyasalı ve yardımcı ürün kartları, görsel alanları korunarak otomatik listelenir.
-          </p>
-        </div>
-        <p class="text-sm text-gray-500 font-medium" data-product-count></p>
+      <div class="max-w-3xl mx-auto text-center space-y-4">
+        <h1 class="text-3xl md:text-4xl font-bold text-[#c50000]">Kimyasal Grubu</h1>
+        <p class="text-gray-600 text-base md:text-lg">
+          Endüstriyel temizlik kimyasalları, dezenfektanlar ve profesyonel bakım ürünleri ile hijyen standartlarınızı yükseltin.
+        </p>
+        <p class="text-sm text-gray-500" data-product-count>Ürünler yükleniyor…</p>
+        <p class="text-sm text-gray-500" data-empty-state hidden>
+          Kimyasal grubu ürünleri kısa süre içinde eklenecek.
+        </p>
       </div>
 
-      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3" data-category-grid></div>
-      <p class="text-sm text-gray-500" data-empty-state hidden></p>
+      <div
+        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+        data-category-grid
+      ></div>
     </section>
   </div>
 </main>
+
+<!-- Footer -->
 <footer class="bg-[#c50000] text-white py-12 mt-16">
   <div class="container mx-auto px-4">
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -119,33 +120,38 @@
           <h3 class="font-semibold mb-2">Kategorilerimiz</h3>
           <ul class="space-y-2">
   <li>
-    <a class="block px-4 py-2 text-sm text-white hover:bg-gray-300" href="hijyensanayigrubu.html">
-      Hijyen Sanayi Grubu
+    <a class="block px-4 py-2 text-sm text-white hover:bg-gray-300" href="kagit-grubu.html">
+      Kağıt Grubu
     </a>
   </li>
   <li>
-    <a class="block px-4 py-2 text-sm text-white hover:bg-gray-300" href="temizlikurunlerigrubu.html">
-      Temizlik Ürünleri Grubu
+    <a class="block px-4 py-2 text-sm text-white hover:bg-gray-300" href="plastik-grubu.html">
+      Plastik Grubu
     </a>
   </li>
   <li>
-    <a class="block px-4 py-2 text-sm text-white hover:bg-gray-300" href="kagit.html">
-      Kağıt Sanayi Grubu
+    <a class="block px-4 py-2 text-sm text-white hover:bg-gray-300" href="kimyasal-grubu.html">
+      Kimyasal Grubu
     </a>
   </li>
   <li>
-    <a class="block px-4 py-2 text-sm text-white hover:bg-gray-300" href="kisiselhijyen.html">
-      Kişisel Hijyen
+    <a class="block px-4 py-2 text-sm text-white hover:bg-gray-300" href="ambalaj-grubu.html">
+      Ambalaj Grubu
     </a>
   </li>
   <li>
-    <a class="block px-4 py-2 text-sm text-white hover:bg-gray-300" href="gida.html">
+    <a class="block px-4 py-2 text-sm text-white hover:bg-gray-300" href="gida-grubu.html">
       Gıda Grubu
     </a>
   </li>
   <li>
-    <a class="block px-4 py-2 text-sm text-white hover:bg-gray-300" href="profhijyen.html">
-      Profesyonel Hijyen Ekipmanları
+    <a class="block px-4 py-2 text-sm text-white hover:bg-gray-300" href="kirtasiye-grubu.html">
+      Kırtasiye Grubu
+    </a>
+  </li>
+  <li>
+    <a class="block px-4 py-2 text-sm text-white hover:bg-gray-300" href="baskili-model-grubu.html">
+      Baskılı Model Grubu
     </a>
   </li>
 </ul>
@@ -182,7 +188,7 @@
     <a href="#" class="material-icons">email</a>
   </div>
 </div>
-<script src="main.js"></script>
 <script src="assets/js/category.js"></script>
+<script src="main.js"></script>
 </body>
 </html>

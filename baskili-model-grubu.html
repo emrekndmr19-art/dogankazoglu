@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Master Hijyen, Temizlik ve Gıda Ürünleri</title>
+  <title>Baskılı Model Grubu | Master Hijyen</title>
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"/>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
@@ -68,8 +68,9 @@
 <a class="nav-link" href="#">Blog</a>
 <a class="nav-link" href="iletisim.html">İletişim</a>
 </nav>
+      </nav>
       <div class="flex items-center space-x-4">
-        <a class="hidden md:inline-block px-4 py-2 rounded-md border border-white text-white" href="#">E-KATALOG</a>
+        <a class="hidden md:inline-block px-4 py-2 rounded-md border border-white text-white" href="https://masterhijyen.com/">E-KATALOG</a>
         <a class="hidden md:inline-block px-4 py-2 rounded-md bg-white text-[#c50000] font-semibold" href="#">İLETİŞİME GEÇ</a>
       </div>
     </div>
@@ -79,34 +80,30 @@
 <!-- MAIN Content Area (Her sayfada burayı dolduracaksın) -->
 <main class="min-h-[400px] py-12">
   <div class="container mx-auto px-4">
-    <main class="min-h-[400px] py-12">
-  <div class="container mx-auto px-4">
-    <!-- 🔽 Buraya her sayfa için özel içerik gelecek -->
-
-    <!-- Vizyon & Misyon Bölümü -->
-    <section class="text-center md:text-left space-y-12">
-      <!-- Vizyonumuz -->
-      <div class="max-w-3xl mx-auto">
-        <h2 class="inline-block bg-gray-800 text-white px-6 py-2 text-lg font-semibold rounded-md mb-4">VİZYONUMUZ</h2>
-        <p class="text-gray-700 leading-relaxed text-base">
-          Müşteri ihtiyaçlarına uygun katma değeri yüksek endüstriyel marketing temizlik gıda ve hijyen ürünlerinde
-          ilk akla gelen firma yenilik, kalite ve hizmet açısından ihtiyaçlara çözüm üreterek bölgemizin lideri olmaktır.
+    <section
+      class="space-y-12"
+      data-category-root
+      data-category-json="urunler.json"
+      data-filter-group="Baskılı Model Grubu"
+      data-empty-message="Baskılı model grubu ürünleri kısa süre içinde eklenecek."
+      data-error-message="Ürünler yüklenirken bir sorun oluştu. Lütfen daha sonra tekrar deneyin."
+    >
+      <div class="max-w-3xl mx-auto text-center space-y-4">
+        <h1 class="text-3xl md:text-4xl font-bold text-[#c50000]">Baskılı Model Grubu</h1>
+        <p class="text-gray-600 text-base md:text-lg">
+          Markanıza özel baskılı servis ürünleri ve poşetlerle fark yaratan sunumlar hazırlayın.
+        </p>
+        <p class="text-sm text-gray-500" data-product-count>Ürünler yükleniyor…</p>
+        <p class="text-sm text-gray-500" data-empty-state hidden>
+          Baskılı model grubu ürünleri kısa süre içinde eklenecek.
         </p>
       </div>
 
-      <!-- Misyonumuz -->
-      <div class="max-w-3xl mx-auto">
-        <h2 class="inline-block bg-gray-800 text-white px-6 py-2 text-lg font-semibold rounded-md mb-4">MİSYONUMUZ</h2>
-        <p class="text-gray-700 leading-relaxed text-base">
-          Kaliteli endüstriyel marketing temizlik gıda ve hijyen ürünlerini en uygun fiyatlar ile müşterilerimize ulaştırmak.
-        </p>
-      </div>
+      <div
+        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+        data-category-grid
+      ></div>
     </section>
-
-  </div>
-</main>
-
-    <!-- 🔽 Buraya her sayfa için özel içerik gelecek -->
   </div>
 </main>
 
@@ -115,7 +112,7 @@
   <div class="container mx-auto px-4">
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
       <div>
-        <img src="https://cdn.egegorsel.com/ege-hijyen-logo-white.png"  class="h-12 mb-4">
+        <img src="https://cdn.egegorsel.com/ege-hijyen-logo-white.png" alt="Master Hijyen Logo" class="h-12 mb-4">
         <p class="text-sm">Kaliteli ve güvenilir temizlik malzemeleriyle hijyenik çözümler sunuyoruz</p>
       </div>
       <div class="grid grid-cols-2 gap-4 text-sm">
@@ -178,7 +175,7 @@
       </div>
     </div>
     <div class="border-t border-white border-opacity-30 mt-8 pt-4 text-center text-sm">
-      Copyright © 2025 Ege Hijyen | Tüm hakları saklıdır.
+      Copyright © 2025 Master Hijyen | Tüm hakları saklıdır.
     </div>
   </div>
 </footer>
@@ -191,6 +188,7 @@
     <a href="#" class="material-icons">email</a>
   </div>
 </div>
+<script src="assets/js/category.js"></script>
 <script src="main.js"></script>
 </body>
 </html>

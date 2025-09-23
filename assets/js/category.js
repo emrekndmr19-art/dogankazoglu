@@ -1,4 +1,6 @@
 (function () {
+  const collator = new Intl.Collator('tr-TR', { sensitivity: 'base' });
+
   const formatCount = (count) => {
     if (typeof count !== 'number') {
       return '';
@@ -84,6 +86,28 @@
     return card;
   };
 
+  const sortProducts = (items) => {
+    if (!Array.isArray(items)) {
+      return [];
+    }
+
+    return items
+      .slice()
+      .sort((a, b) => {
+        const categoryA = a && a.kategori ? a.kategori : '';
+        const categoryB = b && b.kategori ? b.kategori : '';
+
+        const categoryComparison = collator.compare(categoryA, categoryB);
+        if (categoryComparison !== 0) {
+          return categoryComparison;
+        }
+
+        const nameA = a && a.isim ? a.isim : '';
+        const nameB = b && b.isim ? b.isim : '';
+        return collator.compare(nameA, nameB);
+      });
+  };
+
   const renderProducts = (section, products) => {
     const grid = section.querySelector('[data-category-grid]');
     const countEl = section.querySelector('[data-product-count]');
@@ -108,8 +132,10 @@
       return;
     }
 
+    const sorted = sortProducts(products);
+
     const fragment = document.createDocumentFragment();
-    products.forEach((product) => {
+    sorted.forEach((product) => {
       fragment.appendChild(createCard(product));
     });
 
@@ -177,7 +203,25 @@
           return response.json();
         })
         .then((data) => {
-          renderProducts(section, data);
+          const products = Array.isArray(data) ? data : [];
+          const filterGroup = section.dataset.filterGroup;
+          const filterCategory = section.dataset.filterCategory;
+
+          let filtered = products;
+
+          if (filterGroup) {
+            filtered = filtered.filter(
+              (product) => product && product.grup === filterGroup
+            );
+          }
+
+          if (filterCategory) {
+            filtered = filtered.filter(
+              (product) => product && product.kategori === filterCategory
+            );
+          }
+
+          renderProducts(section, filtered);
         })
         .catch((error) => {
           console.error('Kategori verisi yüklenirken hata oluştu:', error);

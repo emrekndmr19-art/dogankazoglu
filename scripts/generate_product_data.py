@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
-"""Generate structured product JSON data from the dogankazoglu2.csv source."""
+"""Generate a unified product JSON file from the CSV catalog sources."""
 
 from __future__ import annotations
 
 import csv
 import json
-from collections import defaultdict
+from collections import Counter
 from pathlib import Path
 from typing import Dict, Iterable, List, Optional, Tuple
 
@@ -14,39 +14,131 @@ CSV_PATHS = [
     BASE_DIR / "dogankazoglu1.csv",
     BASE_DIR / "dogankazoglu2.csv",
 ]
-OUTPUT_ALL = BASE_DIR / "urunler2.json"
-CATEGORY_FILES: Dict[str, Path] = {
-    "Gıda Grubu": BASE_DIR / "assets" / "data" / "gida-grubu.json",
-    "Hijyen Sanayi Grubu": BASE_DIR / "assets" / "data" / "hijyen-sanayi.json",
-    "Kağıt Sanayi Grubu": BASE_DIR / "assets" / "data" / "kagit-sanayi.json",
-    "Kişisel Hijyen": BASE_DIR / "assets" / "data" / "kisisel-hijyen.json",
-    "Profesyonel Hijyen Ekipmanları": BASE_DIR / "assets" / "data" / "profesyonel-hijyen.json",
-    "Temizlik Ürünleri Grubu": BASE_DIR / "assets" / "data" / "temizlik-urunleri.json",
+OUTPUT_ALL = BASE_DIR / "urunler.json"
+
+TURKISH_TRANSLATION_TABLE = str.maketrans("ÇĞİÖŞÜ", "CGIOSU")
+
+FOOD_PREFIXES = {"BHR", "CAY", "KHV", "SKR"}
+FOOD_KEYWORDS = {
+    "KAHVE",
+    "NESCAFE",
+    "CAFE",
+    "ÇAY",
+    "CAY",
+    "LIPTON",
+    "DOGUS",
+    "DOĞUŞ",
+    "BAHARAT",
+    "KARABIBER",
+    "PULBIBER",
+    "TUZ",
+    "SEKER",
+    "ŞEKER",
 }
 
-GIDA_KEYWORDS = {
-    "ŞEKER",
-    "TUZ",
-    "BAHARAT",
-    "KAHVE",
-    "COFFE",
-    "COFFEE",
-    "NESCAF",
-    "NESCAFE",
-    "ÇAY",
-    "DOĞUŞ",
-    "DOGUS",
-    "LİPTON",
-    "LIPTON",
-    "MATE",
+CHEMICAL_PREFIXES = {"KMY"}
+CHEMICAL_KEYWORDS = {
+    "DETERJAN",
+    "TEMIZLEYICI",
+    "TEMİZLEYİCİ",
+    "SABUN",
+    "PARLATICI",
+    "SOKUCU",
+    "SÖKÜCÜ",
+    "YUMUSATICI",
+    "YUMUŞATICI",
+    "PARFUM",
+    "PARFÜM",
+    "KIREC",
+    "KIREÇ",
+    "PAS",
+    "CAM",
+    "KREM",
 }
-GIDA_CODE_PREFIXES = ("BHR", "ÇAY", "CAY", "KHV", "ŞKR", "SKR")
-KISISEL_KEYWORDS = {"ELDİVEN", "BONE", "GALOŞ", "KOLLUK", "MASK", "KOLONYA", "MENDİL", "LOSYON"}
-KISISEL_KMY_KEYWORDS = {"KOLONYA", "MENDİL"}
-PERSONAL_FROM_HJY = {"BONE", "KOLLUK", "GALOŞ"}
-HIJYEN_KEYWORDS = {"HAVLU", "TUVALET KAĞIDI", "PEÇETE"}
-TEMIZ_KEYWORDS = {"DETERJAN", "TEMİZLEYİCİ", "ÇÖZÜCÜ", "PARLATICI", "SABUN", "BLOK", "PARFÜMÜ", "YAĞ SÖKÜCÜ", "YUMUŞATICI"}
-PACKAGING_PREFIXES = {"KRT", "KĞT", "ALM", "PLS", "PŞT", "EKJ", "AHŞ", "SZD", "LST", "STR"}
+
+PAPER_KEYWORDS = {
+    "HAVLU",
+    "PECETE",
+    "PEÇETE",
+    "TUVALET",
+    "KAGIDI",
+    "KAGIT",
+    "KAĞIT",
+    "DISPENSER",
+    "ICHTEN",
+    "ICTEN",
+    "JUMBO",
+}
+
+PLASTIC_PREFIXES = {"PLS", "ELD", "HJY", "APR", "EKJ"}
+PLASTIC_KEYWORDS = {
+    "PLASTIK",
+    "PLASTİK",
+    "ELDIVEN",
+    "ELDİVEN",
+    "PIPET",
+    "PİPET",
+    "SOS",
+    "BARDAK",
+    "TABAK",
+    "KASE",
+    "BONE",
+    "GALOŞ",
+    "GALOS",
+    "KOLLUK",
+    "MOP",
+    "KOVA",
+    "CEKPAS",
+    "ÇEKPAS",
+    "SAP",
+    "FIRCA",
+    "FIRÇA",
+    "APARAT",
+}
+
+PACKAGING_PREFIXES = {"PST", "ALM", "KRT", "STR", "LST", "BNT", "SZD", "AHS", "KRS"}
+PACKAGING_KEYWORDS = {
+    "POSET",
+    "POŞET",
+    "ALUMINYUM",
+    "ALÜMİNYUM",
+    "STREC",
+    "STREÇ",
+    "KILIT",
+    "KİLİT",
+    "SIZDIRMAZ",
+    "SIZDIRMAZ",
+    "SIZDIRMAZ",
+    "KUTU",
+    "TEPSI",
+    "TEPSİ",
+    "KAPAK",
+    "KAP",
+    "KASA",
+    "LASTIK",
+    "LASTİK",
+    "RULO",
+}
+
+STATIONERY_PREFIXES = {"KGT"}
+STATIONERY_KEYWORDS = {
+    "FOTOKOPI",
+    "FOTOKOPİ",
+    "YAZARKASA",
+    "YAZAR KASA",
+    "FIS",
+    "FİŞ",
+    "Z RAPORU",
+}
+
+BASKILI_CODE_PATTERNS = ("-BLI", ".AMR", ".SFT")
+BASKILI_KEYWORDS = {"BASKILI"}
+
+
+def _simplify(value: Optional[str]) -> str:
+    if not value:
+        return ""
+    return value.upper().translate(TURKISH_TRANSLATION_TABLE)
 
 
 def _normalise_multiline(value: str) -> Optional[str]:
@@ -61,44 +153,71 @@ def _clean_value(value: str) -> Optional[str]:
     return value or None
 
 
-def _assign_group(code: str, name: str) -> str:
-    upper_code = code.upper()
-    upper_name = name.upper()
+def _contains_any(value: str, keywords: Iterable[str]) -> bool:
+    if not value:
+        return False
+    return any(keyword and keyword in value for keyword in keywords)
 
-    if upper_code.startswith(GIDA_CODE_PREFIXES) or any(
-        keyword in upper_name for keyword in GIDA_KEYWORDS
+
+def _assign_group(code: str, name: str, info: Optional[str] = None) -> str:
+    simplified_code = _simplify(code)
+    simplified_name = _simplify(name)
+    simplified_info = _simplify(info)
+
+    prefix = simplified_code.split(".")[0].split("-")[0]
+
+    if (
+        prefix in FOOD_PREFIXES
+        or _contains_any(simplified_name, FOOD_KEYWORDS)
+        or _contains_any(simplified_info, FOOD_KEYWORDS)
     ):
         return "Gıda Grubu"
 
-    if upper_code.startswith("ELD") or any(keyword in upper_name for keyword in KISISEL_KEYWORDS):
-        return "Kişisel Hijyen"
+    if prefix in CHEMICAL_PREFIXES or (
+        (prefix not in PLASTIC_PREFIXES)
+        and (prefix not in PACKAGING_PREFIXES)
+        and (prefix not in STATIONERY_PREFIXES)
+        and prefix != "MASTER"
+        and (
+            _contains_any(simplified_name, CHEMICAL_KEYWORDS)
+            or _contains_any(simplified_info, CHEMICAL_KEYWORDS)
+        )
+    ):
+        return "Kimyasal Grubu"
 
-    if upper_code.startswith("HJY") and any(keyword in upper_name for keyword in PERSONAL_FROM_HJY):
-        return "Kişisel Hijyen"
+    if (
+        any(pattern in simplified_code for pattern in BASKILI_CODE_PATTERNS)
+        or _contains_any(simplified_name, BASKILI_KEYWORDS)
+        or _contains_any(simplified_info, BASKILI_KEYWORDS)
+    ):
+        return "Baskılı Model Grubu"
 
-    if upper_code.startswith("KMY") and any(keyword in upper_name for keyword in KISISEL_KMY_KEYWORDS):
-        return "Kişisel Hijyen"
+    if prefix in STATIONERY_PREFIXES or _contains_any(simplified_name, STATIONERY_KEYWORDS):
+        if any(
+            keyword in simplified_name
+            for keyword in ("GAZETE", "KESE", "CANTA", "KRAFT", "PISIRME", "YAGLI")
+        ):
+            return "Ambalaj Grubu"
+        return "Kırtasiye Grubu"
 
-    if upper_code.startswith("KMY"):
-        return "Temizlik Ürünleri Grubu"
+    if prefix == "MASTER" or _contains_any(simplified_name, PAPER_KEYWORDS):
+        return "Kağıt Grubu"
 
-    if upper_code.startswith("HJY"):
-        return "Profesyonel Hijyen Ekipmanları"
+    if prefix in PLASTIC_PREFIXES or _contains_any(simplified_name, PLASTIC_KEYWORDS):
+        return "Plastik Grubu"
 
-    if upper_code.startswith("APR") or "APARAT" in upper_name or "TEMİZLİK ARABASI" in upper_name or "KONTEYNER" in upper_name:
-        return "Profesyonel Hijyen Ekipmanları"
+    if (
+        prefix in PACKAGING_PREFIXES
+        or _contains_any(simplified_name, PACKAGING_KEYWORDS)
+        or _contains_any(simplified_info, PACKAGING_KEYWORDS)
+    ):
+        return "Ambalaj Grubu"
 
-    if upper_code.startswith("MASTER") or any(keyword in upper_name for keyword in HIJYEN_KEYWORDS):
-        return "Hijyen Sanayi Grubu"
+    if simplified_name:
+        if "URUN" in simplified_name or "ÜRÜN" in simplified_name:
+            return "Ambalaj Grubu"
 
-    if any(keyword in upper_name for keyword in TEMIZ_KEYWORDS):
-        return "Temizlik Ürünleri Grubu"
-
-    prefix = upper_code.split(".")[0].split("-")[0]
-    if prefix in PACKAGING_PREFIXES or upper_code.startswith("BNT") or upper_code.startswith("STR"):
-        return "Kağıt Sanayi Grubu"
-
-    return "Kağıt Sanayi Grubu"
+    return "Ambalaj Grubu"
 
 
 def _assign_subcategory(name: str) -> str:
@@ -283,7 +402,7 @@ def generate_products() -> List[Dict[str, Optional[str]]]:
             name = _normalise_multiline(name_raw) or code or "İsimsiz Ürün"
             info = _normalise_multiline(info_raw)
 
-            group = _assign_group(code, name)
+            group = _assign_group(code, name, info)
             subcategory = _assign_subcategory(name)
 
             product = {
@@ -322,16 +441,13 @@ def main() -> None:
     products = generate_products()
     _write_json(OUTPUT_ALL, products)
 
-    grouped: Dict[str, List[Dict[str, Optional[str]]]] = defaultdict(list)
+    summary_counter: Counter[str] = Counter()
     for product in products:
-        grouped[product["grup"]].append(product)
+        group = product.get("grup")
+        if group:
+            summary_counter[group] += 1
 
-    for group_name, output_path in CATEGORY_FILES.items():
-        entries = sorted(grouped.get(group_name, []), key=lambda item: (item["kategori"], item["isim"]))
-        _write_json(output_path, entries)
-
-    summary = {group: len(items) for group, items in grouped.items()}
-    print(json.dumps(summary, ensure_ascii=False, indent=2))
+    print(json.dumps(dict(summary_counter), ensure_ascii=False, indent=2))
 
 
 if __name__ == "__main__":
