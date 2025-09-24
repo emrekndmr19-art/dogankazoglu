@@ -80,11 +80,30 @@
 <!-- MAIN Content Area (Her sayfada burayı dolduracaksın) -->
 <main class="min-h-[400px] py-12">
   <div class="container mx-auto px-4">
-    <section class="min-h-[200px] flex items-center justify-center text-center">
-      <div class="space-y-4">
+    <section class="space-y-10" data-product-page="Ambalaj Grubu">
+      <div class="max-w-3xl mx-auto text-center space-y-4">
         <h1 class="text-3xl md:text-4xl font-bold text-[#c50000]">Ambalaj Grubu</h1>
-        <p class="text-gray-600 text-base">Bu kategori için içerik yakında eklenecek.</p>
+        <p class="text-gray-600 text-base md:text-lg">
+          Poşet, folyo, kutu ve streç film çözümleriyle üretim ve servis süreçlerinizdeki
+          paketleme ihtiyaçlarınıza pratik alternatifler sunuyoruz.
+        </p>
       </div>
+
+      <div
+        class="hidden text-center text-sm md:text-base text-gray-700 font-medium bg-gray-50 border border-gray-200 rounded-full py-3 px-6 w-fit mx-auto"
+        data-product-summary
+      ></div>
+
+      <nav
+        class="hidden flex flex-wrap justify-center gap-3"
+        aria-label="Ambalaj Grubu alt kategori gezintisi"
+        data-product-nav
+      ></nav>
+
+      <div class="text-center text-gray-500" data-product-loading>Ürünler yükleniyor...</div>
+      <div class="hidden text-center text-gray-500" data-product-empty>Bu kategoriye ait ürün bulunamadı.</div>
+
+      <div class="space-y-16" data-product-sections></div>
     </section>
   </div>
 </main>
